@@ -96,7 +96,7 @@ This architecture diagram represents how a **farmer interacts with the CrispRoot
 
 | Module | Functionality |
 |--------|---------------|
-| **Crop Management** | PCSE/WOFOST simulation, BBCH tracking, irrigation/fertilizer advice |
+| **Crop Simulation** | PCSE/WOFOST simulation, BBCH tracking, irrigation/fertilizer advice |
 | **Plant Disease Detection** | Image classification using MobileNetV2 |
 | **Livestock Monitoring** | Symptom-based (Random Forest) and image-based (CNN) disease detection |
 | **Market Intelligence** | 12-month demand forecasting, pricing strategy using Neural Perceptron |
