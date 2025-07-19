@@ -28,7 +28,8 @@ const Footer: React.FC = () => {
 
   const quickLinks = [
     { name: 'AI Garden Advisor', href: '/aigardenadvisor' },
-    { name: 'Crop Simulation', href: '/cropsimulation' },
+    { name: '3D Crop Simulation', href: '/cropsimulation' },
+    { name: 'Smart Crop Management', href: '/crop-management' },
     { name: 'Cattle Management', href: '/cattlefarmmanagement' },
     { name: 'Green Guardian', href: '/greenguardian/dashboard' },
     { name: 'Disease Detection', href: '/plantdiseaseprediction' },

@@ -31,13 +31,23 @@ const modules = [
   },
   {
     id: 'cropsimulation',
-    name: 'Advanced Crop Simulation',
-    hindiName: 'उन्नत फसल सिमुलेशन',
-    description: 'Comprehensive crop growth simulation with Indian weather data, soil conditions, and regional farming practices.',
+    name: 'Advanced 3D Crop Simulation',
+    hindiName: 'उन्नत 3D फसल सिमुलेशन',
+    description: 'Revolutionary 3D crop growth simulation with real farm parameters, biosphere integration, and advanced farming techniques.',
     icon: BarChart3,
     color: 'from-blue-500 to-cyan-600',
-    features: ['Weather Integration', 'Yield Prediction', 'Risk Analysis', 'BBCH Stages'],
+    features: ['3D Visualization', 'Biosphere Systems', 'Mixed Cropping', 'Rice-Fish Integration'],
     new: true
+  },
+  {
+    id: 'crop-management',
+    name: 'Smart Crop Management',
+    hindiName: 'स्मार्ट फसल प्रबंधन',
+    description: 'Comprehensive crop management with smart fertilizer recommendations, pest control, and ROI optimization.',
+    icon: Wheat,
+    color: 'from-purple-500 to-pink-600',
+    features: ['Smart Fertilizers', 'Pest Management', 'ROI Analysis', 'Biosphere Integration'],
+    popular: true
   },
   {
     id: 'cattlefarmmanagement',

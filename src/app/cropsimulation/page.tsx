@@ -1,8 +1,8 @@
 "use client";
 
 import React from 'react';
-import EnhancedCropSimulation from '../../components/ui/EnhancedCropSimulation';
+import Advanced3DCropSimulation from '../../components/ui/Advanced3DCropSimulation';
 
 export default function CropSimulationPage() {
-  return <EnhancedCropSimulation />;
+  return <Advanced3DCropSimulation />;
 }
