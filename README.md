@@ -47,6 +47,122 @@ It reimagines agriculture through four core domains: market analysis, crop simul
 - **Call-based AI Bot**: Phone support for farmers with feature phones
 - **WhatsApp Integration**: Bot support for broader accessibility
 
+
+
+# 🧩 CrispRoot Interaction Architecture
+
+![CrispRoot Architecture](https://your-repo-link/path/to/Architecture.png)
+
+> _“Farmer-Centric Smart Agriculture Architecture: CrispRoot Platform”_
+
+This architecture diagram represents how a **farmer interacts with the CrispRoot platform**, flowing through a multi-layered intelligent system that bridges user actions with data-driven insights and automation. The platform serves as a **digital twin of a farm**, offering real-time decision-making, monitoring, and AI-powered advisory across agriculture domains.
+
+---
+
+## 🔹 1. Farmer Interaction Layer
+
+**Label:** `Farmer (User)`  
+- Access via smartphone, tablet, or computer  
+- Interaction Types:
+  - Voice command  
+  - Image upload (leaf/livestock)  
+  - Manual input (text/forms)  
+  - Multilingual UI (10+ Indian languages)  
+  - Offline support via call-based AI bot  
+
+---
+
+## 🔹 2. Presentation Layer
+
+- **Mobile App** – Built with React Native  
+- **Web Portal** – Built with React.js  
+- **PWA Features**:
+  - Offline sync
+  - Push notifications
+  - Responsive layouts for all devices
+
+---
+
+## 🔹 3. API Gateway Layer
+
+- Unified API Gateway handling:
+  - OAuth 2.0 & Multi-Factor Authentication  
+  - Biometric login  
+  - Secure routing & rate limiting  
+
+---
+
+## 🔹 4. Core Microservices (Business Logic)
+
+| Module | Functionality |
+|--------|---------------|
+| **Crop Management** | PCSE/WOFOST simulation, BBCH tracking, irrigation/fertilizer advice |
+| **Plant Disease Detection** | Image classification using MobileNetV2 |
+| **Livestock Monitoring** | Symptom-based (Random Forest) and image-based (CNN) disease detection |
+| **Market Intelligence** | 12-month demand forecasting, pricing strategy using Neural Perceptron |
+| **Govt. Scheme Navigator** | Scheme/job matching via open data APIs |
+| **Community Platform** | Peer-to-peer help, expert Q&A |
+| **Resource Manager** | Track labor, equipment, expenses |
+
+---
+
+## 🔹 5. Data Processing & AI Layer
+
+- **Streaming:** Apache Kafka  
+- **Batch Processing:** Apache Spark  
+- **MLOps Capabilities**:
+  - Automated model retraining  
+  - A/B testing  
+  - Version control  
+  - Performance monitoring  
+
+**AI Models in Use**:
+- MobileNetV2 (Plant & Livestock Disease)  
+- Neural Perceptron (Market Demand Forecast)  
+- PCSE/WOFOST (Crop Simulation)  
+- Random Forest (Livestock Symptom Analysis)
+
+---
+
+## 🔹 6. Data Layer – Polyglot Storage
+
+- **Firebase Firestore** – Real-time farm data  
+- **PostgreSQL** – Structured crop & user data  
+- **MongoDB** – Unstructured logs & media  
+- **Redis** – Fast caching for performance  
+- **Cloud Storage (AWS S3)** – Leaf/livestock images
+
+---
+
+## 🔹 7. External APIs & Data Feeds
+
+- **Weather** – OpenWeatherMap API  
+- **Soil** – ISRIC SoilGrids API  
+- **Market** – Agmarknet API  
+- **Govt. Schemes** – India Open Government API
+
+---
+
+## 🔹 8. Feedback Loop (Learning Cycle)
+
+
+This loop ensures **adaptive intelligence** where the system improves over time using real-world feedback and seasonal variation.
+
+---
+
+## 🖼️ Visual Styling Notes
+
+- Color-coded layers: UI (🟩), Services (🟦), AI (🟪), Data (🟧), External APIs (⚪)
+- Intuitive directional arrows show flow from user to data to insight
+- High-resolution 4K design suitable for printing, posters, and documentation
+
+---
+
+📌 **Filename**: `Architecture.png`  
+📁 **Location**: `/assets/images/Architecture.png` (or update your path accordingly)
+
+---
+
 ## 🛠️ Tech Stack
 
 ### Frontend
