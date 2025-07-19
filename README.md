@@ -51,7 +51,7 @@ It reimagines agriculture through four core domains: market analysis, crop simul
 
 # 🧩 CrispRoot Interaction Architecture
 
-![CrispRoot Architecture](https://your-repo-link/path/to/Architecture.png)
+![CrispRoot Architecture](docs/Architecture.png)
 
 > _“Farmer-Centric Smart Agriculture Architecture: CrispRoot Platform”_
 
@@ -148,18 +148,6 @@ This architecture diagram represents how a **farmer interacts with the CrispRoot
 
 This loop ensures **adaptive intelligence** where the system improves over time using real-world feedback and seasonal variation.
 
----
-
-## 🖼️ Visual Styling Notes
-
-- Color-coded layers: UI (🟩), Services (🟦), AI (🟪), Data (🟧), External APIs (⚪)
-- Intuitive directional arrows show flow from user to data to insight
-- High-resolution 4K design suitable for printing, posters, and documentation
-
----
-
-📌 **Filename**: `Architecture.png`  
-📁 **Location**: `/assets/images/Architecture.png` (or update your path accordingly)
 
 ---
 
