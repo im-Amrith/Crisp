@@ -1,0 +1,99 @@
+{
+  "model_overview": {
+    "title": "CrispRoot ML Metrics Summary",
+    "description": "Performance summary for ML models used in the CrispRoot Agricultural Support Platform. This includes models for market analysis, crop simulation, plant disease detection, and livestock health prediction."
+  },
+  "models": [
+    {
+      "name": "Market Demand Forecasting Model",
+      "type": "Time-Series Forecasting",
+      "algorithm": "Neural Perceptron",
+      "domain": "Market Demand Analysis",
+      "input_features": ["Location", "Crop Type", "Market"],
+      "prediction_target": "Commodity demand and price trends",
+      "forecast_horizon": "12 months",
+      "metrics": {
+        "mean_absolute_error": 8.7,
+        "root_mean_squared_error": 12.3,
+        "r_squared": 0.86
+      }
+    },
+    {
+      "name": "Crop Simulation Model",
+      "type": "Simulation",
+      "algorithm": "PCSE (based on WOFOST)",
+      "domain": "Crop Growth Monitoring",
+      "input_features": [
+        "Temperature",
+        "Irrigation",
+        "Fertilizer",
+        "Wind Speed",
+        "Humidity",
+        "Soil pH",
+        "Soil Nitrogen"
+      ],
+      "output_targets": [
+        "Yield Estimation",
+        "Biomass Accumulation",
+        "Leaf Area Index",
+        "Root Depth",
+        "BBCH Stage"
+      ],
+      "metrics": {
+        "daily_growth_accuracy": "High (simulation-based)",
+        "validated_against": "BBCH documentation and expert feedback"
+      }
+    },
+    {
+      "name": "Plant Disease Detection Model",
+      "type": "Image Classification",
+      "algorithm": "MobileNetV2",
+      "domain": "Plant Health",
+      "input_features": ["Image of plant leaf"],
+      "output_targets": ["Disease type", "Confidence score"],
+      "metrics": {
+        "accuracy": 0.90,
+        "f1_score": 0.89,
+        "coverage": "80 diseases"
+      },
+      "datasets": [
+        "Plant Village Dataset (Kaggle)",
+        "20K Crop Disease Dataset (Kaggle)"
+      ]
+    },
+    {
+      "name": "Livestock Symptom-Based Disease Prediction",
+      "type": "Multiclass Classification",
+      "algorithm": "Random Forest",
+      "domain": "Livestock Health",
+      "input_features": [
+        "Animal type",
+        "Age",
+        "Body temperature",
+        "Primary symptom",
+        "Secondary symptom",
+        "Tertiary symptom"
+      ],
+      "output_targets": ["Predicted livestock disease"],
+      "metrics": {
+        "accuracy": 0.80,
+        "disease_coverage": 5
+      },
+      "dataset": "Researcher1548 Dataset (Kaggle)"
+    },
+    {
+      "name": "Livestock Image-Based Disease Detection",
+      "type": "Image Classification",
+      "algorithm": "MobileNetV2",
+      "domain": "Livestock Health",
+      "input_features": ["Image of livestock"],
+      "output_targets": ["Disease classification"],
+      "metrics": {
+        "accuracy": 0.70,
+        "disease_coverage": 7
+      },
+      "dataset": "SLIIT-KUEMD Dataset (Roboflow)"
+    }
+  ]
+}
+
