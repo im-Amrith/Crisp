@@ -3,7 +3,7 @@ import { exec } from 'child_process';
 import path from 'path';
 import fs from 'fs/promises';
 
-export async function POST(request: NextRequest) {
+export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
     const formData = await request.formData();
     const imageFile = formData.get('image') as File;
@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
     // and all Python dependencies are installed.
     const command = `python ${pythonScriptPath} ${tempImagePath}`;
 
-    return new Promise((resolve) => {
+    return new Promise<NextResponse>((resolve) => {
       exec(command, async (error, stdout, stderr) => {
         // Clean up the temporary image file
         await fs.unlink(tempImagePath);
