@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Home, Sprout, BarChart3, Heart, Shield, TrendingUp, Stethoscope, FlaskConical, Wheat } from 'lucide-react';
+import { Menu, X, Home, Sprout, BarChart3, Heart, Shield, TrendingUp, Stethoscope, FlaskConical, Wheat, Briefcase, BookOpen, LandPlot } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const pathname = usePathname();
@@ -28,6 +28,10 @@ const Navbar: React.FC = () => {
     { name: 'Demand', href: '/demandanalysis', icon: TrendingUp },
     { name: 'Disease Check', href: '/plantdiseaseprediction', icon: Stethoscope },
     { name: 'CRISP', href: '/crisp', icon: FlaskConical },
+    { name: 'Community Blogs', href: '/community-blogs', icon: BarChart3 },
+    { name: 'Krishi Connect', href: '/krishi', icon: Briefcase },
+    { name: 'Farmer Education', href: '/farmer-education', icon: BookOpen },
+    { name: 'Govt. Plans', href: '/government-plans', icon: LandPlot },
   ];
 
   return (
@@ -66,7 +70,7 @@ const Navbar: React.FC = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-1">
+            <div className="hidden lg:flex items-center space-x-0">
               {navItems.map((item) => {
                 const Icon = item.icon;
                 const isActive = pathname === item.href;
@@ -74,7 +78,7 @@ const Navbar: React.FC = () => {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`group relative px-4 py-2 rounded-xl transition-all duration-300 flex items-center space-x-2 ${
+                    className={`group relative px-2 py-2 rounded-xl transition-all duration-300 flex items-center space-x-1 ${
                       isActive
                         ? scrolled
                           ? 'bg-green-100 text-green-700'
@@ -85,7 +89,7 @@ const Navbar: React.FC = () => {
                     }`}
                   >
                     <Icon className="w-4 h-4" />
-                    <span className="text-sm font-medium">{item.name}</span>
+                    <span className="text-xs font-medium">{item.name}</span>
                     {isActive && (
                       <div className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full ${
                         scrolled ? 'bg-green-500' : 'bg-white'

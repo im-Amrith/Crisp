@@ -15,7 +15,11 @@ import {
   Activity,
   Heart,
   Wheat,
-  Globe
+  Globe,
+  Briefcase,
+  BookOpen,
+  LandPlot,
+  MessageSquareText
 } from 'lucide-react';
 
 const modules = [
@@ -87,6 +91,42 @@ const modules = [
     icon: Stethoscope,
     color: 'from-teal-500 to-cyan-600',
     features: ['Image Analysis', 'Disease ID', 'Treatment Plans', 'Organic Solutions']
+  },
+  {
+    id: 'community-blogs',
+    name: 'Community Blogs',
+    hindiName: 'सामुदायिक ब्लॉग',
+    description: 'Connect with other farmers, share your experiences, and learn from the community through insightful blog posts.',
+    icon: MessageSquareText,
+    color: 'from-green-400 to-lime-500',
+    features: ['Share Insights', 'Read Experiences', 'Community Learning']
+  },
+  {
+    id: 'krishi',
+    name: 'Krishi Connect',
+    hindiName: 'कृषि कनेक्ट',
+    description: 'Find and apply for farming jobs, or view applications from potential farm workers. Bridging the gap between farmers and labor.',
+    icon: Briefcase,
+    color: 'from-indigo-500 to-blue-600',
+    features: ['Job Applications', 'View Applicants', 'Farm Labor Matching']
+  },
+  {
+    id: 'farmer-education',
+    name: 'Farmer Education Hub',
+    hindiName: 'किसान शिक्षा केंद्र',
+    description: 'Access a curated collection of educational resources, including YouTube videos, on best agricultural practices and innovative techniques.',
+    icon: BookOpen,
+    color: 'from-orange-500 to-red-600',
+    features: ['Video Tutorials', 'Best Practices', 'Innovative Techniques']
+  },
+  {
+    id: 'government-plans',
+    name: 'Government Schemes',
+    hindiName: 'सरकारी योजनाएं',
+    description: 'Stay updated on real-time government plans and schemes for farmers, including subsidies, loans, and support programs.',
+    icon: LandPlot,
+    color: 'from-cyan-500 to-teal-600',
+    features: ['Scheme Details', 'Application Info', 'Support Programs']
   }
 ];
 
