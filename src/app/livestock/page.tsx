@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function LivestockDiseasePage() {
   const [backendStatus, setBackendStatus] = useState<'checking' | 'running' | 'not-running'>('checking');
-  const [backendUrl, setBackendUrl] = useState('http://localhost:5000');
+  const [backendUrl, setBackendUrl] = useState('http://localhost:5002');
 
   useEffect(() => {
     // Check if Flask backend is running

@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Home, Sprout, BarChart3, Heart, Shield, TrendingUp, Stethoscope, FlaskConical, Wheat, Briefcase, BookOpen, LandPlot } from 'lucide-react';
+import { Menu, X, Home, Sprout, BarChart3, Heart, Shield, TrendingUp, Stethoscope, FlaskConical, Wheat, Briefcase, BookOpen, LandPlot, Globe } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const pathname = usePathname();
@@ -21,13 +21,16 @@ const Navbar: React.FC = () => {
   const navItems = [
     { name: 'Home', href: '/', icon: Home },
     { name: 'AI Garden', href: '/aigardenadvisor', icon: Sprout },
-    { name: '3D Crop Sim', href: '/cropsimulation', icon: BarChart3 },
+    { name: '3D Crop Sim', href: '/cropsimulation-v', icon: BarChart3 },
+    { name: 'Biosphere Sim', href: '/cropsimulation', icon: Globe },
+    { name: 'Livestock Disease Pred', href: '/livestock', icon: Stethoscope },
     { name: 'Crop Mgmt', href: '/crop-management', icon: Wheat },
     { name: 'Cattle Farm', href: '/cattlefarmmanagement', icon: Heart },
     { name: 'Guardian', href: '/greenguardian/dashboard', icon: Shield },
     { name: 'Demand', href: '/demandanalysis', icon: TrendingUp },
     { name: 'Disease Check', href: '/plantdiseaseprediction', icon: Stethoscope },
     { name: 'CRISP', href: '/crisp', icon: FlaskConical },
+    { name: 'AI Form Filling', href: '/ai-form-filling', icon: FlaskConical },
     { name: 'Community Blogs', href: '/community-blogs', icon: BarChart3 },
     { name: 'Krishi Connect', href: '/krishi', icon: Briefcase },
     { name: 'Farmer Education', href: '/farmer-education', icon: BookOpen },
