@@ -21,7 +21,9 @@ const Navbar: React.FC = () => {
   const navItems = [
     { name: 'Home', href: '/', icon: Home },
     { name: 'AI Garden', href: '/aigardenadvisor', icon: Sprout },
-    { name: '3D Crop Sim', href: '/cropsimulation', icon: BarChart3 },
+    { name: '3D Crop Sim', href: '/cropsimulation-v', icon: BarChart3 },
+    { name: 'Biosphere Sim', href: '/cropsimulation', icon: Globe },
+    { name: 'Livestock Disease Pred', href: '/livestock', icon: Stethoscope },
     { name: 'Crop Mgmt', href: '/crop-management', icon: Wheat },
     { name: 'Cattle Farm', href: '/cattlefarmmanagement', icon: Heart },
     { name: 'Guardian', href: '/greenguardian/dashboard', icon: Shield },
