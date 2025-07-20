@@ -76,7 +76,7 @@ It reimagines agriculture through four core domains: market analysis, crop simul
 
 This architecture diagram represents how a **farmer interacts with the CrispRoot platform**, flowing through a multi-layered intelligent system that bridges user actions with data-driven insights and automation. The platform serves as a **digital twin of a farm**, offering real-time decision-making, monitoring, and AI-powered advisory across agriculture domains.
 
----
+
 
 ## 🔹 1. Farmer Interaction Layer
 
@@ -89,7 +89,7 @@ This architecture diagram represents how a **farmer interacts with the CrispRoot
   - Multilingual UI (10+ Indian languages)  
   - Offline support via call-based AI bot  
 
----
+
 
 ## 🔹 2. Presentation Layer
 
@@ -100,7 +100,7 @@ This architecture diagram represents how a **farmer interacts with the CrispRoot
   - Push notifications
   - Responsive layouts for all devices
 
----
+
 
 ## 🔹 3. API Gateway Layer
 
@@ -109,7 +109,7 @@ This architecture diagram represents how a **farmer interacts with the CrispRoot
   - Biometric login  
   - Secure routing & rate limiting  
 
----
+
 
 ## 🔹 4. Core Microservices (Business Logic)
 
@@ -123,7 +123,6 @@ This architecture diagram represents how a **farmer interacts with the CrispRoot
 | **Community Platform** | Peer-to-peer help, expert Q&A |
 | **Resource Manager** | Track labor, equipment, expenses |
 
----
 
 ## 🔹 5. Data Processing & AI Layer
 
@@ -141,7 +140,7 @@ This architecture diagram represents how a **farmer interacts with the CrispRoot
 - PCSE/WOFOST (Crop Simulation)  
 - Random Forest (Livestock Symptom Analysis)
 
----
+
 
 ## 🔹 6. Data Layer – Polyglot Storage
 
@@ -151,7 +150,6 @@ This architecture diagram represents how a **farmer interacts with the CrispRoot
 - **Redis** – Fast caching for performance  
 - **Cloud Storage (AWS S3)** – Leaf/livestock images
 
----
 
 ## 🔹 7. External APIs & Data Feeds
 
@@ -160,7 +158,7 @@ This architecture diagram represents how a **farmer interacts with the CrispRoot
 - **Market** – Agmarknet API  
 - **Govt. Schemes** – India Open Government API
 
----
+
 
 ## 🔹 8. Feedback Loop (Learning Cycle)
 
