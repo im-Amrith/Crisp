@@ -53,14 +53,11 @@ It reimagines agriculture through four core domains: market analysis, crop simul
 - **Smart Estimations**: Provides estimated yield, growth duration, and profitability metrics for each crop option.  
 - **Dynamic Adjustment**: Learns from outcomes and feedback to refine future recommendations.
 
----
 
 ### 🌿 Biosphere & Integrated Farming Modeling
 - **Multi-layer Farming Simulation**: Supports co-cultivation systems like fish-rice farming.  
 - **Resource Optimization**: Enhances productivity and land usage through biodiversity-driven planning.  
 - **Sustainability Focused**: Promotes climate-resilient and regenerative agricultural practices.
-
----
 
 ### 🧬 CRISP Gene Compatibility Scoring
 - **Hybridization Predictor**: Evaluates the feasibility of cross-breeding two plant varieties.  
