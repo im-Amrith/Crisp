@@ -72,5 +72,5 @@ def predict():
 # Accuracy is 83 percent with logistic Regression
 
 if __name__=='__main__':
-    app.run()
+    app.run(port=5002)
 
