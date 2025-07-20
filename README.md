@@ -9,43 +9,164 @@ It reimagines agriculture through four core domains: market analysis, crop simul
 ## ✨ Key Features
 
 ### 🧠 AI Garden Advisor
-- **Personalized Recommendations**: Tailored crop suggestions using Google Gemini AI
-- **Multi-language Support**: Translations available in 10+ Indian languages
+- **Personalized Recommendations**: Tailored crop suggestions using Google Gemini AI.
+- **Multi-language Support**: Translations available in 10+ Indian languages.
 - **Smart Input Processing**: Considers location, soil type, budget, and experience level.
 
 ### 📊 Market Demand Analysis
-- **Predictive Analytics**: Neural Perceptron model for 12-month demand forecasting
-- **Market Intelligence**: Seasonality analysis and optimal selling period recommendations
-- **Pricing Strategy**: Net market price calculations including transportation costs
+- **Predictive Analytics**: Neural Perceptron model for 12-month demand forecasting.
+- **Market Intelligence**: Seasonality analysis and optimal selling period recommendations.
+- **Pricing Strategy**: Net market price calculations including transportation costs.
 - **Data Source**: Variety-wise Daily Market Prices from Open Government Data Platform.
 
 ### 🌱 Crop Simulation & Growth Monitoring
-- **PCSE Framework**: Python Crop Simulation Environment based on WOFOST principles
-- **Real-time Monitoring**: Daily plant growth simulation with live updates
-- **Growth Metrics**: Yield predictions, biomass accumulation, Leaf Area Index (LAI)
+- **PCSE Framework**: Python Crop Simulation Environment based on WOFOST principles.
+- **Real-time Monitoring**: Daily plant growth simulation with live updates.
+- **Growth Metrics**: Yield predictions, biomass accumulation, Leaf Area Index (LAI).
 - **BBCH Integration**: Growth stage identification based on research standards.
 
 ### 🔍 Plant Disease Detection
-- **High Accuracy**: 90% accuracy using MobileNetV2 architecture
-- **Comprehensive Coverage**: Detects 80 different plant diseases
-- **Dataset**: Trained on Plant Village and 20K Crop Disease datasets
+- **High Accuracy**: 90% accuracy using MobileNetV2 architecture.
+- **Comprehensive Coverage**: Detects 80 different plant diseases.
+- **Dataset**: Trained on Plant Village and 20K Crop Disease datasets.
 - **Instant Results**: Real-time disease identification with confidence scores.
 
 ### 🐄 Livestock Disease Prediction
 **Dual-Model Approach**:
-- **Symptom-Based**: 80% accuracy using Random Forest algorithm for 5 major diseases
-- **Appearance-Based**: 70% accuracy using MobileNetV2 for 7 cattle conditions
+- **Symptom-Based**: 80% accuracy using Random Forest algorithm for 5 major diseases.
+- **Appearance-Based**: 70% accuracy using MobileNetV2 for 7 cattle conditions.
 - **Disease Coverage**: Pneumonia, Lumpy Skin Virus, Blackleg, Foot and Mouth Disease, Anthrax.
 
 ### 🌍 Green Guardian
-- **Environmental Monitoring**: Real-time weather alerts and emergency response
-- **Interactive Features**: Chat interface, live dashboard, map views
+- **Environmental Monitoring**: Real-time weather alerts and emergency response.
+- **Interactive Features**: Chat interface, live dashboard, map views.
 - **Satellite Integration**: Satellite imagery analysis for comprehensive monitoring.
 
 ### 🎤 Multilingual AI Assistant
-- **Voice & Text Support**: Available in 10+ Indian languages
-- **Call-based AI Bot**: Phone support for farmers with feature phones
-- **WhatsApp Integration**: Bot support for broader accessibility
+- **Voice & Text Support**: Available in 10+ Indian languages.
+- **Call-based AI Bot**: Phone support for farmers with feature phones.
+- **WhatsApp Integration**: Bot support for broader accessibility.
+
+### 🌾 Crop Management Advisor
+- **Contextual Crop Planning**: Recommends suitable crops based on prior crop history, pest issues (e.g., rat attacks), maintenance levels, and land conditions.  
+- **Goal-Based Suggestions**: Adapts to the farmer’s goals—like high yield, low maintenance, or short-duration harvests.  
+- **Smart Estimations**: Provides estimated yield, growth duration, and profitability metrics for each crop option.  
+- **Dynamic Adjustment**: Learns from outcomes and feedback to refine future recommendations.
+
+
+### 🌿 Biosphere & Integrated Farming Modeling
+- **Multi-layer Farming Simulation**: Supports co-cultivation systems like fish-rice farming.  
+- **Resource Optimization**: Enhances productivity and land usage through biodiversity-driven planning.  
+- **Sustainability Focused**: Promotes climate-resilient and regenerative agricultural practices.
+
+### 🧬 CRISP Gene Compatibility Scoring
+- **Hybridization Predictor**: Evaluates the feasibility of cross-breeding two plant varieties.  
+- **Data-Driven Scoring**: Uses genomic and phenotypic data to assign a compatibility score.  
+- **Breeder Guidance**: Helps select optimal genetic combinations for higher yield, disease resistance, and adaptability.
+
+---
+
+
+
+# 🧩 CrispRoot Interaction Architecture
+
+![CrispRoot Architecture](docs/Architecture.png)
+
+> _“Farmer-Centric Smart Agriculture Architecture: CrispRoot Platform”_
+
+This architecture diagram represents how a **farmer interacts with the CrispRoot platform**, flowing through a multi-layered intelligent system that bridges user actions with data-driven insights and automation. The platform serves as a **digital twin of a farm**, offering real-time decision-making, monitoring, and AI-powered advisory across agriculture domains.
+
+
+
+## 🔹 1. Farmer Interaction Layer
+
+**Label:** `Farmer (User)`  
+- Access via smartphone, tablet, or computer  
+- Interaction Types:
+  - Voice command  
+  - Image upload (leaf/livestock)  
+  - Manual input (text/forms)  
+  - Multilingual UI (10+ Indian languages)  
+  - Offline support via call-based AI bot  
+
+
+
+## 🔹 2. Presentation Layer
+
+- **Mobile App** – Built with React Native  
+- **Web Portal** – Built with React.js  
+- **PWA Features**:
+  - Offline sync
+  - Push notifications
+  - Responsive layouts for all devices
+
+
+
+## 🔹 3. API Gateway Layer
+
+- Unified API Gateway handling:
+  - OAuth 2.0 & Multi-Factor Authentication  
+  - Biometric login  
+  - Secure routing & rate limiting  
+
+
+
+## 🔹 4. Core Microservices (Business Logic)
+
+| Module | Functionality |
+|--------|---------------|
+| **Crop Simulation** | PCSE/WOFOST simulation, BBCH tracking, irrigation/fertilizer advice |
+| **Plant Disease Detection** | Image classification using MobileNetV2 |
+| **Livestock Monitoring** | Symptom-based (Random Forest) and image-based (CNN) disease detection |
+| **Market Intelligence** | 12-month demand forecasting, pricing strategy using Neural Perceptron |
+| **Govt. Scheme Navigator** | Scheme/job matching via open data APIs |
+| **Community Platform** | Peer-to-peer help, expert Q&A |
+| **Resource Manager** | Track labor, equipment, expenses |
+
+
+## 🔹 5. Data Processing & AI Layer
+
+- **Streaming:** Apache Kafka  
+- **Batch Processing:** Apache Spark  
+- **MLOps Capabilities**:
+  - Automated model retraining  
+  - A/B testing  
+  - Version control  
+  - Performance monitoring  
+
+**AI Models in Use**:
+- MobileNetV2 (Plant & Livestock Disease)  
+- Neural Perceptron (Market Demand Forecast)  
+- PCSE/WOFOST (Crop Simulation)  
+- Random Forest (Livestock Symptom Analysis)
+
+
+
+## 🔹 6. Data Layer – Polyglot Storage
+
+- **Firebase Firestore** – Real-time farm data  
+- **PostgreSQL** – Structured crop & user data  
+- **MongoDB** – Unstructured logs & media  
+- **Redis** – Fast caching for performance  
+- **Cloud Storage (AWS S3)** – Leaf/livestock images
+
+
+## 🔹 7. External APIs & Data Feeds
+
+- **Weather** – OpenWeatherMap API  
+- **Soil** – ISRIC SoilGrids API  
+- **Market** – Agmarknet API  
+- **Govt. Schemes** – India Open Government API
+
+
+
+## 🔹 8. Feedback Loop (Learning Cycle)
+
+
+This loop ensures **adaptive intelligence** where the system improves over time using real-world feedback and seasonal variation.
+
+
+---
 
 ## 🛠️ Tech Stack
 
