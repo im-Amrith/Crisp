@@ -56,7 +56,7 @@ const TestChat: React.FC = () => {
           </div>
         ))}
         
-        {isLoading && <div className="text-gray-500">Loading...</div>}
+        {isLoading && <div className="text-gray-900">Loading...</div>}
       </div>
       
       <form onSubmit={handleSubmit} className="flex">

@@ -48,13 +48,13 @@ const PhotoUpload: React.FC<PhotoUploadProps> = ({ currentDay, currentStage }) =
 
   return (
     <div className="bg-white rounded-xl shadow-lg p-6">
-      <h2 className="text-xl font-bold text-gray-800 mb-6">Photo Documentation</h2>
+      <h2 className="text-xl font-bold text-gray-900 mb-6">Photo Documentation</h2>
       
       {/* Upload Section */}
       <div className="mb-6">
         <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-green-400 transition-colors">
-          <Camera className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-          <p className="text-gray-600 mb-4">Document your crop's progress</p>
+          <Camera className="w-12 h-12 text-gray-900 mx-auto mb-4" />
+          <p className="text-gray-900 mb-4">Document your crop's progress</p>
           
           <input
             ref={fileInputRef}
@@ -88,8 +88,8 @@ const PhotoUpload: React.FC<PhotoUploadProps> = ({ currentDay, currentStage }) =
       {/* Photo Gallery */}
       <div className="space-y-4">
         {photos.length === 0 ? (
-          <div className="text-center py-8 text-gray-500">
-            <Camera className="w-12 h-12 mx-auto mb-2 text-gray-400" />
+          <div className="text-center py-8 text-gray-900">
+            <Camera className="w-12 h-12 mx-auto mb-2 text-gray-900" />
             <p>No photos uploaded yet</p>
             <p className="text-sm">Start documenting your crop's growth!</p>
           </div>
@@ -106,8 +106,8 @@ const PhotoUpload: React.FC<PhotoUploadProps> = ({ currentDay, currentStage }) =
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center space-x-2">
-                      <Calendar className="w-4 h-4 text-gray-500" />
-                      <span className="text-sm text-gray-600">{photo.date}</span>
+                      <Calendar className="w-4 h-4 text-gray-900" />
+                      <span className="text-sm text-gray-900">{photo.date}</span>
                       <span className="px-2 py-1 bg-green-100 text-green-800 rounded text-xs font-medium">
                         {photo.stage}
                       </span>
@@ -119,7 +119,7 @@ const PhotoUpload: React.FC<PhotoUploadProps> = ({ currentDay, currentStage }) =
                       <X className="w-4 h-4" />
                     </button>
                   </div>
-                  <p className="text-sm text-gray-700">{photo.notes}</p>
+                  <p className="text-sm text-gray-900">{photo.notes}</p>
                 </div>
               </div>
             </div>
@@ -133,11 +133,11 @@ const PhotoUpload: React.FC<PhotoUploadProps> = ({ currentDay, currentStage }) =
           <div className="grid grid-cols-2 gap-4 text-center">
             <div>
               <div className="text-lg font-bold text-green-600">{photos.length}</div>
-              <div className="text-xs text-gray-600">Photos Taken</div>
+              <div className="text-xs text-gray-900">Photos Taken</div>
             </div>
             <div>
               <div className="text-lg font-bold text-blue-600">Day {currentDay}</div>
-              <div className="text-xs text-gray-600">Current Day</div>
+              <div className="text-xs text-gray-900">Current Day</div>
             </div>
           </div>
         </div>

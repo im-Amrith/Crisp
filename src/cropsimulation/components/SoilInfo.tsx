@@ -51,8 +51,8 @@ const SoilInfo: React.FC<SoilInfoProps> = ({ location, onSoilDataChange, isVisib
               <MapPin className="w-5 h-5 text-green-600" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-gray-800">Soil Analysis</h3>
-              <p className="text-sm text-gray-600">Location: {location}</p>
+              <h3 className="text-lg font-bold text-gray-900">Soil Analysis</h3>
+              <p className="text-sm text-gray-900">Location: {location}</p>
             </div>
           </div>
           <button
@@ -71,8 +71,8 @@ const SoilInfo: React.FC<SoilInfoProps> = ({ location, onSoilDataChange, isVisib
         {loading && (
           <div className="flex flex-col items-center justify-center py-12">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mb-4"></div>
-            <p className="text-gray-600 font-medium">Analyzing soil data...</p>
-            <p className="text-sm text-gray-500 mt-1">This may take a few seconds</p>
+            <p className="text-gray-900 font-medium">Analyzing soil data...</p>
+            <p className="text-sm text-gray-900 mt-1">This may take a few seconds</p>
           </div>
         )}
 
@@ -98,19 +98,19 @@ const SoilInfo: React.FC<SoilInfoProps> = ({ location, onSoilDataChange, isVisib
             <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg border border-blue-100">
               <div className="flex items-center space-x-3 mb-3">
                 <Leaf className="w-5 h-5 text-blue-600" />
-                <h4 className="text-lg font-semibold text-gray-800">Soil Classification</h4>
+                <h4 className="text-lg font-semibold text-gray-900">Soil Classification</h4>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <p className="text-2xl font-bold text-gray-800 mb-1">{soilData.soilType}</p>
-                  <p className="text-sm text-gray-600 leading-relaxed">
+                  <p className="text-2xl font-bold text-gray-900 mb-1">{soilData.soilType}</p>
+                  <p className="text-sm text-gray-900 leading-relaxed">
                     {soilService.getSoilTypeDescription(soilData.soilType)}
                   </p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-gray-700 mb-2">Texture</p>
-                  <p className="text-lg font-semibold text-gray-800 mb-1">{soilData.soilTexture}</p>
-                  <p className="text-sm text-gray-600 leading-relaxed">
+                  <p className="text-sm font-medium text-gray-900 mb-2">Texture</p>
+                  <p className="text-lg font-semibold text-gray-900 mb-1">{soilData.soilTexture}</p>
+                  <p className="text-sm text-gray-900 leading-relaxed">
                     {soilService.getSoilTextureDescription(soilData.soilTexture)}
                   </p>
                 </div>
@@ -119,7 +119,7 @@ const SoilInfo: React.FC<SoilInfoProps> = ({ location, onSoilDataChange, isVisib
 
             {/* Key Parameters */}
             <div>
-              <h4 className="text-lg font-semibold text-gray-800 mb-4 flex items-center space-x-2">
+              <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center space-x-2">
                 <Zap className="w-5 h-5 text-yellow-600" />
                 <span>Key Soil Parameters</span>
               </h4>
@@ -129,9 +129,9 @@ const SoilInfo: React.FC<SoilInfoProps> = ({ location, onSoilDataChange, isVisib
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center space-x-2">
                       <Thermometer className="w-4 h-4 text-blue-500" />
-                      <span className="text-sm font-medium text-gray-700">pH Level</span>
+                      <span className="text-sm font-medium text-gray-900">pH Level</span>
                     </div>
-                    <span className="text-xl font-bold text-gray-800">
+                    <span className="text-xl font-bold text-gray-900">
                       {soilData.soilPh.toFixed(1)}
                     </span>
                   </div>
@@ -143,12 +143,12 @@ const SoilInfo: React.FC<SoilInfoProps> = ({ location, onSoilDataChange, isVisib
                       ></div>
                     </div>
                   </div>
-                  <div className="flex justify-between text-xs text-gray-500">
+                  <div className="flex justify-between text-xs text-gray-900">
                     <span>Acidic</span>
                     <span>Neutral</span>
                     <span>Alkaline</span>
                   </div>
-                  <p className="text-xs font-medium text-gray-600 mt-2">
+                  <p className="text-xs font-medium text-gray-900 mt-2">
                     {soilData.soilPh < 6.5 ? 'Acidic soil - may need lime application' : 
                      soilData.soilPh > 7.5 ? 'Alkaline soil - good for most crops' : 
                      'Neutral pH - optimal for most plants'}
@@ -160,9 +160,9 @@ const SoilInfo: React.FC<SoilInfoProps> = ({ location, onSoilDataChange, isVisib
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center space-x-2">
                       <Leaf className="w-4 h-4 text-green-500" />
-                      <span className="text-sm font-medium text-gray-700">Nitrogen</span>
+                      <span className="text-sm font-medium text-gray-900">Nitrogen</span>
                     </div>
-                    <span className="text-xl font-bold text-gray-800">
+                    <span className="text-xl font-bold text-gray-900">
                       {soilData.soilNitrogen} mg/kg
                     </span>
                   </div>
@@ -174,12 +174,12 @@ const SoilInfo: React.FC<SoilInfoProps> = ({ location, onSoilDataChange, isVisib
                       ></div>
                     </div>
                   </div>
-                  <div className="flex justify-between text-xs text-gray-500">
+                  <div className="flex justify-between text-xs text-gray-900">
                     <span>Low</span>
                     <span>Moderate</span>
                     <span>High</span>
                   </div>
-                  <p className="text-xs font-medium text-gray-600 mt-2">
+                  <p className="text-xs font-medium text-gray-900 mt-2">
                     {soilData.soilNitrogen < 30 ? 'Low nitrogen - consider fertilization' : 
                      soilData.soilNitrogen > 70 ? 'High nitrogen - good for leafy growth' : 
                      'Moderate nitrogen - suitable for most crops'}
@@ -191,9 +191,9 @@ const SoilInfo: React.FC<SoilInfoProps> = ({ location, onSoilDataChange, isVisib
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center space-x-2">
                       <Droplets className="w-4 h-4 text-yellow-500" />
-                      <span className="text-sm font-medium text-gray-700">Organic Matter</span>
+                      <span className="text-sm font-medium text-gray-900">Organic Matter</span>
                     </div>
-                    <span className="text-xl font-bold text-gray-800">
+                    <span className="text-xl font-bold text-gray-900">
                       {soilData.soilOrganicMatter.toFixed(1)}%
                     </span>
                   </div>
@@ -205,12 +205,12 @@ const SoilInfo: React.FC<SoilInfoProps> = ({ location, onSoilDataChange, isVisib
                       ></div>
                     </div>
                   </div>
-                  <div className="flex justify-between text-xs text-gray-500">
+                  <div className="flex justify-between text-xs text-gray-900">
                     <span>Low</span>
                     <span>Moderate</span>
                     <span>High</span>
                   </div>
-                  <p className="text-xs font-medium text-gray-600 mt-2">
+                  <p className="text-xs font-medium text-gray-900 mt-2">
                     {soilData.soilOrganicMatter < 1.5 ? 'Low organic matter - consider compost' : 
                      soilData.soilOrganicMatter > 2.5 ? 'High organic matter - excellent soil health' : 
                      'Moderate organic matter - good soil structure'}
@@ -222,9 +222,9 @@ const SoilInfo: React.FC<SoilInfoProps> = ({ location, onSoilDataChange, isVisib
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center space-x-2">
                       <Droplets className="w-4 h-4 text-blue-500" />
-                      <span className="text-sm font-medium text-gray-700">Drainage</span>
+                      <span className="text-sm font-medium text-gray-900">Drainage</span>
                     </div>
-                    <span className="text-sm font-semibold text-gray-800 text-right">
+                    <span className="text-sm font-semibold text-gray-900 text-right">
                       {soilData.drainageClass}
                     </span>
                   </div>
@@ -235,14 +235,14 @@ const SoilInfo: React.FC<SoilInfoProps> = ({ location, onSoilDataChange, isVisib
                         soilData.drainageClass.includes('Moderately') ? 'bg-yellow-500' :
                         'bg-red-500'
                       }`}></div>
-                      <span className="text-xs text-gray-600">
+                      <span className="text-xs text-gray-900">
                         {soilData.drainageClass.includes('Well') ? 'Good drainage' :
                          soilData.drainageClass.includes('Moderately') ? 'Moderate drainage' :
                          'Poor drainage - may need improvement'}
                       </span>
                     </div>
                   </div>
-                  <p className="text-xs font-medium text-gray-600 mt-2">
+                  <p className="text-xs font-medium text-gray-900 mt-2">
                     {soilData.drainageClass.includes('Well') ? 'Ideal for most crops' :
                      soilData.drainageClass.includes('Moderately') ? 'Suitable with proper management' :
                      'May require drainage improvement for optimal growth'}
@@ -253,11 +253,11 @@ const SoilInfo: React.FC<SoilInfoProps> = ({ location, onSoilDataChange, isVisib
 
             {/* Recommendations */}
             <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-4 rounded-lg border border-green-100">
-              <h4 className="text-lg font-semibold text-gray-800 mb-3 flex items-center space-x-2">
+              <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center space-x-2">
                 <Info className="w-5 h-5 text-green-600" />
                 <span>Growing Recommendations</span>
               </h4>
-              <div className="space-y-2 text-sm text-gray-700">
+              <div className="space-y-2 text-sm text-gray-900">
                 {soilData.soilPh < 6.5 && (
                   <p>• Consider adding lime to raise pH for better nutrient availability</p>
                 )}
@@ -278,7 +278,7 @@ const SoilInfo: React.FC<SoilInfoProps> = ({ location, onSoilDataChange, isVisib
 
             {lastUpdated && (
               <div className="text-center pt-4 border-t border-gray-100">
-                <p className="text-xs text-gray-500">
+                <p className="text-xs text-gray-900">
                   Last updated: {lastUpdated.toLocaleString()}
                 </p>
               </div>

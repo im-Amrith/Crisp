@@ -143,8 +143,8 @@ const CropSimulationOverview: React.FC = () => {
                       <Icon className="w-8 h-8 text-green-600" />
                     </div>
                   </div>
-                  <div className="text-3xl font-bold text-gray-800 mb-2">{stat.value}</div>
-                  <div className="text-gray-600">{stat.label}</div>
+                  <div className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</div>
+                  <div className="text-gray-900">{stat.label}</div>
                 </div>
               );
             })}
@@ -156,10 +156,10 @@ const CropSimulationOverview: React.FC = () => {
       <div className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Revolutionary Farming Features
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-900 max-w-3xl mx-auto">
               Experience cutting-edge agricultural technology designed specifically for Indian farmers
             </p>
           </div>
@@ -172,8 +172,8 @@ const CropSimulationOverview: React.FC = () => {
                   <div className={`w-12 h-12 ${feature.color} rounded-lg flex items-center justify-center mb-4`}>
                     <Icon className="w-6 h-6" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2">{feature.title}</h3>
-                  <p className="text-gray-600">{feature.description}</p>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
+                  <p className="text-gray-900">{feature.description}</p>
                 </div>
               );
             })}
@@ -185,10 +185,10 @@ const CropSimulationOverview: React.FC = () => {
       <div className="py-20 bg-gradient-to-r from-green-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Biosphere Integration Systems
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-900 max-w-3xl mx-auto">
               Innovative farming techniques that combine multiple agricultural systems for maximum efficiency and sustainability
             </p>
           </div>
@@ -199,17 +199,17 @@ const CropSimulationOverview: React.FC = () => {
                 <div className="flex items-center mb-4">
                   <div className="text-4xl mr-4">{system.image}</div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-800">{system.name}</h3>
+                    <h3 className="text-xl font-semibold text-gray-900">{system.name}</h3>
                     <div className="text-lg font-bold text-green-600">{system.roi} ROI Increase</div>
                   </div>
                 </div>
                 
-                <p className="text-gray-600 mb-4">{system.description}</p>
+                <p className="text-gray-900 mb-4">{system.description}</p>
                 
                 <div className="space-y-2">
-                  <div className="font-medium text-gray-700">Key Benefits:</div>
+                  <div className="font-medium text-gray-900">Key Benefits:</div>
                   {system.benefits.map((benefit, i) => (
-                    <div key={i} className="flex items-center text-sm text-gray-600">
+                    <div key={i} className="flex items-center text-sm text-gray-900">
                       <CheckCircle className="w-4 h-4 mr-2 text-green-500" />
                       {benefit}
                     </div>
@@ -225,10 +225,10 @@ const CropSimulationOverview: React.FC = () => {
       <div className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
               How It Works
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-900 max-w-3xl mx-auto">
               Simple steps to revolutionize your farming with 3D simulation and smart recommendations
             </p>
           </div>
@@ -238,8 +238,8 @@ const CropSimulationOverview: React.FC = () => {
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-blue-600">1</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Setup Your Farm</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Setup Your Farm</h3>
+              <p className="text-gray-900">
                 Enter your farm parameters including crop type, soil conditions, and environmental factors
               </p>
             </div>
@@ -248,8 +248,8 @@ const CropSimulationOverview: React.FC = () => {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-green-600">2</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Choose Integration</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Choose Integration</h3>
+              <p className="text-gray-900">
                 Select from various biosphere systems like rice-fish integration or agroforestry
               </p>
             </div>
@@ -258,8 +258,8 @@ const CropSimulationOverview: React.FC = () => {
               <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-purple-600">3</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Optimize & Harvest</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Optimize & Harvest</h3>
+              <p className="text-gray-900">
                 Get AI-powered recommendations and watch your ROI increase with optimized farming practices
               </p>
             </div>

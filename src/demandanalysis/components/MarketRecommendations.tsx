@@ -272,33 +272,33 @@ Note: AI service temporarily unavailable. These are general recommendations base
 
   if (isLoadingDistances) {
     return (
-      <div className="bg-white rounded-xl shadow-lg p-6 flex items-center justify-center">
-        <Loader2 className="animate-spin mr-2" size={20} />
-        <span className="text-gray-900 font-medium">Calculating exact distances to markets...</span>
+      <div className="bg-white rounded-xl shadow-lg p-6 flex items-center justify-center border-2 border-blue-200">
+        <Loader2 className="animate-spin mr-2 text-blue-700" size={20} />
+        <span className="text-gray-900 font-bold">Calculating exact distances to markets...</span>
       </div>
     );
   }
 
   if (markets.length === 0) {
     return (
-      <div className="bg-white rounded-xl shadow-lg p-6">
-        <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-          <Star className="mr-2 text-yellow-600" size={20} />
+      <div className="bg-white rounded-xl shadow-lg p-6 border-2 border-gray-200">
+        <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
+          <Star className="mr-2 text-yellow-700" size={20} />
           Market Recommendations
         </h3>
-        <p className="text-gray-600">No market data available for this crop.</p>
+        <p className="text-gray-900 font-bold">No market data available for this crop.</p>
       </div>
     );
   }
 
   return (
-    <div className="bg-white rounded-xl shadow-lg p-6">
+    <div className="bg-white rounded-xl shadow-lg p-6 border-2 border-gray-200">
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-semibold text-gray-800 flex items-center">
-          <Star className="mr-2 text-yellow-600" size={20} />
+        <h3 className="text-lg font-bold text-gray-900 flex items-center">
+          <Star className="mr-2 text-yellow-700" size={20} />
           Best Markets for {variety}
         </h3>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-gray-900 font-bold">
           Showing top {Math.min(enhancedMarkets.length, 5)} recommendations
         </p>
       </div>
@@ -309,73 +309,73 @@ Note: AI service temporarily unavailable. These are general recommendations base
             key={`${market.state}-${market.district}-${market.market}`}
             className={`p-4 rounded-lg border-2 ${
               index === 0 
-                ? 'border-green-500 bg-green-50' 
-                : 'border-gray-200 bg-gray-50'
+                ? 'border-green-700 bg-green-50 shadow-sm' 
+                : 'border-gray-400 bg-gray-50'
             }`}
           >
             <div className="flex items-start justify-between mb-3">
               <div className="flex items-center">
-                {index === 0 && <Star className="text-yellow-500 mr-2" size={20} fill="currentColor" />}
+                {index === 0 && <Star className="text-yellow-600 mr-2" size={20} fill="currentColor" />}
                 <div>
-                  <h4 className="font-semibold text-gray-800">{market.market}</h4>
-                  <p className="text-sm text-gray-600 flex items-center">
-                    <MapPin className="mr-1" size={14} />
+                  <h4 className="font-bold text-gray-900">{market.market}</h4>
+                  <p className="text-sm text-gray-900 font-bold flex items-center">
+                    <MapPin className="mr-1 text-gray-900" size={14} />
                     {market.district}, {market.state}
                   </p>
                 </div>
               </div>
               <div className="text-right">
-                <p className="text-lg font-bold text-green-600">
-                  High: ₹{market.highPrice || 0} <span className="text-sm font-medium text-gray-600">({market.highPriceMonth || 'N/A'})</span>
+                <p className="text-lg font-black text-green-700">
+                  High: ₹{market.highPrice || 0} <span className="text-sm font-bold text-gray-900">({market.highPriceMonth || 'N/A'})</span>
                 </p>
-                <p className="text-lg font-bold text-red-600">
-                  Low: ₹{market.lowPrice || 0} <span className="text-sm font-medium text-gray-600">({market.lowPriceMonth || 'N/A'})</span>
+                <p className="text-lg font-black text-red-700">
+                  Low: ₹{market.lowPrice || 0} <span className="text-sm font-bold text-gray-900">({market.lowPriceMonth || 'N/A'})</span>
                 </p>
               </div>
             </div>
 
             <div className="grid grid-cols-3 gap-4 text-sm">
               <div className="flex items-center">
-                <Truck className="mr-2 text-blue-600" size={16} />
+                <Truck className="mr-2 text-blue-700" size={16} />
                 <div>
-                  <p className="text-gray-700 font-medium">Distance</p>
-                  <p className="font-bold text-gray-900">
+                  <p className="text-gray-900 font-bold">Distance</p>
+                  <p className="font-black text-gray-900">
                     {market.distance !== null ? `${Math.round(market.distance)} km` : 'N/A'}
                   </p>
                 </div>
               </div>
               <div className="flex items-center">
-                <IndianRupee className="mr-2 text-orange-600" size={16} />
+                <IndianRupee className="mr-2 text-orange-700" size={16} />
                 <div>
-                  <p className="text-gray-700 font-medium">Transport Cost</p>
-                  <p className="font-bold text-gray-900">₹{market.transportCost}</p>
+                  <p className="text-gray-900 font-bold">Transport Cost</p>
+                  <p className="font-black text-gray-900">₹{market.transportCost}</p>
                 </div>
               </div>
               <div className="flex items-center">
-                <TrendingUp className="mr-2 text-purple-600" size={16} />
+                <TrendingUp className="mr-2 text-purple-700" size={16} />
                 <div>
-                  <p className="text-gray-700 font-medium">Market Activity</p>
-                  <p className="font-bold text-gray-900">{market.arrivals.toFixed(1)}T</p>
+                  <p className="text-gray-900 font-bold">Market Activity</p>
+                  <p className="font-black text-gray-900">{market.arrivals.toFixed(1)}T</p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-3 pt-3 border-t border-gray-200">
+            <div className="mt-3 pt-3 border-t-2 border-gray-200">
               <div className="flex justify-between items-center">
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-900 font-bold">
                   Net Price (based on high): 
-                  <span className="font-semibold text-green-600 ml-1">
+                  <span className="font-black text-green-700 ml-1">
                     ₹{(market.highPrice || 0) - market.transportCost}
                   </span>
                 </p>
                 <div className="flex items-center">
-                  <span className="text-sm text-gray-600 mr-2">Score:</span>
+                  <span className="text-sm text-gray-900 font-bold mr-2">Score:</span>
                   <div className="flex">
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
                         size={16}
-                        className={i < market.score ? 'text-yellow-400 fill-current' : 'text-gray-300'}
+                        className={i < market.score ? 'text-yellow-500 fill-current' : 'text-gray-400'}
                       />
                     ))}
                   </div>
@@ -384,17 +384,17 @@ Note: AI service temporarily unavailable. These are general recommendations base
             </div>
 
             {index === 0 && (
-              <div className="mt-3 p-2 bg-green-100 rounded text-sm text-green-800">
-                <strong>Recommended:</strong> Best combination of price, distance, and market activity
+              <div className="mt-3 p-2 bg-green-100 rounded text-sm text-green-900 border border-green-200">
+                <strong className="font-black">Recommended:</strong> Best combination of price, distance, and market activity
               </div>
             )}
           </div>
         ))}
       </div>
 
-      <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-        <h4 className="font-semibold text-blue-800 mb-2">💡 Pro Tips</h4>
-        <ul className="text-blue-700 text-sm space-y-1">
+      <div className="mt-6 p-4 bg-blue-50 rounded-lg border-2 border-blue-200">
+        <h4 className="font-black text-blue-900 mb-2">💡 Pro Tips</h4>
+        <ul className="text-blue-900 text-sm font-bold space-y-1">
           <li>• Contact markets before traveling to confirm current prices</li>
           <li>• Consider grouping with other farmers to reduce transport costs</li>
           <li>• Check market timings and weekly schedules</li>
@@ -402,17 +402,17 @@ Note: AI service temporarily unavailable. These are general recommendations base
         </ul>
       </div>
 
-      <div className="mt-8 p-4 bg-yellow-50 rounded-lg">
-        <h4 className="font-semibold text-yellow-800 mb-2 flex items-center">
-          <Lightbulb className="mr-2" size={16} />
+      <div className="mt-8 p-4 bg-yellow-50 rounded-lg border-2 border-yellow-200">
+        <h4 className="font-black text-yellow-900 mb-2 flex items-center">
+          <Lightbulb className="mr-2 text-yellow-700" size={16} />
           Gemini AI Market Suggestion
         </h4>
         {loadingSuggestion ? (
-          <p className="text-yellow-700">Loading suggestion...</p>
+          <p className="text-yellow-900 font-bold">Loading suggestion...</p>
         ) : suggestionError ? (
-          <p className="text-red-600">{suggestionError}</p>
+          <p className="text-red-700 font-black">{suggestionError}</p>
         ) : (
-          <p className="text-yellow-700 whitespace-pre-wrap">{geminiSuggestion}</p>
+          <p className="text-yellow-900 font-bold whitespace-pre-wrap">{geminiSuggestion}</p>
         )}
       </div>
     </div>

@@ -75,7 +75,7 @@ const StatsSection: React.FC = () => {
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Empowering <span className="text-green-600">Indian Agriculture</span> with AI
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-900 max-w-3xl mx-auto">
             Our platform has transformed farming across India, helping farmers increase yields, 
             reduce costs, and make data-driven decisions for sustainable agriculture.
           </p>
@@ -103,10 +103,10 @@ const StatsSection: React.FC = () => {
                   <div className="text-3xl font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-300">
                     {stat.value}
                   </div>
-                  <div className="text-lg font-semibold text-gray-700">
+                  <div className="text-lg font-semibold text-gray-900">
                     {stat.label}
                   </div>
-                  <div className="text-sm text-gray-500 leading-relaxed">
+                  <div className="text-sm text-gray-900 leading-relaxed">
                     {stat.description}
                   </div>
                   <div className="text-xs text-green-600 font-medium pt-1 border-t border-gray-100">
@@ -125,21 +125,21 @@ const StatsSection: React.FC = () => {
               <h3 className="text-2xl font-bold text-gray-900 mb-2">
                 Real Impact on Indian Farming
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-900">
                 Trusted by farmers from Punjab to Tamil Nadu, our AI solutions are making farming smarter and more profitable.
               </p>
             </div>
             
             <div className="text-center">
               <div className="text-4xl font-bold text-green-600 mb-2">24/7</div>
-              <div className="text-gray-700 font-medium">Support Available</div>
-              <div className="text-sm text-gray-500">Hindi & Regional Languages</div>
+              <div className="text-gray-900 font-medium">Support Available</div>
+              <div className="text-sm text-gray-900">Hindi & Regional Languages</div>
             </div>
             
             <div className="text-center">
               <div className="text-4xl font-bold text-blue-600 mb-2">FREE</div>
-              <div className="text-gray-700 font-medium">For Small Farmers</div>
-              <div className="text-sm text-gray-500">Government Partnership</div>
+              <div className="text-gray-900 font-medium">For Small Farmers</div>
+              <div className="text-sm text-gray-900">Government Partnership</div>
             </div>
           </div>
         </div>

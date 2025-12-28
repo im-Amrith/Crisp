@@ -14,12 +14,12 @@ export const SeasonalAnalysis: React.FC<SeasonalAnalysisProps> = ({
 }) => {
   if (patterns.length === 0) {
     return (
-      <div className="bg-white rounded-xl shadow-lg p-6">
-        <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-          <Calendar className="mr-2 text-orange-600" size={20} />
+      <div className="bg-white rounded-xl shadow-lg p-6 border-2 border-gray-200">
+        <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
+          <Calendar className="mr-2 text-orange-700" size={20} />
           Seasonal Analysis
         </h3>
-        <p className="text-gray-600">No seasonal data available for this crop.</p>
+        <p className="text-gray-900 font-bold">No seasonal data available for this crop.</p>
       </div>
     );
   }
@@ -33,11 +33,11 @@ export const SeasonalAnalysis: React.FC<SeasonalAnalysisProps> = ({
 
   const getRecommendationColor = (recommendation: string) => {
     switch (recommendation) {
-      case 'excellent': return '#10B981';
-      case 'good': return '#3B82F6';
-      case 'average': return '#F59E0B';
-      case 'poor': return '#EF4444';
-      default: return '#6B7280';
+      case 'excellent': return '#047857';
+      case 'good': return '#1D4ED8';
+      case 'average': return '#B45309';
+      case 'poor': return '#B91C1C';
+      default: return '#374151';
     }
   };
 
@@ -46,32 +46,34 @@ export const SeasonalAnalysis: React.FC<SeasonalAnalysisProps> = ({
     .map(p => p.month);
 
   return (
-    <div className="bg-white rounded-xl shadow-lg p-6">
+    <div className="bg-white rounded-xl shadow-lg p-6 border-2 border-gray-200">
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-semibold text-gray-800 flex items-center">
-          <Calendar className="mr-2 text-orange-600" size={20} />
+        <h3 className="text-lg font-bold text-gray-900 flex items-center">
+          <Calendar className="mr-2 text-orange-700" size={20} />
           Seasonal Price Analysis - {variety}
         </h3>
         <div className="text-right">
-          <p className="text-sm text-gray-600">Best Selling Months</p>
-          <p className="text-lg font-bold text-green-600">
+          <p className="text-sm text-gray-900 font-bold">Best Selling Months</p>
+          <p className="text-lg font-black text-green-700">
             {bestMonths.slice(0, 2).join(', ')}
           </p>
         </div>
       </div>
 
-      <div className="h-80 mb-6">
+      <div className="h-80 mb-6 p-4 bg-gray-50 rounded-xl border-2 border-gray-200">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={chartData}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+            <CartesianGrid strokeDasharray="3 3" stroke="#94A3B8" />
             <XAxis 
               dataKey="month" 
-              stroke="#6B7280"
+              stroke="#0f172a"
               fontSize={12}
+              fontWeight={800}
             />
             <YAxis 
-              stroke="#6B7280"
+              stroke="#0f172a"
               fontSize={12}
+              fontWeight={800}
               tickFormatter={(value) => `₹${value}`}
             />
             <Tooltip 
@@ -79,16 +81,17 @@ export const SeasonalAnalysis: React.FC<SeasonalAnalysisProps> = ({
                 if (name === 'price') return [`₹${value}/quintal`, 'Average Price'];
                 return [value, name];
               }}
-              labelStyle={{ color: '#374151' }}
+              labelStyle={{ color: '#0f172a', fontWeight: 800 }}
               contentStyle={{ 
                 backgroundColor: 'white', 
-                border: '1px solid #E5E7EB',
-                borderRadius: '8px'
+                border: '2px solid #3B82F6',
+                borderRadius: '8px',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
               }}
             />
             <Bar 
               dataKey="price" 
-              fill="#3B82F6"
+              fill="#2563EB"
               radius={[4, 4, 0, 0]}
             />
           </BarChart>
@@ -96,32 +99,35 @@ export const SeasonalAnalysis: React.FC<SeasonalAnalysisProps> = ({
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {patterns.slice(0, 4).map((pattern, index) => (
+        {patterns.map((p) => (
           <div 
-            key={pattern.month}
-            className="p-4 rounded-lg border-2"
-            style={{ 
-              borderColor: getRecommendationColor(pattern.recommendation),
-              backgroundColor: `${getRecommendationColor(pattern.recommendation)}10`
-            }}
+            key={p.month}
+            className={`p-3 rounded-lg border-2 text-center transition-all duration-300 ${
+              p.recommendation === 'excellent' 
+                ? 'bg-green-100 border-green-500 shadow-md scale-105' 
+                : 'bg-white border-gray-300'
+            }`}
           >
-            <p className="font-medium text-gray-800">{pattern.month}</p>
-            <p className="text-lg font-bold" style={{ color: getRecommendationColor(pattern.recommendation) }}>
-              ₹{pattern.averagePrice}
-            </p>
-            <p className="text-sm capitalize" style={{ color: getRecommendationColor(pattern.recommendation) }}>
-              {pattern.recommendation}
-            </p>
+            <p className="text-sm font-black text-gray-900 mb-1">{p.month}</p>
+            <p className="text-lg font-black text-gray-900">₹{Math.round(p.averagePrice)}</p>
+            <div className={`mt-2 text-[10px] uppercase font-black px-2 py-1 rounded-full inline-block ${
+              p.recommendation === 'excellent' ? 'bg-green-700 text-white' :
+              p.recommendation === 'good' ? 'bg-blue-700 text-white' :
+              p.recommendation === 'average' ? 'bg-yellow-600 text-white' :
+              'bg-red-700 text-white'
+            }`}>
+              {p.recommendation}
+            </div>
           </div>
         ))}
       </div>
 
-      <div className="mt-6 p-4 bg-orange-50 rounded-lg">
-        <h4 className="font-semibold text-orange-800 mb-2 flex items-center">
-          <TrendingUp className="mr-2" size={16} />
+      <div className="mt-8 p-4 bg-orange-50 rounded-lg border-2 border-orange-200">
+        <h4 className="font-black text-orange-900 mb-2 flex items-center">
+          <TrendingUp className="mr-2 text-orange-700" size={16} />
           Seasonal Insights
         </h4>
-        <ul className="text-orange-700 text-sm space-y-1">
+        <ul className="text-orange-900 text-sm font-bold space-y-1">
           <li>• Best selling months: {bestMonths.join(', ')}</li>
           <li>• Avoid selling during low-price months for better profits</li>
           <li>• Plan your harvest timing based on seasonal trends</li>

@@ -140,7 +140,7 @@ export default function CowDetails() {
         <div className="flex items-center space-x-3">
           <button
             onClick={() => setEditModal(true)}
-            className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
+            className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-900 bg-white hover:bg-gray-50"
           >
             <Edit className="h-4 w-4 mr-2" />
             Edit
@@ -159,29 +159,29 @@ export default function CowDetails() {
         <div className="bg-white rounded-lg shadow p-6 space-y-4">
           <div className="space-y-2">
             <div>
-              <span className="text-sm text-gray-500 dark:text-black-500">Tag Number</span>
+              <span className="text-sm text-gray-900 dark:text-black-500">Tag Number</span>
               <p className="font-medium dark:text-black">{cow.tag_number}</p>
             </div>
             <div>
-              <span className="text-sm text-gray-500 dark:text-black-500">Gender</span>
+              <span className="text-sm text-gray-900 dark:text-black-500">Gender</span>
               <p className="font-medium dark:text-black">{cow.gender}</p>
             </div>
             <div>
-              <span className="text-sm text-gray-500 dark:text-black-500">Date of Birth</span>
+              <span className="text-sm text-gray-900 dark:text-black-500">Date of Birth</span>
               <p className="font-medium dark:text-black">
                 {cow.date_of_birth ? formatDate(cow.date_of_birth) : 'Not set'}
               </p>
             </div>
             <div>
-              <span className="text-sm text-gray-500 dark:text-black-500">Color</span>
+              <span className="text-sm text-gray-900 dark:text-black-500">Color</span>
               <p className="font-medium dark:text-black">{cow.color}</p>
             </div>
             <div>
-              <span className="text-sm text-gray-500 dark:text-black-500">Markings</span>
+              <span className="text-sm text-gray-900 dark:text-black-500">Markings</span>
               <p className="font-medium dark:text-black">{cow.markings || 'No markings recorded'}</p>
             </div>
             <div>
-              <span className="text-sm text-gray-500 dark:text-black-500">Status</span>
+              <span className="text-sm text-gray-900 dark:text-black-500">Status</span>
               <p className="font-medium dark:text-black">{cow.status}</p>
             </div>
           </div>
@@ -204,9 +204,9 @@ export default function CowDetails() {
                 <div className="flex justify-between">
                   <div>
                     <p className="font-medium dark:text-black">{format(new Date(record.date), 'dd MMM yyyy')}</p>
-                    <p className="text-sm text-gray-600 dark:text-black">{record.description}</p>
+                    <p className="text-sm text-gray-900 dark:text-black">{record.description}</p>
                   </div>
-                  <span className="text-sm text-gray-500 dark:text-black">{record.record_type}</span>
+                  <span className="text-sm text-gray-900 dark:text-black">{record.record_type}</span>
                 </div>
               </div>
             ))}
@@ -229,17 +229,17 @@ export default function CowDetails() {
                   <div className="flex justify-between">
                     <div>
                       <p className="font-medium dark:text-black">{format(new Date(record.date), 'dd MMM yyyy')}</p>
-                      <p className="text-sm text-gray-600 dark:text-black">{record.notes}</p>
+                      <p className="text-sm text-gray-900 dark:text-black">{record.notes}</p>
                     </div>
-                    <span className="text-sm text-gray-500 dark:text-black">{record.record_type}</span>
+                    <span className="text-sm text-gray-900 dark:text-black">{record.record_type}</span>
                   </div>
                 </div>
               ))}
             </div>
           ) : (
             <div className="bg-white rounded-lg shadow p-6">
-              <div className="flex items-center justify-center text-gray-500 dark:text-black py-8">
-                <p className='dark:text-black text-gray-500'>Breeding records are only available for adult cattle</p>
+              <div className="flex items-center justify-center text-gray-900 dark:text-black py-8">
+                <p className='dark:text-black text-gray-900'>Breeding records are only available for adult cattle</p>
               </div>
             </div>
           )}
@@ -269,7 +269,7 @@ export default function CowDetails() {
             <div className="mt-3 text-center">
               <h3 className="text-lg leading-6 font-medium text-gray-900">Delete Cow</h3>
               <div className="mt-2 px-7 py-3">
-                <p className="text-sm text-gray-500 dark:text-black">
+                <p className="text-sm text-gray-900 dark:text-black">
                   Are you sure you want to delete this cow? This action cannot be undone.
                 </p>
               </div>
@@ -277,7 +277,7 @@ export default function CowDetails() {
                 <div className="flex justify-end space-x-3">
                   <button
                     onClick={() => setShowDeleteModal(false)}
-                    className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md"
+                    className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-900 text-sm font-medium rounded-md"
                   >
                     Cancel
                   </button>

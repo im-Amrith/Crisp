@@ -130,7 +130,7 @@ const Dashboard = () => {
     const diff = todayStats.total_milk - yesterdayStats.total_milk;
     if (diff > 0) return { icon: TrendingUp, color: 'text-green-600', text: `+${diff.toFixed(1)}L` }; // Stronger green
     if (diff < 0) return { icon: TrendingDown, color: 'text-red-600', text: `${diff.toFixed(1)}L` }; // Stronger red
-    return { icon: Equal, color: 'text-gray-500', text: 'No change' }; // Gray for neutral
+    return { icon: Equal, color: 'text-gray-900', text: 'No change' }; // Gray for neutral
   };
 
   const trend = getProductionTrend();
@@ -191,7 +191,7 @@ const Dashboard = () => {
 
   return (
     <div className="space-y-8 p-6 bg-gray-50 min-h-screen"> {/* Lighter background */}
-      <h1 className="text-3xl font-extrabold text-gray-800">Farm Overview</h1> {/* Stronger title */}
+      <h1 className="text-3xl font-extrabold text-gray-900">Farm Overview</h1> {/* Stronger title */}
 
       {/* Alerts Section - now with BellRing icon and green theme */}
       <div className="grid grid-cols-1 gap-6">
@@ -202,113 +202,113 @@ const Dashboard = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
         {/* Herd Statistics Card */}
-        <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between border border-gray-100">
+        <div className="bg-white rounded-xl shadow-2xl p-6 flex flex-col justify-between border-2 border-green-100">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-xl font-semibold text-gray-800 flex items-center">
-              <PawPrint className="h-6 w-6 mr-2 text-green-600" />
+            <h2 className="text-2xl font-bold text-black flex items-center">
+              <PawPrint className="h-7 w-7 mr-2 text-green-700" />
               Our Herd
             </h2>
             <Link
               href="/cattlefarmmanagement/cows"
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-green-600 hover:bg-green-700 transition-colors shadow-md"
+              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-bold rounded-lg text-white bg-green-700 hover:bg-green-800 transition-all shadow-lg hover:scale-105"
             >
               <PawPrint className="h-4 w-4 mr-2" />
               Manage Animals
             </Link>
           </div>
           <div className="grid grid-cols-3 gap-4 mt-4">
-            <div className="text-center p-4 bg-green-50 rounded-lg border border-green-100">
-              <p className="text-3xl font-bold text-green-700">
+            <div className="text-center p-4 bg-green-50 rounded-xl border-2 border-green-200 shadow-inner">
+              <p className="text-4xl font-black text-green-800">
                 {cowStats.total}
               </p>
-              <p className="text-sm text-gray-600">Total Animals</p>
+              <p className="text-sm font-bold text-black uppercase tracking-wider">Total</p>
             </div>
-            <div className="text-center p-4 bg-green-50 rounded-lg border border-green-100">
-              <p className="text-3xl font-bold text-green-700">
+            <div className="text-center p-4 bg-blue-50 rounded-xl border-2 border-blue-200 shadow-inner">
+              <p className="text-4xl font-black text-blue-800">
                 {cowStats.adults}
               </p>
-              <p className="text-sm text-gray-600">Adults</p>
+              <p className="text-sm font-bold text-black uppercase tracking-wider">Adults</p>
             </div>
-            <div className="text-center p-4 bg-green-50 rounded-lg border border-green-100">
-              <p className="text-3xl font-bold text-green-700">
+            <div className="text-center p-4 bg-orange-50 rounded-xl border-2 border-orange-200 shadow-inner">
+              <p className="text-4xl font-black text-orange-800">
                 {cowStats.calves}
               </p>
-              <p className="text-sm text-gray-600">Calves</p>
+              <p className="text-sm font-bold text-black uppercase tracking-wider">Calves</p>
             </div>
           </div>
         </div>
 
         {/* Today's Production Card */}
-        <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between border border-gray-100">
-          <h2 className="text-xl font-semibold mb-4 text-gray-800">Today's Milk Production</h2>
+        <div className="bg-white rounded-xl shadow-2xl p-6 flex flex-col justify-between border-2 border-blue-100">
+          <h2 className="text-2xl font-bold mb-4 text-black">Today's Production</h2>
           {todayStats ? (
             <div className="space-y-4">
-              <div className="flex justify-between items-center bg-green-100 p-3 rounded-lg shadow-sm">
-                <span className="text-lg text-gray-700 font-medium">Total Yield</span>
-                <span className="text-4xl font-extrabold text-green-700">
+              <div className="flex justify-between items-center bg-blue-600 p-4 rounded-xl shadow-lg">
+                <span className="text-xl text-white font-bold">Total Yield</span>
+                <span className="text-4xl font-black text-white">
                   {todayStats.total_milk.toFixed(1)} L
                 </span>
               </div>
               {trend && (
-                <div className="flex items-center text-md justify-center mt-3 p-2 bg-gray-50 rounded-md">
-                  <trend.icon className={`h-5 w-5 mr-2 ${trend.color}`} />
-                  <span className={`${trend.color} font-semibold`}>{trend.text}</span>
-                  <span className="text-gray-600 ml-1"> from yesterday</span>
+                <div className="flex items-center text-lg justify-center mt-3 p-3 bg-gray-100 rounded-xl border border-gray-200">
+                  <trend.icon className={`h-6 w-6 mr-2 ${trend.color}`} />
+                  <span className={`${trend.color} font-black`}>{trend.text}</span>
+                  <span className="text-black font-bold ml-1"> from yesterday</span>
                 </div>
               )}
               <div className="grid grid-cols-2 gap-4 mt-4">
-                <div className="text-center p-3 bg-gray-50 rounded-md border border-gray-100">
-                  <div className="text-sm text-gray-600">Morning</div>
-                  <div className="font-bold text-lg text-gray-800">{todayStats.morning_milk.toFixed(1)} L</div>
+                <div className="text-center p-3 bg-gray-50 rounded-xl border-2 border-gray-200">
+                  <div className="text-sm font-bold text-black uppercase">Morning</div>
+                  <div className="font-black text-2xl text-blue-700">{todayStats.morning_milk.toFixed(1)} L</div>
                 </div>
-                <div className="text-center p-3 bg-gray-50 rounded-md border border-gray-100">
-                  <div className="text-sm text-gray-600">Evening</div>
-                  <div className="font-bold text-lg text-gray-800">{todayStats.evening_milk.toFixed(1)} L</div>
+                <div className="text-center p-3 bg-gray-50 rounded-xl border-2 border-gray-200">
+                  <div className="text-sm font-bold text-black uppercase">Evening</div>
+                  <div className="font-black text-2xl text-blue-700">{todayStats.evening_milk.toFixed(1)} L</div>
                 </div>
               </div>
             </div>
           ) : (
-            <div className="text-center p-6 bg-gray-50 rounded-lg">
-              <p className="text-gray-600 mb-5 text-lg">No milk record for today.</p>
+            <div className="text-center p-8 bg-gray-50 rounded-xl border-2 border-dashed border-gray-300">
+              <p className="text-black font-bold mb-6 text-xl">No milk record for today.</p>
               <Link
                 href="/cattlefarmmanagement/data-entry"
-                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-green-600 hover:bg-green-700 transition-colors shadow-md"
+                className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-black rounded-xl text-white bg-blue-600 hover:bg-blue-700 transition-all shadow-xl hover:scale-105"
               >
-                <Plus className="h-5 w-5 mr-3" />
-                Add Today's Record
+                <Plus className="h-6 w-6 mr-3" />
+                Add Record
               </Link>
             </div>
           )}
         </div>
 
         {/* Monthly Overview Card */}
-        <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between border border-gray-100">
-          <h2 className="text-xl font-semibold mb-4 text-gray-800">Monthly Performance</h2>
+        <div className="bg-white rounded-xl shadow-2xl p-6 flex flex-col justify-between border-2 border-purple-100">
+          <h2 className="text-2xl font-bold mb-4 text-black">Monthly Performance</h2>
           <div className="space-y-4">
-            <div className="text-center">
-              <span className="text-4xl font-extrabold text-green-700">
+            <div className="text-center p-4 bg-purple-50 rounded-xl border-2 border-purple-200">
+              <span className="text-5xl font-black text-purple-700">
                 {monthlyTotal.toFixed(1)} L
               </span>
-              <p className="text-lg text-gray-600">Total Production (This Month)</p>
+              <p className="text-lg font-bold text-black mt-1">Total Production</p>
             </div>
-            <div className="p-3 bg-green-50 rounded-lg border border-green-100 text-center">
-              <div className="text-sm text-gray-700">Daily Average</div>
-              <div className="font-bold text-xl text-green-700">
+            <div className="p-4 bg-green-50 rounded-xl border-2 border-green-200 text-center shadow-sm">
+              <div className="text-sm font-bold text-black uppercase">Daily Average</div>
+              <div className="font-black text-3xl text-green-700">
                 {monthlyRecordCount > 0 ? (monthlyTotal / monthlyRecordCount).toFixed(1) : '0.0'} L
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <div className="text-center p-3 bg-gray-50 rounded-md border border-gray-100">
-                <div className="text-sm text-gray-600">Avg Morning</div>
-                <div className="font-bold text-lg text-gray-800">
+              <div className="text-center p-3 bg-gray-50 rounded-xl border-2 border-gray-200">
+                <div className="text-sm font-bold text-black uppercase">Avg Morning</div>
+                <div className="font-black text-xl text-purple-700">
                   {monthlyRecordCount > 0
                     ? (monthlyRecords.reduce((sum, r) => sum + r.morning_milk, 0) / monthlyRecordCount).toFixed(1)
                     : '0.0'} L
                 </div>
               </div>
-              <div className="text-center p-3 bg-gray-50 rounded-md border border-gray-100">
-                <div className="text-sm text-gray-600">Avg Evening</div>
-                <div className="font-bold text-lg text-gray-800">
+              <div className="text-center p-3 bg-gray-50 rounded-xl border-2 border-gray-200">
+                <div className="text-sm font-bold text-black uppercase">Avg Evening</div>
+                <div className="font-black text-xl text-purple-700">
                   {monthlyRecordCount > 0
                     ? (monthlyRecords.reduce((sum, r) => sum + r.evening_milk, 0) / monthlyRecordCount).toFixed(1)
                     : '0.0'} L
@@ -319,19 +319,19 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {/* Weekly Trend Card (moved to separate section for better layout control) */}
-      <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
-        <h2 className="text-xl font-semibold mb-6 text-gray-800">Weekly Production Trend</h2>
-        <div className="space-y-3">
+      {/* Weekly Trend Card */}
+      <div className="bg-white rounded-xl shadow-2xl p-8 border-2 border-gray-100">
+        <h2 className="text-2xl font-bold mb-8 text-black border-b-4 border-green-500 pb-2 inline-block">Weekly Production Trend</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {weeklyData.length > 0 ? (
             weeklyData.map((day) => (
-              <div key={day.date} className="flex justify-between items-center py-3 border-b border-gray-100 last:border-0 hover:bg-gray-50 rounded-md px-2 transition-colors duration-150">
-                <span className="text-gray-700 font-medium">{day.date}</span>
-                <span className="font-bold text-lg text-green-700">{day.total.toFixed(1)} L</span>
+              <div key={day.date} className="flex flex-col items-center p-6 bg-gray-50 rounded-2xl border-2 border-gray-200 hover:border-green-400 transition-all hover:shadow-lg">
+                <span className="text-black font-black text-lg mb-2">{day.date}</span>
+                <span className="font-black text-3xl text-green-700">{day.total.toFixed(1)} L</span>
               </div>
             ))
           ) : (
-            <p className="text-gray-600 text-center py-4">No weekly data available.</p>
+            <p className="text-black font-bold text-center py-8 col-span-full text-xl">No weekly data available.</p>
           )}
         </div>
       </div>
@@ -340,7 +340,7 @@ const Dashboard = () => {
       {previousMonthData && (
         <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-4">
-            <h2 className="text-xl font-semibold text-gray-800 mb-3 md:mb-0">
+            <h2 className="text-xl font-semibold text-gray-900 mb-3 md:mb-0">
               Export Records for {format(new Date(previousMonthData.month), 'MMMM yyyy')}
             </h2>
             <div className="flex flex-wrap gap-3">
@@ -399,45 +399,45 @@ const AlertsSection = () => {
 
   if (alerts.calvingAlerts.length === 0 && alerts.followupAlerts.length === 0) {
     return (
-      <div className="bg-white rounded-xl shadow-lg p-6 text-center text-gray-600 border border-gray-100">
-        <p className="font-medium">No upcoming alerts at this time. All clear!</p>
+      <div className="bg-white rounded-xl shadow-2xl p-8 text-center text-black border-2 border-green-100">
+        <p className="font-black text-xl">No upcoming alerts at this time. All clear! ✅</p>
       </div>
     );
   }
 
   return (
-    <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
-      <h2 className="text-xl font-semibold mb-5 text-gray-800 flex items-center">
-        <BellRing className="h-6 w-6 mr-2 text-red-500" /> {/* Bell icon for alerts */}
+    <div className="bg-white rounded-xl shadow-2xl p-8 border-2 border-red-100">
+      <h2 className="text-3xl font-black mb-8 text-black flex items-center border-b-4 border-red-500 pb-2 inline-block">
+        <BellRing className="h-8 w-8 mr-3 text-red-600 animate-pulse" />
         Important Alerts
       </h2>
-      <div className="space-y-5">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {alerts.calvingAlerts.length > 0 && (
-          <div className="space-y-3">
-            <h3 className="text-lg font-medium text-gray-700 border-b pb-2 mb-3 border-gray-100">
+          <div className="space-y-4">
+            <h3 className="text-xl font-black text-red-800 uppercase tracking-widest border-b-2 border-red-200 pb-2">
               Upcoming Calvings
             </h3>
             {alerts.calvingAlerts.map(({ cow, date }) => (
               <div
                 key={cow.id}
-                className="flex items-center justify-between p-4 bg-red-50 rounded-lg shadow-sm border border-red-100"
+                className="flex items-center justify-between p-5 bg-red-50 rounded-2xl shadow-md border-2 border-red-200 hover:bg-red-100 transition-all"
               >
                 <div>
                   <Link
                     href={`/cattlefarmmanagement/cows/${cow.id}`}
-                    className="text-red-700 font-bold hover:underline text-lg"
+                    className="text-red-800 font-black hover:underline text-2xl"
                   >
                     Tag: {cow.tag_number}
                   </Link>
-                  <p className="text-sm text-gray-600 mt-1">
+                  <p className="text-black font-bold mt-1">
                     Expected calving date
                   </p>
                 </div>
                 <div className="text-right">
-                  <div className="text-md font-semibold text-gray-800">
+                  <div className="text-xl font-black text-black">
                     {format(new Date(date), 'dd MMM yyyy')}
                   </div>
-                  <div className="text-xs text-gray-500 mt-0.5">
+                  <div className="text-sm font-bold text-red-600 mt-1 bg-white px-2 py-1 rounded-full shadow-sm inline-block">
                     {formatDistanceToNow(new Date(date), { addSuffix: true })}
                   </div>
                 </div>
@@ -447,31 +447,31 @@ const AlertsSection = () => {
         )}
 
         {alerts.followupAlerts.length > 0 && (
-          <div className="space-y-3">
-            <h3 className="text-lg font-medium text-gray-700 border-b pb-2 mb-3 border-gray-100">
+          <div className="space-y-4">
+            <h3 className="text-xl font-black text-orange-800 uppercase tracking-widest border-b-2 border-orange-200 pb-2">
               Health Follow-ups
             </h3>
             {alerts.followupAlerts.map(({ cow, record, date }) => (
               <div
                 key={record.id}
-                className="flex items-center justify-between p-4 bg-yellow-50 rounded-lg shadow-sm border border-yellow-100"
+                className="flex items-center justify-between p-5 bg-orange-50 rounded-2xl shadow-md border-2 border-orange-200 hover:bg-orange-100 transition-all"
               >
                 <div>
                   <Link
                     href={`/cattlefarmmanagement/cows/${cow.id}`}
-                    className="text-yellow-700 font-bold hover:underline text-lg"
+                    className="text-orange-800 font-black hover:underline text-2xl"
                   >
                     Tag: {cow.tag_number}
                   </Link>
-                  <p className="text-sm text-gray-600 mt-1">
-                    <span className="font-semibold">{record.record_type}</span> follow-up needed
+                  <p className="text-black font-bold mt-1">
+                    <span className="font-black text-orange-700">{record.record_type}</span> follow-up
                   </p>
                 </div>
                 <div className="text-right">
-                  <div className="text-md font-semibold text-gray-800">
+                  <div className="text-xl font-black text-black">
                     {format(new Date(date), 'dd MMM yyyy')}
                   </div>
-                  <div className="text-xs text-gray-500 mt-0.5">
+                  <div className="text-sm font-bold text-orange-600 mt-1 bg-white px-2 py-1 rounded-full shadow-sm inline-block">
                     {formatDistanceToNow(new Date(date), { addSuffix: true })}
                   </div>
                 </div>

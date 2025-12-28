@@ -40,7 +40,7 @@ export const Journal: React.FC<JournalProps> = ({ onBack }) => {
       case 'Beginner': return 'text-green-600 bg-green-100';
       case 'Intermediate': return 'text-yellow-600 bg-yellow-100';
       case 'Advanced': return 'text-red-600 bg-red-100';
-      default: return 'text-gray-600 bg-gray-100';
+      default: return 'text-gray-900 bg-gray-100';
     }
   };
 
@@ -84,7 +84,7 @@ export const Journal: React.FC<JournalProps> = ({ onBack }) => {
               <BookOpen className="h-8 w-8 text-green-600 mr-3" />
               <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">My Garden Journal</h1>
             </div>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-900 text-lg max-w-2xl mx-auto">
               Your collection of saved crop recommendations and planting plans
             </p>
           </div>
@@ -94,8 +94,8 @@ export const Journal: React.FC<JournalProps> = ({ onBack }) => {
         {savedCrops.length === 0 ? (
           <div className="text-center py-16">
             <Plant className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-            <h2 className="text-2xl font-semibold text-gray-600 mb-2">No saved crops yet</h2>
-            <p className="text-gray-500 mb-6">
+            <h2 className="text-2xl font-semibold text-gray-900 mb-2">No saved crops yet</h2>
+            <p className="text-gray-900 mb-6">
               Start by getting AI recommendations and save your favorite crops to build your garden journal.
             </p>
             <Button variant="primary" onClick={onBack}>
@@ -105,7 +105,7 @@ export const Journal: React.FC<JournalProps> = ({ onBack }) => {
         ) : (
           <>
             <div className="mb-6 text-center">
-              <p className="text-gray-600">
+              <p className="text-gray-900">
                 You have <span className="font-semibold text-green-600">{savedCrops.length}</span> saved crop{savedCrops.length !== 1 ? 's' : ''}
               </p>
             </div>
@@ -124,7 +124,7 @@ export const Journal: React.FC<JournalProps> = ({ onBack }) => {
                       </span>
                       <button
                         onClick={() => handleRemoveCrop(crop.id)}
-                        className="p-1 text-gray-400 hover:text-red-500 transition-colors"
+                        className="p-1 text-gray-900 hover:text-red-500 transition-colors"
                         title="Remove from journal"
                       >
                         <Trash2 className="h-4 w-4" />
@@ -153,29 +153,29 @@ export const Journal: React.FC<JournalProps> = ({ onBack }) => {
                     <div className="flex items-start">
                       <Clock className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
                       <div className="ml-2">
-                        <p className="text-sm font-medium text-gray-700">Planting Time</p>
-                        <p className="text-sm text-gray-600">{crop.planting_time}</p>
+                        <p className="text-sm font-medium text-gray-900">Planting Time</p>
+                        <p className="text-sm text-gray-900">{crop.planting_time}</p>
                       </div>
                     </div>
                     
                     <div className="flex items-start">
                       <Calendar className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
                       <div className="ml-2">
-                        <p className="text-sm font-medium text-gray-700">Harvest Time</p>
-                        <p className="text-sm text-gray-600">{crop.harvest_time}</p>
+                        <p className="text-sm font-medium text-gray-900">Harvest Time</p>
+                        <p className="text-sm text-gray-900">{crop.harvest_time}</p>
                       </div>
                     </div>
                     
                     <div className="flex items-start">
                       <Droplets className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
                       <div className="ml-2">
-                        <p className="text-sm font-medium text-gray-700">Watering</p>
-                        <p className="text-sm text-gray-600">{crop.watering_frequency}</p>
+                        <p className="text-sm font-medium text-gray-900">Watering</p>
+                        <p className="text-sm text-gray-900">{crop.watering_frequency}</p>
                       </div>
                     </div>
                     
                     <div className="mt-4 pt-4 border-t border-gray-100">
-                      <p className="text-sm text-gray-600">
+                      <p className="text-sm text-gray-900">
                         <span className="font-semibold">Care Tips:</span><br />
                         {crop.care_tips}
                       </p>

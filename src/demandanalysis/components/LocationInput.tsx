@@ -209,7 +209,7 @@ export const LocationInput: React.FC<LocationInputProps> = ({
       ) : (
         <div className="space-y-5">
           <div className="animate-fade-in">
-            <label className="block text-sm font-semibold text-gray-700 mb-3">
+            <label className="block text-sm font-semibold text-gray-900 mb-3">
               State
             </label>
             <select
@@ -226,7 +226,7 @@ export const LocationInput: React.FC<LocationInputProps> = ({
 
           {selectedState && (
             <div className="animate-slide-up">
-              <label className="block text-sm font-semibold text-gray-700 mb-3">
+              <label className="block text-sm font-semibold text-gray-900 mb-3">
                 District
               </label>
               <select
@@ -244,7 +244,7 @@ export const LocationInput: React.FC<LocationInputProps> = ({
 
           {selectedDistrict && (
             <div className="animate-slide-up">
-              <label className="block text-sm font-semibold text-gray-700 mb-3">
+              <label className="block text-sm font-semibold text-gray-900 mb-3">
                 Market (Optional)
               </label>
               <select
@@ -261,7 +261,7 @@ export const LocationInput: React.FC<LocationInputProps> = ({
           )}
 
           <div className="animate-fade-in">
-            <label className="block text-sm font-semibold text-gray-700 mb-3">
+            <label className="block text-sm font-semibold text-gray-900 mb-3">
               Address (Optional)
             </label>
             <input

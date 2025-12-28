@@ -267,7 +267,7 @@ export default function DocumentScanner({ onDocumentCapture, language, documentT
           <FileText size={20} />
           {currentContent.title}
         </CardTitle>
-        <p className="text-sm text-gray-600 text-center">{currentContent.description}</p>
+        <p className="text-sm text-gray-900 text-center">{currentContent.description}</p>
         <p className="text-xs text-blue-600 text-center">{currentContent.tip}</p>
       </CardHeader>
       <CardContent className="space-y-4">

@@ -38,62 +38,9 @@ const GreenGuardianDashboardPage: React.FC = () => {
     setError(null);
     
     try {
-      // In a real app, this would call the API
-      // For demo purposes, we'll use mock data
-      // const data = await getEnvironmentalData(lat, lng);
-      
-      // Mock data
-      const mockData: EnvironmentalData = {
-        airQuality: {
-          aqi: 42,
-          pollutants: {
-            pm25: 12.3,
-            pm10: 25.7,
-            o3: 35.2,
-            no2: 15.8,
-            so2: 5.2,
-            co: 0.8
-          },
-          category: 'Good'
-        },
-        weather: {
-          temperature: 22.5,
-          humidity: 65,
-          windSpeed: 8.2,
-          windDirection: 'NE',
-          precipitation: 0,
-          uvIndex: 6
-        },
-        risks: {
-          level: 'low',
-          summary: 'Environmental conditions are favorable today with good air quality and moderate UV levels.',
-          recommendations: [
-            'It\'s a good day for outdoor activities',
-            'Apply sunscreen if spending extended time outdoors',
-            'Regular watering recommended for crops'
-          ]
-        },
-        pollutionZones: [
-          {
-            id: 'zone1',
-            lat: lat + 0.01,
-            lng: lng + 0.01,
-            radius: 1000,
-            level: 'low',
-            description: 'Low pollution area with good air quality'
-          },
-          {
-            id: 'zone2',
-            lat: lat - 0.02,
-            lng: lng + 0.02,
-            radius: 1500,
-            level: 'medium',
-            description: 'Moderate pollution due to traffic congestion'
-          }
-        ]
-      };
-      
-      setEnvironmentalData(mockData);
+      // Call the real API
+      const data = await getEnvironmentalData(lat, lng);
+      setEnvironmentalData(data);
     } catch (err) {
       setError('Failed to fetch environmental data. Please try again.');
       console.error(err);
@@ -132,8 +79,8 @@ const GreenGuardianDashboardPage: React.FC = () => {
   );
 
   return (
-    <div>
-      <h1 className="text-2xl font-bold mb-6">Environmental Dashboard</h1>
+    <div className="min-h-screen bg-[#0a0e17] text-white p-6">
+      <h1 className="text-2xl font-bold mb-6 text-white">Environmental Dashboard</h1>
       
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         {/* Left sidebar */}
@@ -153,13 +100,13 @@ const GreenGuardianDashboardPage: React.FC = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
-              <h2 className="text-xl font-medium mb-2">Select a Location</h2>
-              <p className="text-gray-600">Choose a location from the sidebar or use your current location to view environmental data.</p>
+              <h2 className="text-xl font-medium mb-2 text-gray-900">Select a Location</h2>
+              <p className="text-gray-900">Choose a location from the sidebar or use your current location to view environmental data.</p>
             </div>
           ) : loading ? (
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-700 mx-auto mb-4"></div>
-              <p>Loading environmental data...</p>
+              <p className="text-gray-900">Loading environmental data...</p>
             </div>
           ) : error ? (
             <div className="bg-red-50 p-4 rounded-lg border border-red-200 text-red-700">
@@ -174,7 +121,7 @@ const GreenGuardianDashboardPage: React.FC = () => {
           ) : environmentalData ? (
             <div className="space-y-6">
               <div>
-                <h2 className="text-xl font-medium mb-4">Environmental Stats for {currentLocation.name}</h2>
+                <h2 className="text-xl font-medium mb-4 text-white">Environmental Stats for {currentLocation.name}</h2>
                 <EnvironmentalStats 
                   stats={[
                     {
@@ -212,7 +159,7 @@ const GreenGuardianDashboardPage: React.FC = () => {
               </div>
               
               <div>
-                <h2 className="text-xl font-medium mb-4">Risk Assessment</h2>
+                <h2 className="text-xl font-medium mb-4 text-white">Risk Assessment</h2>
                 <RiskSummary 
                   riskLevel={environmentalData.risks.level}
                   summary={environmentalData.risks.summary}
@@ -221,7 +168,7 @@ const GreenGuardianDashboardPage: React.FC = () => {
               </div>
               
               <div>
-                <h2 className="text-xl font-medium mb-4">Environmental Assistant</h2>
+                <h2 className="text-xl font-medium mb-4 text-white">Environmental Assistant</h2>
                 <EnvironmentalChat />
               </div>
             </div>

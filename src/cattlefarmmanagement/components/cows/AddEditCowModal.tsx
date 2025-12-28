@@ -54,7 +54,7 @@ const AddEditCowModal = ({ cow, onClose, onSave }: Props) => {
       <div className="relative top-20 mx-auto p-5 border w-full max-w-md bg-white shadow-lg rounded-md">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-lg font-medium">{cow ? 'Edit Cow' : 'Add New Cow'}</h3>
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-500">
+          <button onClick={onClose} className="text-gray-900 hover:text-gray-900">
             <X className="h-6 w-6" />
           </button>
         </div>
@@ -67,7 +67,7 @@ const AddEditCowModal = ({ cow, onClose, onSave }: Props) => {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-black">
+            <label className="block text-sm font-medium text-gray-900 dark:text-black">
               Tag Number*
             </label>
             <input
@@ -80,7 +80,7 @@ const AddEditCowModal = ({ cow, onClose, onSave }: Props) => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-black">
+            <label className="block text-sm font-medium text-gray-900 dark:text-black">
               Gender*
             </label>
             <select
@@ -95,7 +95,7 @@ const AddEditCowModal = ({ cow, onClose, onSave }: Props) => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-black">
+            <label className="block text-sm font-medium text-gray-900 dark:text-black">
               Age Category*
             </label>
             <select
@@ -110,7 +110,7 @@ const AddEditCowModal = ({ cow, onClose, onSave }: Props) => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-black">
+            <label className="block text-sm font-medium text-gray-900 dark:text-black">
               Date of Birth
             </label>
             <input
@@ -122,7 +122,7 @@ const AddEditCowModal = ({ cow, onClose, onSave }: Props) => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-black">
+            <label className="block text-sm font-medium text-gray-900 dark:text-black">
               Color*
             </label>
             <input
@@ -135,7 +135,7 @@ const AddEditCowModal = ({ cow, onClose, onSave }: Props) => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-black">
+            <label className="block text-sm font-medium text-gray-900 dark:text-black">
               Markings & Description
             </label>
             <textarea
@@ -149,7 +149,7 @@ const AddEditCowModal = ({ cow, onClose, onSave }: Props) => {
 
           {/* New Status Field */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-black">
+            <label className="block text-sm font-medium text-gray-900 dark:text-black">
               Status*
             </label>
             <select
@@ -169,7 +169,7 @@ const AddEditCowModal = ({ cow, onClose, onSave }: Props) => {
             <button
               type="button"
               onClick={onClose}
-              className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
+              className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-900 bg-white hover:bg-gray-50"
               disabled={loading}
             >
               Cancel

@@ -35,19 +35,9 @@ const HistoricalData: React.FC = () => {
     setError(null);
     
     try {
-      // In a real app, this would call the API
-      // For demo purposes, we'll use mock data
-      // const data = await getHistoricalData(lat, lng, days);
-      
-      // Generate mock historical data
-      const mockData: HistoricalDataType = {
-        airQuality: generateMockTimeSeriesData(days, 30, 60),
-        temperature: generateMockTimeSeriesData(days, 15, 30),
-        precipitation: generateMockTimeSeriesData(days, 0, 15),
-        uvIndex: generateMockTimeSeriesData(days, 1, 10)
-      };
-      
-      setHistoricalData(mockData);
+      // Call the real API
+      const data = await getHistoricalData(lat, lng, days);
+      setHistoricalData(data);
     } catch (err) {
       setError('Failed to fetch historical data. Please try again.');
       console.error(err);

@@ -101,7 +101,7 @@ const NewsletterCTA: React.FC = () => {
               <h3 className="text-2xl font-bold text-gray-900 mb-2">
                 {subscribed ? 'Welcome Aboard!' : 'Join the Community'}
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-900">
                 {subscribed 
                   ? 'Thank you for subscribing! Check your email for confirmation.'
                   : 'Get weekly insights delivered to your inbox'
@@ -112,7 +112,7 @@ const NewsletterCTA: React.FC = () => {
             {!subscribed ? (
               <form onSubmit={handleSubscribe} className="space-y-4">
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-2">
                     Email Address (ईमेल पता)
                   </label>
                   <input
@@ -140,17 +140,17 @@ const NewsletterCTA: React.FC = () => {
                 <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <CheckCircle className="w-10 h-10 text-green-600" />
                 </div>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-900 mb-4">
                   You are now part of our farming community!
                 </p>
-                <div className="text-sm text-gray-500">
+                <div className="text-sm text-gray-900">
                   Your first newsletter will arrive within 24 hours.
                 </div>
               </div>
             )}
 
             <div className="mt-6 pt-6 border-t border-gray-100 text-center">
-              <p className="text-xs text-gray-500">
+              <p className="text-xs text-gray-900">
                 Free forever. Unsubscribe anytime. Available in Hindi & English.
               </p>
             </div>

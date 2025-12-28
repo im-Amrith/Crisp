@@ -123,24 +123,24 @@ const Footer: React.FC = () => {
                   </div>
                   <div>
                     <h1 className="text-2xl font-bold">Farm<span className="text-green-400">Hub</span></h1>
-                    <p className="text-gray-400 text-sm">स्मार्ट कृषि (Smart Agriculture)</p>
+                    <p className="text-gray-900 text-sm">स्मार्ट कृषि (Smart Agriculture)</p>
                   </div>
                 </Link>
-                <p className="text-gray-400 mb-6 leading-relaxed">
+                <p className="text-gray-900 mb-6 leading-relaxed">
                   भारतीय किसानों के लिए AI-संचालित अंतर्दृष्टि, व्यापक फार्म प्रबंधन, और टिकाऊ कृषि सफलता के लिए अत्याधुनिक तकनीक के साथ कृषि में क्रांति लाना।
                 </p>
                 
                 {/* Contact Info */}
                 <div className="space-y-3">
-                  <div className="flex items-center text-gray-400">
+                  <div className="flex items-center text-gray-900">
                     <Mail className="w-5 h-5 mr-3 text-green-400" />
                     <span>support@farmhub.co.in</span>
                   </div>
-                  <div className="flex items-center text-gray-400">
+                  <div className="flex items-center text-gray-900">
                     <Phone className="w-5 h-5 mr-3 text-green-400" />
                     <span>+91 1800-123-4567 (Toll Free)</span>
                   </div>
-                  <div className="flex items-center text-gray-400">
+                  <div className="flex items-center text-gray-900">
                     <MapPin className="w-5 h-5 mr-3 text-green-400" />
                     <span>Krishi Bhawan, New Delhi, India 110001</span>
                   </div>
@@ -148,7 +148,7 @@ const Footer: React.FC = () => {
 
                 {/* Language Selector */}
                 <div className="mt-6 pt-6 border-t border-gray-800">
-                  <div className="text-sm text-gray-400 mb-2">भाषा चुनें (Choose Language):</div>
+                  <div className="text-sm text-gray-900 mb-2">भाषा चुनें (Choose Language):</div>
                   <div className="flex flex-wrap gap-2">
                     <button className="px-3 py-1 bg-green-600 text-white text-xs rounded-full">हिंदी</button>
                     <button className="px-3 py-1 bg-gray-700 text-gray-300 text-xs rounded-full hover:bg-gray-600">English</button>
@@ -161,13 +161,13 @@ const Footer: React.FC = () => {
 
               {/* Quick Links */}
               <div>
-                <h3 className="text-lg font-semibold mb-6">कृषि मॉड्यूल<br/><span className="text-sm text-gray-400">Farm Modules</span></h3>
+                <h3 className="text-lg font-semibold mb-6">कृषि मॉड्यूल<br/><span className="text-sm text-gray-900">Farm Modules</span></h3>
                 <ul className="space-y-3">
                   {quickLinks.map((link) => (
                     <li key={link.name}>
                       <Link 
                         href={link.href}
-                        className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center group text-sm"
+                        className="text-gray-900 hover:text-white transition-colors duration-300 flex items-center group text-sm"
                       >
                         <span>{link.name}</span>
                         <ArrowRight className="w-3 h-3 ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -179,13 +179,13 @@ const Footer: React.FC = () => {
 
               {/* Support */}
               <div>
-                <h3 className="text-lg font-semibold mb-6">सहायता केंद्र<br/><span className="text-sm text-gray-400">Support Center</span></h3>
+                <h3 className="text-lg font-semibold mb-6">सहायता केंद्र<br/><span className="text-sm text-gray-900">Support Center</span></h3>
                 <ul className="space-y-3">
                   {supportLinks.map((link) => (
                     <li key={link.name}>
                       <Link 
                         href={link.href}
-                        className="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
+                        className="text-gray-900 hover:text-white transition-colors duration-300 text-sm"
                       >
                         {link.name}
                       </Link>
@@ -196,13 +196,13 @@ const Footer: React.FC = () => {
 
               {/* Government Schemes */}
               <div>
-                <h3 className="text-lg font-semibold mb-6">सरकारी योजनाएं<br/><span className="text-sm text-gray-400">Govt Schemes</span></h3>
+                <h3 className="text-lg font-semibold mb-6">सरकारी योजनाएं<br/><span className="text-sm text-gray-900">Govt Schemes</span></h3>
                 <ul className="space-y-3">
                   {governmentLinks.map((link) => (
                     <li key={link.name}>
                       <Link 
                         href={link.href}
-                        className="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
+                        className="text-gray-900 hover:text-white transition-colors duration-300 text-sm"
                       >
                         {link.name}
                       </Link>
@@ -213,13 +213,13 @@ const Footer: React.FC = () => {
 
               {/* Legal */}
               <div>
-                <h3 className="text-lg font-semibold mb-6">कानूनी<br/><span className="text-sm text-gray-400">Legal</span></h3>
+                <h3 className="text-lg font-semibold mb-6">कानूनी<br/><span className="text-sm text-gray-900">Legal</span></h3>
                 <ul className="space-y-3">
                   {legalLinks.map((link) => (
                     <li key={link.name}>
                       <Link 
                         href={link.href}
-                        className="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
+                        className="text-gray-900 hover:text-white transition-colors duration-300 text-sm"
                       >
                         {link.name}
                       </Link>
@@ -229,8 +229,8 @@ const Footer: React.FC = () => {
                 
                 {/* Certifications */}
                 <div className="mt-6 pt-4 border-t border-gray-800">
-                  <div className="text-xs text-gray-500 mb-2">Certified by:</div>
-                  <div className="space-y-1 text-xs text-gray-400">
+                  <div className="text-xs text-gray-900 mb-2">Certified by:</div>
+                  <div className="space-y-1 text-xs text-gray-900">
                     <div>🏛️ Govt. of India Approved</div>
                     <div>🔒 ISO 27001 Certified</div>
                     <div>✅ GDPR Compliant</div>
@@ -245,7 +245,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-800 py-8">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
-              <div className="flex items-center text-gray-400 mb-4 md:mb-0">
+              <div className="flex items-center text-gray-900 mb-4 md:mb-0">
                 <span>© {currentYear} FarmHub. Made with</span>
                 <Heart className="w-4 h-4 mx-2 text-red-500" />
                 <span>for farmers worldwide.</span>
@@ -259,7 +259,7 @@ const Footer: React.FC = () => {
                     <a
                       key={social.name}
                       href={social.href}
-                      className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:bg-green-600 hover:text-white transition-all duration-300 transform hover:scale-110"
+                      className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-900 hover:bg-green-600 hover:text-white transition-all duration-300 transform hover:scale-110"
                       aria-label={social.name}
                     >
                       <Icon className="w-5 h-5" />

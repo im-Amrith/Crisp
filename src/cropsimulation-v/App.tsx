@@ -335,7 +335,7 @@ function App() {
                   <select
                     value={selectedCrop}
                     onChange={(e) => handleCropChange(e.target.value)}
-                    className="px-3 py-2 border border-black-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-black disabled:text-black disabled:opacity-100"
+                    className="w-full border border-gray-300 rounded-lg py-3 px-4 text-gray-900 placeholder-gray-400 bg-white focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                     disabled={!crops.length}
                   >
                     <option value="">Choose crop...</option>

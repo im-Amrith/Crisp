@@ -65,7 +65,7 @@ const Navbar: React.FC = () => {
                   Farm<span className="text-green-500">Hub</span>
                 </h1>
                 <p className={`text-xs transition-colors duration-300 ${
-                  scrolled ? 'text-gray-600' : 'text-green-100'
+                  scrolled ? 'text-gray-900' : 'text-green-100'
                 }`}>
                   Smart Agriculture
                 </p>
@@ -73,7 +73,7 @@ const Navbar: React.FC = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-0">
+            <div className="hidden lg:flex items-center space-x-1 overflow-x-auto no-scrollbar max-w-[calc(100vw-250px)]">
               {navItems.map((item) => {
                 const Icon = item.icon;
                 const isActive = pathname === item.href;
@@ -81,18 +81,18 @@ const Navbar: React.FC = () => {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`group relative px-2 py-2 rounded-xl transition-all duration-300 flex items-center space-x-1 ${
+                    className={`group relative px-3 py-2 rounded-xl transition-all duration-300 flex items-center space-x-2 whitespace-nowrap flex-shrink-0 ${
                       isActive
                         ? scrolled
                           ? 'bg-green-100 text-green-700'
                           : 'bg-white/20 text-white'
                         : scrolled
-                          ? 'text-gray-700 hover:bg-gray-100'
+                          ? 'text-gray-900 hover:bg-gray-100'
                           : 'text-white/80 hover:bg-white/10 hover:text-white'
                     }`}
                   >
                     <Icon className="w-4 h-4" />
-                    <span className="text-xs font-medium">{item.name}</span>
+                    <span className="text-sm font-medium">{item.name}</span>
                     {isActive && (
                       <div className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full ${
                         scrolled ? 'bg-green-500' : 'bg-white'
@@ -107,7 +107,7 @@ const Navbar: React.FC = () => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className={`lg:hidden p-2 rounded-xl transition-colors duration-300 ${
-                scrolled ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/10'
+                scrolled ? 'text-gray-900 hover:bg-gray-100' : 'text-white hover:bg-white/10'
               }`}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -116,10 +116,10 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile Navigation */}
-        <div className={`lg:hidden transition-all duration-300 overflow-hidden ${
-          isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        <div className={`lg:hidden transition-all duration-300 ${
+          isOpen ? 'max-h-[calc(100vh-4rem)] opacity-100 overflow-y-auto' : 'max-h-0 opacity-0 overflow-hidden'
         }`}>
-          <div className="bg-white/95 backdrop-blur-md border-t border-green-100 shadow-lg">
+          <div className="bg-white/95 backdrop-blur-md border-t border-green-100 shadow-lg min-h-screen pb-20">
             <div className="px-4 py-2 space-y-1">
               {navItems.map((item) => {
                 const Icon = item.icon;
@@ -132,7 +132,7 @@ const Navbar: React.FC = () => {
                     className={`flex items-center space-x-3 px-4 py-3 rounded-xl transition-colors duration-200 ${
                       isActive
                         ? 'bg-green-100 text-green-700'
-                        : 'text-gray-700 hover:bg-gray-50'
+                        : 'text-gray-900 hover:bg-gray-50'
                     }`}
                   >
                     <Icon className="w-5 h-5" />

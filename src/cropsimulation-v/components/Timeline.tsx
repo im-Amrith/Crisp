@@ -26,14 +26,14 @@ const Timeline: React.FC<TimelineProps> = ({ previousStages, currentStage, upcom
       flowering: 'text-pink-600 bg-pink-100',
       fruit_development: 'text-orange-600 bg-orange-100',
       ripening: 'text-amber-600 bg-amber-100',
-      senescence: 'text-gray-600 bg-gray-100'
+      senescence: 'text-gray-900 bg-gray-100'
     };
-    return colors[stageType as keyof typeof colors] || 'text-gray-600 bg-gray-100';
+    return colors[stageType as keyof typeof colors] || 'text-gray-900 bg-gray-100';
   };
 
   return (
     <div className="bg-white rounded-xl shadow-lg p-6">
-      <h2 className="text-xl font-bold text-gray-800 mb-6">Growth Timeline</h2>
+      <h2 className="text-xl font-bold text-gray-900 mb-6">Growth Timeline</h2>
       
       <div className="space-y-4">
         {/* Previous Stages */}
@@ -42,12 +42,12 @@ const Timeline: React.FC<TimelineProps> = ({ previousStages, currentStage, upcom
             <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0" />
             <div className="flex-1">
               <div className="flex items-center space-x-2 mb-1">
-                <span className="font-medium text-gray-700">BBCH {item.code}</span>
+                <span className="font-medium text-gray-900">BBCH {item.code}</span>
                 <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStageColor(item.stage.stage_type)}`}>
                   {formatStageType(item.stage.stage_type)}
                 </span>
               </div>
-              <p className="text-sm text-gray-600">{item.stage.description}</p>
+              <p className="text-sm text-gray-900">{item.stage.description}</p>
             </div>
           </div>
         ))}
@@ -68,7 +68,7 @@ const Timeline: React.FC<TimelineProps> = ({ previousStages, currentStage, upcom
                   {formatStageType(currentStage.stage.stage_type)}
                 </span>
               </div>
-              <p className="text-sm text-gray-700 font-medium">{currentStage.stage.description}</p>
+              <p className="text-sm text-gray-900 font-medium">{currentStage.stage.description}</p>
             </div>
           </div>
         )}
@@ -76,15 +76,15 @@ const Timeline: React.FC<TimelineProps> = ({ previousStages, currentStage, upcom
         {/* Upcoming Stages */}
         {upcomingStages.map((item, index) => (
           <div key={`next-${item.code}`} className="flex items-center space-x-4 opacity-50">
-            <Clock className="w-6 h-6 text-gray-400 flex-shrink-0" />
+            <Clock className="w-6 h-6 text-gray-900 flex-shrink-0" />
             <div className="flex-1">
               <div className="flex items-center space-x-2 mb-1">
-                <span className="font-medium text-gray-600">BBCH {item.code}</span>
+                <span className="font-medium text-gray-900">BBCH {item.code}</span>
                 <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStageColor(item.stage.stage_type)}`}>
                   {formatStageType(item.stage.stage_type)}
                 </span>
               </div>
-              <p className="text-sm text-gray-500">{item.stage.description}</p>
+              <p className="text-sm text-gray-900">{item.stage.description}</p>
             </div>
           </div>
         ))}

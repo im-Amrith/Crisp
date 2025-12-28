@@ -14,12 +14,12 @@ export const PriceForecastChart: React.FC<PriceForecastChartProps> = ({
 }) => {
   if (forecasts.length === 0) {
     return (
-      <div className="bg-white rounded-xl shadow-lg p-6">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-          <TrendingUp className="mr-2 text-blue-600" size={20} />
+      <div className="bg-white rounded-xl shadow-lg p-6 border-2 border-gray-200">
+        <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
+          <TrendingUp className="mr-2 text-blue-700" size={20} />
           Price Forecast
         </h3>
-        <p className="text-gray-900">No forecast data available for this crop.</p>
+        <p className="text-gray-900 font-bold">No forecast data available for this crop.</p>
       </div>
     );
   }
@@ -35,69 +35,69 @@ export const PriceForecastChart: React.FC<PriceForecastChartProps> = ({
   const priceChange = ((futurePrice - currentPrice) / currentPrice) * 100;
 
   return (
-    <div className="chart-container animate-slide-up">
+    <div className="chart-container animate-slide-up border-2 border-gray-200 rounded-2xl p-6 bg-white">
       <div className="flex items-center justify-between mb-8">
-        <h3 className="text-xl font-semibold text-gray-900 flex items-center">
-          <div className="p-2 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl mr-3 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+        <h3 className="text-xl font-bold text-gray-900 flex items-center">
+          <div className="p-2 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl mr-3 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
             <TrendingUp className="text-white" size={20} />
           </div>
           Price Forecast - {variety}
         </h3>
         <div className="text-right">
-          <p className="text-sm font-medium text-gray-900 mb-1">12-Month Trend</p>
-          <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-bold ${
+          <p className="text-sm font-bold text-gray-900 mb-1">12-Month Trend</p>
+          <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-black ${
             priceChange >= 0 
-              ? 'bg-green-100 text-green-800 border border-green-200' 
-              : 'bg-red-100 text-red-800 border border-red-200'
+              ? 'bg-green-100 text-green-900 border-2 border-green-300' 
+              : 'bg-red-100 text-red-900 border-2 border-red-300'
           }`}>
             {priceChange >= 0 ? '↗' : '↘'} {priceChange >= 0 ? '+' : ''}{priceChange.toFixed(1)}%
           </div>
         </div>
       </div>
 
-      <div className="h-80 mb-8 p-4 bg-gradient-to-br from-blue-50/60 via-indigo-50/40 to-purple-50/30 rounded-xl border border-blue-100/50 shadow-inner">
+      <div className="h-80 mb-8 p-4 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-xl border-2 border-blue-200 shadow-inner">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={chartData}>
             <defs>
               <linearGradient id="priceGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#3B82F6" stopOpacity={0.4}/>
-                <stop offset="50%" stopColor="#60A5FA" stopOpacity={0.2}/>
-                <stop offset="95%" stopColor="#93C5FD" stopOpacity={0.05}/>
+                <stop offset="5%" stopColor="#2563EB" stopOpacity={0.4}/>
+                <stop offset="50%" stopColor="#3B82F6" stopOpacity={0.2}/>
+                <stop offset="95%" stopColor="#60A5FA" stopOpacity={0.05}/>
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" strokeOpacity={0.6} />
+            <CartesianGrid strokeDasharray="3 3" stroke="#CBD5E1" strokeOpacity={0.8} />
             <XAxis 
               dataKey="date" 
-              stroke="#64748B"
-              fontSize={11}
-              fontWeight={500}
-              tickLine={false}
-              axisLine={false}
+              stroke="#0f172a"
+              fontSize={12}
+              fontWeight={800}
+              tickLine={true}
+              axisLine={true}
             />
             <YAxis 
-              stroke="#64748B"
-              fontSize={11}
-              fontWeight={500}
+              stroke="#0f172a"
+              fontSize={12}
+              fontWeight={800}
               tickFormatter={(value) => `₹${value}`}
-              tickLine={false}
-              axisLine={false}
+              tickLine={true}
+              axisLine={true}
             />
             <Tooltip 
               formatter={(value: number) => [`₹${value}/quintal`, 'Predicted Price']}
-              labelStyle={{ color: '#374151', fontWeight: 600 }}
+              labelStyle={{ color: '#0f172a', fontWeight: 800 }}
               contentStyle={{ 
-                backgroundColor: 'rgba(255, 255, 255, 0.95)', 
-                border: 'none',
+                backgroundColor: 'rgba(255, 255, 255, 0.98)', 
+                border: '2px solid #3B82F6',
                 borderRadius: '12px',
-                boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)',
+                boxShadow: '0 10px 25px rgba(0, 0, 0, 0.2)',
                 backdropFilter: 'blur(8px)'
               }}
             />
             <Area
               type="monotone"
               dataKey="price"
-              stroke="#2563EB"
-              strokeWidth={3}
+              stroke="#1E40AF"
+              strokeWidth={4}
               fill="url(#priceGradient)"
               dot={{ fill: '#2563EB', strokeWidth: 2, r: 4 }}
               activeDot={{ r: 6, stroke: '#2563EB', strokeWidth: 2, fill: '#ffffff' }}

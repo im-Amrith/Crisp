@@ -120,7 +120,23 @@ function App() {
       handleLocationChange(locationData);
     } catch (error) {
       console.error('Error detecting location:', error);
-      alert('Unable to detect location. Please select manually.');
+      
+      let errorMessage = 'Unable to detect location. Please select manually.';
+      if (error instanceof GeolocationPositionError) {
+        switch (error.code) {
+          case GeolocationPositionError.PERMISSION_DENIED:
+            errorMessage = 'Location access denied. Please enable location services or select manually.';
+            break;
+          case GeolocationPositionError.POSITION_UNAVAILABLE:
+            errorMessage = 'Location information is unavailable. Please select manually.';
+            break;
+          case GeolocationPositionError.TIMEOUT:
+            errorMessage = 'Location request timed out. Please select manually.';
+            break;
+        }
+      }
+      
+      alert(errorMessage);
       setLocationMethod('manual');
     } finally {
       setIsDetecting(false);
@@ -215,21 +231,21 @@ function App() {
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-gray-900">APMC Market Advisor</h1>
-                <p className="text-sm text-gray-600">Smart farming decisions with AI-powered insights</p>
+                <p className="text-sm text-gray-900 font-bold">Smart farming decisions with AI-powered insights</p>
               </div>
             </div>
             <div className="hidden lg:flex items-center space-x-6">
               <div className="flex items-center space-x-2">
-                <MapPin className="text-green-600" size={16} />
-                <span className="text-sm text-gray-700">Location-based</span>
+                <MapPin className="text-green-700" size={16} />
+                <span className="text-sm text-gray-900 font-bold">Location-based</span>
               </div>
               <div className="flex items-center space-x-2">
-                <BarChart3 className="text-green-600" size={16} />
-                <span className="text-sm text-gray-700">Real-time Data</span>
+                <BarChart3 className="text-green-700" size={16} />
+                <span className="text-sm text-gray-900 font-bold">Real-time Data</span>
               </div>
               <div className="flex items-center space-x-2">
-                <TrendingUp className="text-green-600" size={16} />
-                <span className="text-sm text-gray-700">AI Predictions</span>
+                <TrendingUp className="text-green-700" size={16} />
+                <span className="text-sm text-gray-900 font-bold">AI Predictions</span>
               </div>
             </div>
           </div>
@@ -245,7 +261,7 @@ function App() {
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
                 Welcome to APMC Market Advisor
               </h2>
-                <p className="text-gray-900 text-lg font-normal">
+                <p className="text-gray-900 text-xl font-bold">
                   Select your location and crop variety to get personalized market insights and AI-powered recommendations.
                 </p>
               </div>
@@ -267,20 +283,20 @@ function App() {
                     <div className="flex gap-2 mb-4">
                       <button
                         onClick={() => setLocationMethod('auto')}
-                        className={`flex-1 px-4 py-2 rounded-lg font-medium transition-colors ${
+                        className={`flex-1 px-4 py-2 rounded-lg font-bold transition-colors border-2 ${
                           locationMethod === 'auto'
-                            ? 'bg-blue-600 text-white'
-                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                            ? 'bg-blue-700 text-white border-blue-700 shadow-md'
+                            : 'bg-gray-300 text-gray-900 border-gray-400 hover:bg-gray-400'
                         }`}
                       >
                         Auto Detect
                       </button>
                       <button
                         onClick={() => setLocationMethod('manual')}
-                        className={`flex-1 px-4 py-2 rounded-lg font-medium transition-colors ${
+                        className={`flex-1 px-4 py-2 rounded-lg font-bold transition-colors border-2 ${
                           locationMethod === 'manual'
-                            ? 'bg-blue-600 text-white'
-                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                            ? 'bg-blue-700 text-white border-blue-700 shadow-md'
+                            : 'bg-gray-300 text-gray-900 border-gray-400 hover:bg-gray-400'
                         }`}
                       >
                         Manual Selection
@@ -292,7 +308,7 @@ function App() {
                         <button
                           onClick={detectLocation}
                           disabled={isDetecting}
-                          className="w-full bg-green-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                          className="w-full bg-green-700 text-white py-3 px-4 rounded-lg font-bold hover:bg-green-800 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center shadow-md"
                         >
                           {isDetecting ? (
                             <>
@@ -306,41 +322,43 @@ function App() {
                             </>
                           )}
                         </button>
-                        <p className="text-sm text-gray-600 text-center">
+                        <p className="text-sm text-gray-900 font-medium text-center">
                           We'll use your GPS location to find nearby markets
                         </p>
                       </div>
                     ) : (
                       <div className="space-y-4">
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                          <label className="block text-sm font-bold text-gray-900 mb-2">
                             State
                           </label>
                           <select
                             value={selectedState}
                             onChange={(e) => handleStateChange(e.target.value)}
-                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+                            className="w-full p-3 border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 font-bold bg-white appearance-none"
+                            style={{ backgroundImage: 'url("data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 20 20\'%3e%3cpath stroke=\'%23111827\' stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'1.5\' d=\'m6 8 4 4 4-4\'/%3e%3c/svg%3e")', backgroundPosition: 'right 12px center', backgroundRepeat: 'no-repeat', backgroundSize: '20px' }}
                           >
-                            <option value="">Select State</option>
+                            <option value="" className="text-gray-900 font-bold">Select State</option>
                             {states.map(state => (
-                              <option key={state} value={state}>{state}</option>
+                              <option key={state} value={state} className="text-gray-900 font-bold">{state}</option>
                             ))}
                           </select>
                         </div>
 
                         {selectedState && (
                           <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                            <label className="block text-sm font-bold text-gray-900 mb-2">
                               District
                             </label>
                             <select
                               value={selectedDistrict}
                               onChange={(e) => handleDistrictChange(e.target.value)}
-                              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+                              className="w-full p-3 border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 font-bold bg-white appearance-none"
+                              style={{ backgroundImage: 'url("data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 20 20\'%3e%3cpath stroke=\'%23111827\' stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'1.5\' d=\'m6 8 4 4 4-4\'/%3e%3c/svg%3e")', backgroundPosition: 'right 12px center', backgroundRepeat: 'no-repeat', backgroundSize: '20px' }}
                             >
-                              <option value="">Select District</option>
+                              <option value="" className="text-gray-900 font-bold">Select District</option>
                               {districts.map(district => (
-                                <option key={district} value={district}>{district}</option>
+                                <option key={district} value={district} className="text-gray-900 font-bold">{district}</option>
                               ))}
                             </select>
                           </div>
@@ -348,17 +366,18 @@ function App() {
 
                         {selectedDistrict && (
                           <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                            <label className="block text-sm font-bold text-gray-900 mb-2">
                               Market (Optional)
                             </label>
                             <select
                               value={selectedMarket}
                               onChange={(e) => setSelectedMarket(e.target.value)}
-                              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+                              className="w-full p-3 border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 font-bold bg-white appearance-none"
+                              style={{ backgroundImage: 'url("data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 20 20\'%3e%3cpath stroke=\'%23111827\' stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'1.5\' d=\'m6 8 4 4 4-4\'/%3e%3c/svg%3e")', backgroundPosition: 'right 12px center', backgroundRepeat: 'no-repeat', backgroundSize: '20px' }}
                             >
-                              <option value="">All Markets in District</option>
+                              <option value="" className="text-gray-900 font-bold">All Markets in District</option>
                               {markets.map(market => (
-                                <option key={market} value={market}>{market}</option>
+                                <option key={market} value={market} className="text-gray-900 font-bold">{market}</option>
                               ))}
                             </select>
                           </div>
@@ -379,12 +398,12 @@ function App() {
                     <select
                       value={selectedVariety}
                       onChange={(e) => setSelectedVariety(e.target.value)}
-                      className="w-full p-3 border border-gray-300 rounded-lg shadow-sm text-gray-900 bg-white text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full p-3 border-2 border-gray-400 rounded-lg shadow-sm text-gray-900 bg-white text-base font-bold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                       aria-label="Select Crop Variety"
                     >
-                      <option value="">Select Crop Variety</option>
+                      <option value="" className="text-gray-900 font-bold">Select Crop Variety</option>
                       {varieties.map(variety => (
-                        <option key={variety} value={variety}>{variety}</option>
+                        <option key={variety} value={variety} className="text-gray-900 font-bold">{variety}</option>
                       ))}
                     </select>
                   </div>
@@ -403,8 +422,8 @@ function App() {
                 <div className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center">
-                        <Fuel className="mr-1 text-red-500" size={16} />
+                      <label className="text-sm font-bold text-gray-900 mb-2 flex items-center">
+                        <Fuel className="mr-1 text-red-700" size={16} />
                         Fuel Price (₹/litre)
                       </label>
                       <input
@@ -412,15 +431,15 @@ function App() {
                         value={vehicleInfo.fuelPrice}
                         onChange={(e) => handleFuelPriceChange(parseFloat(e.target.value) || 0)}
                         placeholder="105"
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+                        className="w-full p-3 border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 font-bold bg-white placeholder-gray-500"
                         min="0"
                         step="0.1"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center">
-                        <Calculator className="mr-1 text-gray-500" size={16} />
+                      <label className="text-sm font-bold text-gray-900 mb-2 flex items-center">
+                        <Calculator className="mr-1 text-gray-900" size={16} />
                         Vehicle Mileage (km/litre)
                       </label>
                       <input
@@ -428,7 +447,7 @@ function App() {
                         value={vehicleInfo.mileage}
                         onChange={(e) => handleMileageChange(parseFloat(e.target.value) || 0)}
                         placeholder="15"
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+                        className="w-full p-3 border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 font-bold bg-white placeholder-gray-500"
                         min="0"
                         step="0.1"
                       />
@@ -436,36 +455,36 @@ function App() {
                   </div>
 
                   <div>
-                    <p className="text-sm font-medium text-gray-700 mb-3">Quick Select Vehicle Type:</p>
+                    <p className="text-sm font-bold text-gray-900 mb-3">Quick Select Vehicle Type:</p>
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                       {commonVehicles.map((vehicle) => (
                         <button
                           key={vehicle.name}
                           onClick={() => handleMileageChange(vehicle.mileage)}
-                          className={`p-4 text-center border rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg ${
+                          className={`p-4 text-center border-2 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg ${
                             vehicleInfo.mileage === vehicle.mileage 
-                              ? 'bg-green-600 text-white border-green-600 shadow-md' 
-                              : 'border-gray-300 hover:bg-gradient-to-br hover:from-gray-50 hover:to-blue-50/30 hover:border-blue-400 bg-white hover:-translate-y-1 text-gray-900'
+                              ? 'bg-green-700 text-white border-green-700 shadow-md' 
+                              : 'border-gray-400 hover:bg-gradient-to-br hover:from-gray-100 hover:to-blue-100 hover:border-blue-500 bg-white hover:-translate-y-1 text-gray-900 font-bold'
                           }`}
                         >
-                          <div className="font-semibold">{vehicle.name}</div>
-                          <div className="text-sm opacity-80">{vehicle.mileage} km/l</div>
+                          <div className="font-bold text-gray-900">{vehicle.name}</div>
+                          <div className="text-sm font-bold text-gray-900">{vehicle.mileage} km/l</div>
                         </button>
                       ))}
                     </div>
                   </div>
 
                   {vehicleInfo.mileage > 0 && vehicleInfo.fuelPrice > 0 && (
-                    <div className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-100 shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-[1.02]">
-                      <p className="text-gray-900 font-bold text-lg flex items-center mb-3">
+                    <div className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border-2 border-blue-200 shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-[1.02]">
+                      <p className="text-gray-900 font-bold text-xl flex items-center mb-3">
                         <span className="text-2xl mr-3">💰</span>
                         Cost Calculation Ready
                       </p>
                       <div className="space-y-2">
-                        <p className="text-gray-800 font-semibold text-base">
+                        <p className="text-gray-900 font-bold text-lg">
                           Fuel cost: ₹{vehicleInfo.fuelPrice}/L • Mileage: {vehicleInfo.mileage} km/L
                         </p>
-                        <p className="text-gray-900 font-bold text-lg">
+                        <p className="text-blue-800 font-black text-2xl">
                           Cost per km: ₹{(vehicleInfo.fuelPrice / vehicleInfo.mileage).toFixed(2)}
                         </p>
                       </div>
@@ -477,31 +496,31 @@ function App() {
 
             {/* Feature Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white rounded-2xl shadow-sm p-6 text-center hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-1">
+              <div className="bg-white rounded-2xl shadow-sm p-6 text-center hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-1 border-2 border-gray-100">
                 <div className="w-16 h-16 bg-green-100 rounded-2xl mx-auto mb-4 flex items-center justify-center transition-all duration-300 hover:bg-green-200">
-                  <TrendingUp className="text-green-600" size={32} />
+                  <TrendingUp className="text-green-800" size={32} />
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Price Forecasts</h3>
-                <p className="text-gray-600">Get accurate price predictions for your crops</p>
-                <p className="text-green-600 font-medium mt-2">AI-powered 12-month predictions</p>
+                <p className="text-gray-900 font-bold">Get accurate price predictions for your crops</p>
+                <p className="text-green-800 font-black mt-2">AI-powered 12-month predictions</p>
               </div>
 
-              <div className="bg-white rounded-2xl shadow-sm p-6 text-center hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-1">
+              <div className="bg-white rounded-2xl shadow-sm p-6 text-center hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-1 border-2 border-gray-100">
                 <div className="w-16 h-16 bg-blue-100 rounded-2xl mx-auto mb-4 flex items-center justify-center transition-all duration-300 hover:bg-blue-200">
-                  <BarChart3 className="text-blue-600" size={32} />
+                  <BarChart3 className="text-blue-800" size={32} />
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Seasonal Analysis</h3>
-                <p className="text-gray-600">Understand market trends and seasonal patterns</p>
-                <p className="text-blue-600 font-medium mt-2">Optimal selling periods</p>
+                <p className="text-gray-900 font-bold">Understand market trends and seasonal patterns</p>
+                <p className="text-blue-800 font-black mt-2">Optimal selling periods</p>
               </div>
 
-              <div className="bg-white rounded-2xl shadow-sm p-6 text-center hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-1">
+              <div className="bg-white rounded-2xl shadow-sm p-6 text-center hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-1 border-2 border-gray-100">
                 <div className="w-16 h-16 bg-purple-100 rounded-2xl mx-auto mb-4 flex items-center justify-center transition-all duration-300 hover:bg-purple-200">
-                  <MapPin className="text-purple-600" size={32} />
+                  <MapPin className="text-purple-800" size={32} />
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Market Recommendations</h3>
-                <p className="text-gray-600">Find the best markets for your produce</p>
-                <p className="text-purple-600 font-medium mt-2">Location-based insights</p>
+                <p className="text-gray-900 font-bold">Find the best markets for your produce</p>
+                <p className="text-purple-800 font-black mt-2">Location-based insights</p>
               </div>
             </div>
           </div>
@@ -553,10 +572,10 @@ function App() {
       <footer className="bg-white border-t mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="text-center">
-            <p className="text-gray-600 mb-2">
+            <p className="text-gray-900 font-bold mb-2">
               Empowering farmers with data-driven market insights
             </p>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-900 font-semibold">
               Data sourced from APMC markets across India • Updated regularly
             </p>
           </div>

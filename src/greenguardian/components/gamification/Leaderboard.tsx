@@ -125,7 +125,7 @@ const Leaderboard: React.FC = () => {
     if (badge.includes('Waste')) return 'bg-amber-100 text-amber-800';
     if (badge.includes('Energy')) return 'bg-purple-100 text-purple-800';
     if (badge.includes('Community') || badge.includes('Tree')) return 'bg-green-100 text-green-800';
-    return 'bg-gray-100 text-gray-800';
+    return 'bg-gray-100 text-gray-900';
   };
 
   const currentUser = leaderboardData.find(user => user.isCurrentUser);
@@ -140,7 +140,7 @@ const Leaderboard: React.FC = () => {
       <div className="p-4">
         <div className="flex flex-wrap gap-4 mb-6">
           <div className="space-x-2">
-            <span className="text-sm text-gray-600">Timeframe:</span>
+            <span className="text-sm text-gray-900">Timeframe:</span>
             <select 
               value={timeframe}
               onChange={(e) => setTimeframe(e.target.value as 'weekly' | 'monthly' | 'allTime')}
@@ -153,7 +153,7 @@ const Leaderboard: React.FC = () => {
           </div>
           
           <div className="space-x-2">
-            <span className="text-sm text-gray-600">Category:</span>
+            <span className="text-sm text-gray-900">Category:</span>
             <select 
               value={category}
               onChange={(e) => setCategory(e.target.value as 'all' | 'carbon' | 'water' | 'waste' | 'energy' | 'community')}
@@ -186,7 +186,7 @@ const Leaderboard: React.FC = () => {
               </div>
               <h3 className="mt-2 font-medium">{leaderboardData[1].name}</h3>
               <div className="text-yellow-500 font-bold">{leaderboardData[1].points} pts</div>
-              <div className="text-xs text-gray-500">{leaderboardData[1].completedChallenges} challenges</div>
+              <div className="text-xs text-gray-900">{leaderboardData[1].completedChallenges} challenges</div>
             </div>
           )}
           
@@ -205,7 +205,7 @@ const Leaderboard: React.FC = () => {
               </div>
               <h3 className="mt-2 font-medium">{leaderboardData[0].name}</h3>
               <div className="text-yellow-500 font-bold text-lg">{leaderboardData[0].points} pts</div>
-              <div className="text-xs text-gray-500">{leaderboardData[0].completedChallenges} challenges</div>
+              <div className="text-xs text-gray-900">{leaderboardData[0].completedChallenges} challenges</div>
               
               {leaderboardData[0].badges.length > 0 && (
                 <div className="mt-2 flex flex-wrap justify-center gap-1">
@@ -237,7 +237,7 @@ const Leaderboard: React.FC = () => {
               </div>
               <h3 className="mt-2 font-medium">{leaderboardData[2].name}</h3>
               <div className="text-yellow-500 font-bold">{leaderboardData[2].points} pts</div>
-              <div className="text-xs text-gray-500">{leaderboardData[2].completedChallenges} challenges</div>
+              <div className="text-xs text-gray-900">{leaderboardData[2].completedChallenges} challenges</div>
             </div>
           )}
         </div>
@@ -247,16 +247,16 @@ const Leaderboard: React.FC = () => {
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">
                   Rank
                 </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">
                   User
                 </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">
                   Points
                 </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">
                   Badges
                 </th>
               </tr>
@@ -279,7 +279,7 @@ const Leaderboard: React.FC = () => {
                         <div className="text-sm font-medium text-gray-900">
                           {user.name} {user.isCurrentUser && <span className="text-xs text-green-600">(You)</span>}
                         </div>
-                        <div className="text-xs text-gray-500">
+                        <div className="text-xs text-gray-900">
                           {user.completedChallenges} challenges completed
                         </div>
                       </div>
@@ -312,19 +312,19 @@ const Leaderboard: React.FC = () => {
             <h3 className="font-medium mb-2">Your Stats</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="bg-white p-3 rounded-lg shadow-sm">
-                <div className="text-sm text-gray-500">Current Rank</div>
+                <div className="text-sm text-gray-900">Current Rank</div>
                 <div className="text-2xl font-bold">#{currentUser.rank}</div>
               </div>
               <div className="bg-white p-3 rounded-lg shadow-sm">
-                <div className="text-sm text-gray-500">Total Points</div>
+                <div className="text-sm text-gray-900">Total Points</div>
                 <div className="text-2xl font-bold text-yellow-500">{currentUser.points}</div>
               </div>
               <div className="bg-white p-3 rounded-lg shadow-sm">
-                <div className="text-sm text-gray-500">Challenges Completed</div>
+                <div className="text-sm text-gray-900">Challenges Completed</div>
                 <div className="text-2xl font-bold text-green-600">{currentUser.completedChallenges}</div>
               </div>
             </div>
-            <div className="mt-4 text-sm text-gray-600">
+            <div className="mt-4 text-sm text-gray-900">
               You need <span className="font-bold">{leaderboardData[currentUser.rank - 2]?.points - currentUser.points}</span> more points to reach rank #{currentUser.rank - 1}
             </div>
           </div>

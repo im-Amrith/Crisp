@@ -29,20 +29,33 @@ const PlantHealthAnalyzer: React.FC = () => {
     }
   };
 
-  const handleAnalyzeClick = () => {
+  const handleAnalyzeClick = async () => {
     if (!selectedImage) return;
     
     setIsAnalyzing(true);
     
-    // In a real app, we would send the image to a backend API for analysis
-    // For demo purposes, we'll simulate an API call with a timeout
-    setTimeout(() => {
-      // Mock analysis results
-      const mockResults: PlantHealthAnalysisResult = generateMockAnalysis();
+    try {
+      // Send the image to the backend for analysis
+      const response = await fetch('http://localhost:8000/api/analyze-plant', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          image: selectedImage
+        }),
+      });
       
+      const data = await response.json();
+      setAnalysisResult(data);
+    } catch (error) {
+      console.error('Error analyzing plant:', error);
+      // Fallback to mock results if API fails
+      const mockResults: PlantHealthAnalysisResult = generateMockAnalysis();
       setAnalysisResult(mockResults);
+    } finally {
       setIsAnalyzing(false);
-    }, 2000);
+    }
   };
 
   const generateMockAnalysis = (): PlantHealthAnalysisResult => {
@@ -115,7 +128,7 @@ const PlantHealthAnalyzer: React.FC = () => {
       case 'unhealthy':
         return 'text-red-600';
       default:
-        return 'text-gray-600';
+        return 'text-gray-900';
     }
   };
 
@@ -129,10 +142,10 @@ const PlantHealthAnalyzer: React.FC = () => {
       <div className="p-4">
         {!selectedImage ? (
           <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 mx-auto text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 mx-auto text-gray-900 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
-            <p className="text-gray-500 mb-4">Drag and drop an image here or click to browse</p>
+            <p className="text-gray-900 mb-4">Drag and drop an image here or click to browse</p>
             <input
               type="file"
               accept="image/*"
@@ -159,7 +172,7 @@ const PlantHealthAnalyzer: React.FC = () => {
                 onClick={handleReset}
                 className="absolute top-2 right-2 bg-white rounded-full p-1 shadow-md hover:bg-gray-100"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-600" viewBox="0 0 20 20" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-900" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
               </button>
@@ -177,7 +190,7 @@ const PlantHealthAnalyzer: React.FC = () => {
             {isAnalyzing && (
               <div className="text-center py-4">
                 <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-green-700 mx-auto mb-2"></div>
-                <p className="text-gray-600">Analyzing plant health...</p>
+                <p className="text-gray-900">Analyzing plant health...</p>
               </div>
             )}
             
@@ -194,14 +207,14 @@ const PlantHealthAnalyzer: React.FC = () => {
                        analysisResult.health === 'moderate' ? 'Moderately Healthy Plant' :
                        'Unhealthy Plant'}
                     </h3>
-                    <span className="text-sm text-gray-500">
+                    <span className="text-sm text-gray-900">
                       {Math.round(analysisResult.confidence * 100)}% confidence
                     </span>
                   </div>
                   
                   {analysisResult.issues.length > 0 && (
                     <div className="mb-4">
-                      <h4 className="font-medium text-sm text-gray-700 mb-1">Detected Issues:</h4>
+                      <h4 className="font-medium text-sm text-gray-900 mb-1">Detected Issues:</h4>
                       <ul className="list-disc pl-5 space-y-1">
                         {analysisResult.issues.map((issue, index) => (
                           <li key={index} className="text-sm">{issue}</li>
@@ -211,7 +224,7 @@ const PlantHealthAnalyzer: React.FC = () => {
                   )}
                   
                   <div>
-                    <h4 className="font-medium text-sm text-gray-700 mb-1">Recommendations:</h4>
+                    <h4 className="font-medium text-sm text-gray-900 mb-1">Recommendations:</h4>
                     <ul className="list-disc pl-5 space-y-1">
                       {analysisResult.recommendations.map((recommendation, index) => (
                         <li key={index} className="text-sm">{recommendation}</li>

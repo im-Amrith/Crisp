@@ -196,13 +196,13 @@ const StateSelector: React.FC<StateSelectorProps> = ({ onStateChange, currentLoc
     <div className="bg-white rounded-xl shadow-lg p-6 space-y-4">
       <div className="flex items-center space-x-2">
         <Globe className="w-5 h-5 text-green-600" />
-        <h2 className="text-xl font-bold text-gray-800">Location Selector</h2>
+        <h2 className="text-xl font-bold text-gray-900">Location Selector</h2>
       </div>
 
       <div className="space-y-4">
         {/* Country Selection */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-900 mb-2">
             Country
           </label>
           <select
@@ -220,7 +220,7 @@ const StateSelector: React.FC<StateSelectorProps> = ({ onStateChange, currentLoc
 
         {/* State/Province Selection */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-900 mb-2">
             State/Province
           </label>
           <select
@@ -240,7 +240,7 @@ const StateSelector: React.FC<StateSelectorProps> = ({ onStateChange, currentLoc
         {/* City Input */}
         {showCityInput && (
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-900 mb-2">
               City
             </label>
             <input

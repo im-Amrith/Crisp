@@ -145,14 +145,14 @@ const AddRecordModal = ({ type, cowId, onClose, onSave }: Props) => {
   };
 
   // Helper for consistent input styling
-  const inputClassName = "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 bg-gray-50 text-gray-800 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200";
-  const labelClassName = "block text-sm font-medium text-gray-700 dark:text-gray-200";
+  const inputClassName = "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 bg-gray-50 text-gray-900 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200";
+  const labelClassName = "block text-sm font-medium text-gray-900 dark:text-gray-200";
 
   return (
     <div className="fixed inset-0 bg-gray-900 bg-opacity-70 flex items-center justify-center p-4 z-50"> {/* Darker overlay */}
       <div className="relative bg-white rounded-xl shadow-2xl p-6 w-full max-w-md border border-gray-100 dark:bg-gray-800 dark:border-gray-700"> {/* Themed modal card */}
         <div className="flex justify-between items-center mb-6">
-          <h3 className="text-xl font-semibold text-gray-800 dark:text-white flex items-center">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-white flex items-center">
             {type === 'health' ? (
               <>
                 <Stethoscope className="h-6 w-6 mr-2 text-green-600" /> Add Health Record
@@ -165,7 +165,7 @@ const AddRecordModal = ({ type, cowId, onClose, onSave }: Props) => {
           </h3>
           <button
             onClick={onClose}
-            className="text-gray-500 hover:text-gray-700 transition-colors dark:text-gray-400 dark:hover:text-gray-200"
+            className="text-gray-900 hover:text-gray-900 transition-colors dark:text-gray-900 dark:hover:text-gray-200"
             aria-label="Close modal"
           >
             <X className="h-6 w-6" />
@@ -362,7 +362,7 @@ const AddRecordModal = ({ type, cowId, onClose, onSave }: Props) => {
             <button
               type="button"
               onClick={onClose}
-              className="inline-flex items-center px-5 py-2.5 border border-gray-300 text-base font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
+              className="inline-flex items-center px-5 py-2.5 border border-gray-300 text-base font-medium rounded-lg text-gray-900 bg-white hover:bg-gray-50 transition-colors dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
               disabled={loading}
             >
               Cancel

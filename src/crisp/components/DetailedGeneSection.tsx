@@ -21,7 +21,7 @@ export const DetailedGeneSection: React.FC<DetailedGeneSectionProps> = ({ data }
         <div className="space-y-6">
           {/* Gene Identity Card */}
           <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
-            <h3 className="text-lg font-semibold text-gray-800 mb-4">Gene Identity</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Gene Identity</h3>
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-blue-50 rounded-lg p-3">
                 <span className="text-sm text-blue-700 font-medium">Gene ID</span>
@@ -44,7 +44,7 @@ export const DetailedGeneSection: React.FC<DetailedGeneSectionProps> = ({ data }
 
           {/* Target Recommendations */}
           <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
-            <h3 className="flex items-center text-lg font-semibold text-gray-800 mb-4">
+            <h3 className="flex items-center text-lg font-semibold text-gray-900 mb-4">
               <Target className="h-5 w-5 text-blue-600 mr-2" />
               CRISPR Target Sites
             </h3>
@@ -55,8 +55,8 @@ export const DetailedGeneSection: React.FC<DetailedGeneSectionProps> = ({ data }
                     {idx + 1}
                   </div>
                   <div className="flex-grow">
-                    <div className="font-mono text-sm text-gray-700">{grna.sequence}</div>
-                    <div className="text-xs text-gray-500">Position: {grna.start}</div>
+                    <div className="font-mono text-sm text-gray-900">{grna.sequence}</div>
+                    <div className="text-xs text-gray-900">Position: {grna.start}</div>
                   </div>
                   <div className="flex-shrink-0">
                     <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">
@@ -73,7 +73,7 @@ export const DetailedGeneSection: React.FC<DetailedGeneSectionProps> = ({ data }
         <div className="space-y-6">
           {/* Expected Outcomes */}
           <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
-            <h3 className="flex items-center text-lg font-semibold text-gray-800 mb-4">
+            <h3 className="flex items-center text-lg font-semibold text-gray-900 mb-4">
               <TrendingUp className="h-5 w-5 text-green-600 mr-2" />
               Expected Outcomes
             </h3>
@@ -102,7 +102,7 @@ export const DetailedGeneSection: React.FC<DetailedGeneSectionProps> = ({ data }
 
           {/* Implementation Guide */}
           <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
-            <h3 className="flex items-center text-lg font-semibold text-gray-800 mb-4">
+            <h3 className="flex items-center text-lg font-semibold text-gray-900 mb-4">
               <ShieldCheck className="h-5 w-5 text-indigo-600 mr-2" />
               Implementation Guidelines
             </h3>
@@ -117,11 +117,11 @@ export const DetailedGeneSection: React.FC<DetailedGeneSectionProps> = ({ data }
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="p-3 bg-gray-50 rounded-lg">
                   <h4 className="text-gray-900 font-medium mb-2">Validation</h4>
-                  <p className="text-sm text-gray-700">Sequence verification recommended post-modification</p>
+                  <p className="text-sm text-gray-900">Sequence verification recommended post-modification</p>
                 </div>
                 <div className="p-3 bg-gray-50 rounded-lg">
                   <h4 className="text-gray-900 font-medium mb-2">Documentation</h4>
-                  <p className="text-sm text-gray-700">Maintain detailed records of all modifications</p>
+                  <p className="text-sm text-gray-900">Maintain detailed records of all modifications</p>
                 </div>
               </div>
             </div>

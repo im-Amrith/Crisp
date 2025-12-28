@@ -28,7 +28,7 @@ const SatelliteImagery: React.FC<SatelliteImageryProps> = ({ location }) => {
 
   // NASA Earth Observation API endpoint (this is a mock - you would use the actual API)
   const NASA_API_BASE = 'https://api.nasa.gov/planetary/earth/assets';
-  const NASA_API_KEY = 'DEMO_KEY'; // Replace with your actual API key
+  const NASA_API_KEY = process.env.NEXT_PUBLIC_NASA_API_KEY || 'DEMO_KEY';
 
   useEffect(() => {
     if (!location) return;
@@ -164,17 +164,17 @@ const SatelliteImagery: React.FC<SatelliteImageryProps> = ({ location }) => {
       <div className="p-4">
         {!location ? (
           <div className="text-center py-8">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 mx-auto text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 mx-auto text-gray-900 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
-            <p className="text-gray-600">Select a location to view satellite imagery analysis</p>
+            <p className="text-gray-900">Select a location to view satellite imagery analysis</p>
           </div>
         ) : (
           <div>
             <div className="flex flex-wrap gap-4 mb-6">
               <div className="space-x-2">
-                <span className="text-sm text-gray-600">Timeframe:</span>
+                <span className="text-sm text-gray-900">Timeframe:</span>
                 <select 
                   value={selectedTimeframe}
                   onChange={(e) => setSelectedTimeframe(e.target.value as '1month' | '6months' | '1year')}
@@ -187,7 +187,7 @@ const SatelliteImagery: React.FC<SatelliteImageryProps> = ({ location }) => {
               </div>
               
               <div className="space-x-2">
-                <span className="text-sm text-gray-600">Analysis Type:</span>
+                <span className="text-sm text-gray-900">Analysis Type:</span>
                 <select 
                   value={analysisType}
                   onChange={(e) => setAnalysisType(e.target.value as 'vegetation' | 'water' | 'urban')}
@@ -203,7 +203,7 @@ const SatelliteImagery: React.FC<SatelliteImageryProps> = ({ location }) => {
             {isLoading ? (
               <div className="text-center py-12">
                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-700 mx-auto mb-4"></div>
-                <p className="text-gray-600">Analyzing satellite imagery...</p>
+                <p className="text-gray-900">Analyzing satellite imagery...</p>
               </div>
             ) : error ? (
               <div className="bg-red-50 p-4 rounded-lg text-red-700">
@@ -213,7 +213,7 @@ const SatelliteImagery: React.FC<SatelliteImageryProps> = ({ location }) => {
               <div>
                 <div className="mb-6">
                   <h3 className="text-lg font-medium mb-2">Before & After Comparison</h3>
-                  <p className="text-sm text-gray-600 mb-4">
+                  <p className="text-sm text-gray-900 mb-4">
                     Slide to compare satellite images from {selectedTimeframe === '1month' ? 'last month' : 
                     selectedTimeframe === '6months' ? '6 months ago' : 'last year'} to today.
                   </p>
@@ -236,7 +236,7 @@ const SatelliteImagery: React.FC<SatelliteImageryProps> = ({ location }) => {
                     
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                       <div className="bg-white p-4 rounded-lg shadow-sm">
-                        <h4 className="text-sm font-medium text-gray-500 mb-1">Vegetation Health</h4>
+                        <h4 className="text-sm font-medium text-gray-900 mb-1">Vegetation Health</h4>
                         <div className={`text-2xl font-bold ${getScoreColor(analysisResults.vegetationHealthScore, 'vegetation')}`}>
                           {Math.round(analysisResults.vegetationHealthScore * 100)}%
                         </div>
@@ -252,7 +252,7 @@ const SatelliteImagery: React.FC<SatelliteImageryProps> = ({ location }) => {
                       </div>
                       
                       <div className="bg-white p-4 rounded-lg shadow-sm">
-                        <h4 className="text-sm font-medium text-gray-500 mb-1">Water Body Changes</h4>
+                        <h4 className="text-sm font-medium text-gray-900 mb-1">Water Body Changes</h4>
                         <div className={`text-2xl font-bold ${getScoreColor(analysisResults.waterBodyChanges, 'water')}`}>
                           {analysisResults.waterBodyChanges > 0 ? '+' : ''}{Math.round(analysisResults.waterBodyChanges * 100)}%
                         </div>
@@ -273,7 +273,7 @@ const SatelliteImagery: React.FC<SatelliteImageryProps> = ({ location }) => {
                       </div>
                       
                       <div className="bg-white p-4 rounded-lg shadow-sm">
-                        <h4 className="text-sm font-medium text-gray-500 mb-1">Urban Development</h4>
+                        <h4 className="text-sm font-medium text-gray-900 mb-1">Urban Development</h4>
                         <div className={`text-2xl font-bold ${getScoreColor(analysisResults.urbanDevelopmentScore, 'urban')}`}>
                           +{Math.round(analysisResults.urbanDevelopmentScore * 100)}%
                         </div>
@@ -291,13 +291,13 @@ const SatelliteImagery: React.FC<SatelliteImageryProps> = ({ location }) => {
                     
                     <div className="mt-6 flex items-center">
                       <div className="mr-4">
-                        <h4 className="text-sm font-medium text-gray-500">Deforestation Risk</h4>
+                        <h4 className="text-sm font-medium text-gray-900">Deforestation Risk</h4>
                         <span className={`inline-block mt-1 px-3 py-1 rounded-full text-xs font-medium ${getRiskBadgeColor(analysisResults.deforestationRisk)}`}>
                           {analysisResults.deforestationRisk.toUpperCase()}
                         </span>
                       </div>
                       
-                      <div className="flex-grow text-right text-xs text-gray-500">
+                      <div className="flex-grow text-right text-xs text-gray-900">
                         Analysis date: {analysisResults.analysisDate}
                       </div>
                     </div>

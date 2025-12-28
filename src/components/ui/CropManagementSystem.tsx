@@ -243,10 +243,10 @@ const CropManagementSystem: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 p-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
             🌾 Advanced Crop Management & Biosphere Integration
           </h1>
-          <p className="text-lg text-gray-600 max-w-4xl mx-auto">
+          <p className="text-lg text-gray-900 max-w-4xl mx-auto">
             Comprehensive farming solutions with advanced biosphere systems, smart fertilizer management, 
             and integrated pest control for maximum ROI
           </p>
@@ -257,18 +257,18 @@ const CropManagementSystem: React.FC = () => {
           <div className="space-y-6">
             {/* Basic Farm Setup */}
             <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-lg font-semibold mb-4 flex items-center">
+              <h3 className="text-lg font-semibold mb-4 flex items-center text-gray-900">
                 <Sprout className="w-5 h-5 mr-2 text-green-600" />
                 Farm Configuration
               </h3>
               
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Crop Type</label>
+                  <label className="block text-sm font-medium mb-2 text-gray-900">Crop Type</label>
                   <select
                     value={selectedCrop}
                     onChange={(e) => setSelectedCrop(e.target.value)}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 text-gray-900 bg-white"
                   >
                     <option value="rice">Rice (धान)</option>
                     <option value="wheat">Wheat (गेहूं)</option>
@@ -278,11 +278,11 @@ const CropManagementSystem: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Growth Stage</label>
+                  <label className="block text-sm font-medium mb-2 text-gray-900">Growth Stage</label>
                   <select
                     value={currentStage}
                     onChange={(e) => setCurrentStage(e.target.value)}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 text-gray-900 bg-white"
                   >
                     <option value="germination">Germination (अंकुरण)</option>
                     <option value="tillering">Tillering (कल्ले फूटना)</option>
@@ -292,11 +292,11 @@ const CropManagementSystem: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Soil Type</label>
+                  <label className="block text-sm font-medium mb-2 text-gray-900">Soil Type</label>
                   <select
                     value={soilType}
                     onChange={(e) => setSoilType(e.target.value)}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 text-gray-900 bg-white"
                   >
                     <option value="clay-loam">Clay Loam (चिकनी दोमट)</option>
                     <option value="sandy-loam">Sandy Loam (बलुई दोमट)</option>
@@ -306,7 +306,7 @@ const CropManagementSystem: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">
+                  <label className="block text-sm font-medium mb-2 text-gray-900">
                     Farm Size: {farmSize} hectare(s)
                   </label>
                   <input
@@ -324,7 +324,7 @@ const CropManagementSystem: React.FC = () => {
 
             {/* Biosphere Integration Selection */}
             <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-lg font-semibold mb-4 flex items-center">
+              <h3 className="text-lg font-semibold mb-4 flex items-center text-gray-900">
                 <Fish className="w-5 h-5 mr-2 text-blue-600" />
                 Biosphere Integration Systems
               </h3>
@@ -342,8 +342,8 @@ const CropManagementSystem: React.FC = () => {
                         className="mr-3"
                       />
                       <div>
-                        <div className="font-medium text-gray-800">{system.name}</div>
-                        <div className="text-sm text-gray-600">{system.description}</div>
+                        <div className="font-medium text-gray-900">{system.name}</div>
+                        <div className="text-sm text-gray-900">{system.description}</div>
                         <div className="text-xs text-green-600 mt-1">
                           ROI: +{system.roiIncrease}% | Investment: ₹{system.investmentRequired.toLocaleString()}/ha
                         </div>
@@ -361,7 +361,7 @@ const CropManagementSystem: React.FC = () => {
                     onChange={(e) => setSelectedIntegration(e.target.value)}
                     className="mr-3"
                   />
-                  <span className="text-gray-700">Traditional Farming (No Integration)</span>
+                  <span className="text-gray-900">Traditional Farming (No Integration)</span>
                 </label>
               </div>
             </div>
@@ -371,7 +371,7 @@ const CropManagementSystem: React.FC = () => {
           <div className="space-y-6">
             {/* Fertilizer Recommendations */}
             <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-lg font-semibold mb-4 flex items-center">
+              <h3 className="text-lg font-semibold mb-4 flex items-center text-gray-900">
                 <Beaker className="w-5 h-5 mr-2 text-purple-600" />
                 Smart Fertilizer Recommendations
               </h3>
@@ -380,19 +380,19 @@ const CropManagementSystem: React.FC = () => {
                 {fertilizerRecs.map((rec, index) => (
                   <div key={index} className="border border-gray-200 rounded-lg p-4">
                     <div className="flex justify-between items-start mb-2">
-                      <h4 className="font-semibold text-gray-800">{rec.type}</h4>
+                      <h4 className="font-semibold text-gray-900">{rec.type}</h4>
                       <span className="text-lg font-bold text-green-600">₹{rec.cost}</span>
                     </div>
                     
-                    <div className="grid grid-cols-2 gap-2 text-sm text-gray-600 mb-3">
+                    <div className="grid grid-cols-2 gap-2 text-sm text-gray-900 mb-3">
                       <div><strong>Amount:</strong> {rec.amount}</div>
                       <div><strong>Timing:</strong> {rec.timing}</div>
                     </div>
                     
                     <div className="space-y-1">
-                      <div className="text-sm font-medium text-gray-700">Benefits:</div>
+                      <div className="text-sm font-medium text-gray-900">Benefits:</div>
                       {rec.benefits.map((benefit, i) => (
-                        <div key={i} className="text-xs text-gray-600 flex items-center">
+                        <div key={i} className="text-xs text-gray-900 flex items-center">
                           <CheckCircle2 className="w-3 h-3 mr-1 text-green-500" />
                           {benefit}
                         </div>
@@ -405,7 +405,7 @@ const CropManagementSystem: React.FC = () => {
 
             {/* Pest Management */}
             <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-lg font-semibold mb-4 flex items-center">
+              <h3 className="text-lg font-semibold mb-4 flex items-center text-gray-900">
                 <Bug className="w-5 h-5 mr-2 text-red-600" />
                 Integrated Pest Management
               </h3>
@@ -414,7 +414,7 @@ const CropManagementSystem: React.FC = () => {
                 {pestManagement.map((pest, index) => (
                   <div key={index} className="border border-gray-200 rounded-lg p-4">
                     <div className="flex justify-between items-center mb-2">
-                      <h4 className="font-semibold text-gray-800">{pest.pest}</h4>
+                      <h4 className="font-semibold text-gray-900">{pest.pest}</h4>
                       <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
                         pest.severity === 'high' ? 'bg-red-100 text-red-800' :
                         pest.severity === 'medium' ? 'bg-yellow-100 text-yellow-800' :
@@ -426,8 +426,8 @@ const CropManagementSystem: React.FC = () => {
                     
                     <div className="space-y-2 text-sm">
                       <div>
-                        <strong className="text-gray-700">Chemical Treatment:</strong>
-                        <div className="text-gray-600">{pest.treatment}</div>
+                        <strong className="text-gray-900">Chemical Treatment:</strong>
+                        <div className="text-gray-900">{pest.treatment}</div>
                       </div>
                       
                       <div>
@@ -454,7 +454,7 @@ const CropManagementSystem: React.FC = () => {
           <div className="space-y-6">
             {/* ROI Analysis */}
             <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-lg font-semibold mb-4 flex items-center">
+              <h3 className="text-lg font-semibold mb-4 flex items-center text-gray-900">
                 <TrendingUp className="w-5 h-5 mr-2 text-green-600" />
                 ROI Analysis
               </h3>
@@ -502,26 +502,26 @@ const CropManagementSystem: React.FC = () => {
             {/* Implementation Guide */}
             {selectedIntegration && (
               <div className="bg-white rounded-xl shadow-lg p-6">
-                <h3 className="text-lg font-semibold mb-4 flex items-center">
+                <h3 className="text-lg font-semibold mb-4 flex items-center text-gray-900">
                   <Calendar className="w-5 h-5 mr-2 text-blue-600" />
                   Implementation Guide
                 </h3>
                 
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-gray-800 mb-2">
+                    <h4 className="font-semibold text-gray-900 mb-2">
                       {biosphereIntegrations[selectedIntegration].name}
                     </h4>
-                    <p className="text-sm text-gray-600 mb-3">
+                    <p className="text-sm text-gray-900 mb-3">
                       {biosphereIntegrations[selectedIntegration].description}
                     </p>
                   </div>
 
                   <div>
-                    <h5 className="font-medium text-gray-700 mb-2">Implementation Steps:</h5>
+                    <h5 className="font-medium text-gray-900 mb-2">Implementation Steps:</h5>
                     <ol className="space-y-1">
                       {biosphereIntegrations[selectedIntegration].implementation.map((step, index) => (
-                        <li key={index} className="text-sm text-gray-600 flex items-start">
+                        <li key={index} className="text-sm text-gray-900 flex items-start">
                           <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-1 rounded-full mr-2 mt-0.5">
                             {index + 1}
                           </span>
@@ -548,7 +548,7 @@ const CropManagementSystem: React.FC = () => {
 
             {/* Quick Actions */}
             <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-lg font-semibold mb-4 flex items-center">
+              <h3 className="text-lg font-semibold mb-4 flex items-center text-gray-900">
                 <Zap className="w-5 h-5 mr-2 text-yellow-600" />
                 Quick Actions
               </h3>

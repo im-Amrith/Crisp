@@ -20,7 +20,7 @@ const Testimonial: React.FC<TestimonialProps> = ({ quote, name, role, rating, im
           />
         ))}
       </div>
-      <p className="text-gray-600 mb-6 italic">"{quote}"</p>
+      <p className="text-gray-900 mb-6 italic">"{quote}"</p>
       <div className="flex items-center">
         <img 
           src={image} 
@@ -28,8 +28,8 @@ const Testimonial: React.FC<TestimonialProps> = ({ quote, name, role, rating, im
           className="h-12 w-12 rounded-full object-cover mr-4"
         />
         <div>
-          <h4 className="font-semibold text-gray-800">{name}</h4>
-          <p className="text-gray-500 text-sm">{role}</p>
+          <h4 className="font-semibold text-gray-900">{name}</h4>
+          <p className="text-gray-900 text-sm">{role}</p>
         </div>
       </div>
     </div>
@@ -66,7 +66,7 @@ export const Testimonials: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">What Gardeners Say</h2>
-          <p className="max-w-2xl mx-auto text-gray-600 text-lg">
+          <p className="max-w-2xl mx-auto text-gray-900 text-lg">
             Join thousands of gardeners who are growing better with AI-powered advice.
           </p>
         </div>

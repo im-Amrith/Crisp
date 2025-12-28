@@ -78,7 +78,7 @@ const IndianFarmingFeatures: React.FC = () => {
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Designed for <span className="text-orange-600">Indian Farmers</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-900 max-w-3xl mx-auto">
             Our platform understands the unique challenges of Indian agriculture - from monsoon patterns 
             to regional crop varieties, from APMC regulations to government schemes.
           </p>
@@ -105,7 +105,7 @@ const IndianFarmingFeatures: React.FC = () => {
                 <h3 className="text-lg font-bold text-gray-900 mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-gray-900 text-sm leading-relaxed">
                   {feature.description}
                 </p>
               </div>
@@ -129,7 +129,7 @@ const IndianFarmingFeatures: React.FC = () => {
                   <div className="text-sm text-green-600 font-medium">{state.farmers}</div>
                 </div>
                 <div className="space-y-2">
-                  <div className="text-sm text-gray-600">Primary Crops:</div>
+                  <div className="text-sm text-gray-900">Primary Crops:</div>
                   <div className="flex flex-wrap gap-1">
                     {state.crops.map((crop, idx) => (
                       <span
@@ -163,17 +163,17 @@ const IndianFarmingFeatures: React.FC = () => {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <h4 className="text-xl font-bold text-gray-900">{season.season}</h4>
-                    <div className="flex items-center text-sm text-gray-600">
+                    <div className="flex items-center text-sm text-gray-900">
                       <Clock className="w-4 h-4 mr-1" />
                       {season.months}
                     </div>
                   </div>
                   
                   <div className="space-y-2">
-                    <div className="text-sm text-gray-600">Main Crops:</div>
+                    <div className="text-sm text-gray-900">Main Crops:</div>
                     <div className="space-y-1">
                       {season.crops.map((crop, idx) => (
-                        <div key={idx} className="flex items-center text-sm text-gray-700">
+                        <div key={idx} className="flex items-center text-sm text-gray-900">
                           <div className={`w-2 h-2 ${season.color} rounded-full mr-2`}></div>
                           {crop}
                         </div>

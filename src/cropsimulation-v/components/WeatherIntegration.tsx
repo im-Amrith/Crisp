@@ -103,23 +103,23 @@ const WeatherIntegration: React.FC<WeatherIntegrationProps> = ({
   const getWeatherIcon = (condition: string) => {
     const conditionLower = condition.toLowerCase();
     if (conditionLower.includes('sunny') || conditionLower.includes('clear')) return <Sun className="w-6 h-6 text-yellow-500" />;
-    if (conditionLower.includes('cloud')) return <Cloud className="w-6 h-6 text-gray-500" />;
+    if (conditionLower.includes('cloud')) return <Cloud className="w-6 h-6 text-gray-900" />;
     if (conditionLower.includes('rain')) return <Droplets className="w-6 h-6 text-blue-500" />;
-    if (conditionLower.includes('wind')) return <Wind className="w-6 h-6 text-gray-400" />;
-    return <Cloud className="w-6 h-6 text-gray-500" />;
+    if (conditionLower.includes('wind')) return <Wind className="w-6 h-6 text-gray-900" />;
+    return <Cloud className="w-6 h-6 text-gray-900" />;
   };
 
   return (
     <div className="bg-white rounded-xl shadow-lg p-6 space-y-4 max-w-sm">
       <div className="flex items-center justify-between">
-        <h2 className="text-xl font-bold text-gray-800 flex items-center space-x-2">
+        <h2 className="text-xl font-bold text-gray-900 flex items-center space-x-2">
           <MapPin className="w-5 h-5 text-blue-600" />
           <span>Real Weather Integration</span>
         </h2>
         <button
           onClick={refreshWeather}
           disabled={loading}
-          className="p-2 text-gray-600 hover:text-blue-600 transition-colors disabled:opacity-50"
+          className="p-2 text-gray-900 hover:text-blue-600 transition-colors disabled:opacity-50"
           title="Refresh weather data"
         >
           <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
@@ -165,11 +165,11 @@ const WeatherIntegration: React.FC<WeatherIntegrationProps> = ({
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center space-x-2">
                 {getWeatherIcon(weatherData.current.condition.text)}
-                <span className="font-semibold text-gray-800">
+                <span className="font-semibold text-gray-900">
                   {weatherData.current.condition.text}
                 </span>
               </div>
-              <span className="text-sm text-gray-600">
+              <span className="text-sm text-gray-900">
                 {weatherData.location.name}, {weatherData.location.country}
               </span>
             </div>
@@ -177,25 +177,25 @@ const WeatherIntegration: React.FC<WeatherIntegrationProps> = ({
             <div className="grid grid-cols-2 gap-4">
               <div className="flex items-center space-x-2">
                 <Thermometer className="w-4 h-4 text-red-500" />
-                <span className="text-sm text-gray-700">
+                <span className="text-sm text-gray-900">
                   {weatherData.current.temp_c}°C
                 </span>
               </div>
               <div className="flex items-center space-x-2">
                 <Droplets className="w-4 h-4 text-blue-500" />
-                <span className="text-sm text-gray-700">
+                <span className="text-sm text-gray-900">
                   {weatherData.current.humidity}%
                 </span>
               </div>
               <div className="flex items-center space-x-2">
-                <Wind className="w-4 h-4 text-gray-500" />
-                <span className="text-sm text-gray-700">
+                <Wind className="w-4 h-4 text-gray-900" />
+                <span className="text-sm text-gray-900">
                   {(weatherData.current.wind_kph / 3.6).toFixed(1)} m/s
                 </span>
               </div>
               <div className="flex items-center space-x-2">
                 <Sun className="w-4 h-4 text-yellow-500" />
-                <span className="text-sm text-gray-700">
+                <span className="text-sm text-gray-900">
                   UV: {weatherData.current.uv}
                 </span>
               </div>
@@ -242,7 +242,7 @@ const WeatherIntegration: React.FC<WeatherIntegrationProps> = ({
 
           {/* Last Updated */}
           {lastUpdated && (
-            <div className="text-xs text-gray-500 text-center">
+            <div className="text-xs text-gray-900 text-center">
               Last updated: {lastUpdated.toLocaleTimeString()}
             </div>
           )}
@@ -264,7 +264,7 @@ const WeatherIntegration: React.FC<WeatherIntegrationProps> = ({
       {loading && (
         <div className="flex items-center justify-center py-8">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
-          <span className="ml-3 text-gray-600">Fetching weather data...</span>
+          <span className="ml-3 text-gray-900">Fetching weather data...</span>
         </div>
       )}
     </div>

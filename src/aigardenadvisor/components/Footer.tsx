@@ -139,17 +139,17 @@ export const Footer: React.FC = () => {
         </div>
         
         <div className="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-900 text-sm">
             &copy; {currentYear} AI Garden Advisor. All rights reserved.
           </p>
           <div className="mt-4 md:mt-0 flex space-x-6">
-            <a href="#" className="text-gray-400 hover:text-green-400 text-sm transition-colors">
+            <a href="#" className="text-gray-900 hover:text-green-400 text-sm transition-colors">
               Privacy Policy
             </a>
-            <a href="#" className="text-gray-400 hover:text-green-400 text-sm transition-colors">
+            <a href="#" className="text-gray-900 hover:text-green-400 text-sm transition-colors">
               Terms of Service
             </a>
-            <a href="#" className="text-gray-400 hover:text-green-400 text-sm transition-colors">
+            <a href="#" className="text-gray-900 hover:text-green-400 text-sm transition-colors">
               Cookie Policy
             </a>
           </div>

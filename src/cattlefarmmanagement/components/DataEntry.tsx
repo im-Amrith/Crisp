@@ -107,12 +107,12 @@ const DataEntry = () => {
     setEditingRecord(null);
   };
 
-  const inputClassName = "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 bg-gray-50 text-gray-800 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200";
-  const labelClassName = "block text-sm font-medium text-gray-700"; // Removed dark:text-black since it's redundant/not always needed with dark:text-gray-200 on inputs
+  const inputClassName = "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 bg-gray-50 text-gray-900 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200";
+  const labelClassName = "block text-sm font-medium text-gray-900"; // Removed dark:text-black since it's redundant/not always needed with dark:text-gray-200 on inputs
 
   return (
     <div className="space-y-8 p-6 bg-gray-50 min-h-screen">
-      <h1 className="text-3xl font-extrabold text-gray-800 flex items-center">
+      <h1 className="text-3xl font-extrabold text-gray-900 flex items-center">
         <Milk className="h-8 w-8 mr-3 text-green-600" />
         Milk Production Entry
       </h1>
@@ -128,7 +128,7 @@ const DataEntry = () => {
       )}
 
       <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
-        <h2 className="text-xl font-semibold mb-6 text-gray-800 flex items-center">
+        <h2 className="text-xl font-semibold mb-6 text-gray-900 flex items-center">
           <PlusCircle className="h-5 w-5 mr-2 text-green-600" />
           {editingRecord ? 'Edit Milk Record' : 'Add New Milk Record'}
         </h2>
@@ -185,7 +185,7 @@ const DataEntry = () => {
             <button
               type="button"
               onClick={resetForm}
-              className="inline-flex items-center px-5 py-2.5 border border-gray-300 shadow-sm text-base font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors"
+              className="inline-flex items-center px-5 py-2.5 border border-gray-300 shadow-sm text-base font-medium rounded-lg text-gray-900 bg-white hover:bg-gray-50 transition-colors"
             >
               <Trash2 className="h-5 w-5 mr-2" />
               Clear Form
@@ -203,7 +203,7 @@ const DataEntry = () => {
       </div>
 
       <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
-        <h2 className="text-xl font-semibold mb-6 text-gray-800">Past 30 Days Records</h2>
+        <h2 className="text-xl font-semibold mb-6 text-gray-900">Past 30 Days Records</h2>
         <div className="overflow-x-auto">
           {records.length > 0 ? (
             <table className="min-w-full divide-y divide-gray-200">
@@ -221,11 +221,11 @@ const DataEntry = () => {
                 {/* REMOVED WHITESPACE: This line must be immediately followed by <tr>, or the map result */}
                 {records.map((record) => (
                   <tr key={record.id} className="hover:bg-gray-50 transition-colors duration-150">
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                       {format(new Date(record.date), 'dd MMM yyyy')}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{record.morning_milk.toFixed(1)}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{record.evening_milk.toFixed(1)}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{record.morning_milk.toFixed(1)}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{record.evening_milk.toFixed(1)}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-green-700 font-semibold">{record.total_milk.toFixed(1)}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                       <div className="flex space-x-3">
@@ -267,7 +267,7 @@ const DataEntry = () => {
               </tfoot>
             </table>
           ) : (
-            <p className="text-gray-600 text-center py-8">No milk records available for this month.</p>
+            <p className="text-gray-900 text-center py-8">No milk records available for this month.</p>
           )}
         </div>
       </div>

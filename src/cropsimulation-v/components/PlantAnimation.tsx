@@ -2020,10 +2020,10 @@ const PlantAnimation: React.FC<PlantAnimationProps> = ({
       
       {/* BBCH stage indicator with ROOT DEPTH information */}
       <div className="absolute top-4 left-4 bg-white bg-opacity-95 rounded-lg p-3 text-xs border border-gray-200 shadow-lg">
-        <div className="font-bold text-gray-800 mb-1">
+        <div className="font-bold text-gray-900 mb-1">
           {currentStage ? `BBCH ${currentStage.code}` : 'Not Started'}
         </div>
-        <div className="text-gray-600 mb-1 text-xs leading-tight">
+        <div className="text-gray-900 mb-1 text-xs leading-tight">
           {currentStage?.stage.description || 'Select crop to begin'}
         </div>
         <div className="text-blue-600 font-medium">

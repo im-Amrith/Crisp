@@ -37,7 +37,7 @@ const HeroSection: React.FC = () => {
               </span>
             </h1>
 
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-xl text-gray-900 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
               Revolutionize your farming with AI-powered insights, real-time crop monitoring, and predictive analytics. 
               Designed specifically for Indian agriculture with support for Hindi, regional crops, and local market data.
             </p>
@@ -62,15 +62,15 @@ const HeroSection: React.FC = () => {
 
             {/* Key Features */}
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
-              <div className="flex items-center text-gray-600">
+              <div className="flex items-center text-gray-900">
                 <Zap className="w-4 h-4 mr-2 text-yellow-500" />
                 AI-Powered Insights
               </div>
-              <div className="flex items-center text-gray-600">
+              <div className="flex items-center text-gray-900">
                 <Globe className="w-4 h-4 mr-2 text-blue-500" />
                 India-Specific Data
               </div>
-              <div className="flex items-center text-gray-600">
+              <div className="flex items-center text-gray-900">
                 <Wheat className="w-4 h-4 mr-2 text-green-500" />
                 Regional Crop Support
               </div>
@@ -87,7 +87,7 @@ const HeroSection: React.FC = () => {
               
               <div className="p-6 space-y-4">
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Rice (Basmati)</span>
+                  <span className="text-gray-900">Rice (Basmati)</span>
                   <span className="text-green-600 font-semibold">Excellent Health</span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2">
@@ -97,11 +97,11 @@ const HeroSection: React.FC = () => {
                 <div className="grid grid-cols-2 gap-4 pt-4">
                   <div className="text-center p-3 bg-blue-50 rounded-lg">
                     <div className="text-2xl font-bold text-blue-600">28°C</div>
-                    <div className="text-xs text-gray-600">Temperature</div>
+                    <div className="text-xs text-gray-900">Temperature</div>
                   </div>
                   <div className="text-center p-3 bg-green-50 rounded-lg">
                     <div className="text-2xl font-bold text-green-600">85%</div>
-                    <div className="text-xs text-gray-600">Soil Moisture</div>
+                    <div className="text-xs text-gray-900">Soil Moisture</div>
                   </div>
                 </div>
               </div>

@@ -60,7 +60,7 @@ export const CropForm: React.FC<CropFormProps> = ({ onSubmit, isLoading, apiStat
         <h2 className="text-3xl font-bold text-gray-900 mb-4">
           Find Gene Information
         </h2>
-        <p className="text-lg text-gray-600">
+        <p className="text-lg text-gray-900">
           Enter crop and trait information to discover relevant genes and CRISPR gRNAs
         </p>
       </div>
@@ -84,7 +84,7 @@ export const CropForm: React.FC<CropFormProps> = ({ onSubmit, isLoading, apiStat
       <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="crop" className="flex items-center text-sm font-semibold text-gray-700 mb-3">
+            <label htmlFor="crop" className="flex items-center text-sm font-semibold text-gray-900 mb-3">
               <Sprout className="h-4 w-4 mr-2 text-green-600" />
               Crop Name
             </label>
@@ -107,7 +107,7 @@ export const CropForm: React.FC<CropFormProps> = ({ onSubmit, isLoading, apiStat
               ))}
             </select>
             <div className="mt-3">
-              <p className="text-xs text-gray-500 mb-2">Available crops:</p>
+              <p className="text-xs text-gray-900 mb-2">Available crops:</p>
               <div className="flex flex-wrap gap-2">
                 {cropsList.map((c) => (
                   <button
@@ -128,7 +128,7 @@ export const CropForm: React.FC<CropFormProps> = ({ onSubmit, isLoading, apiStat
           </div>
 
           <div>
-            <label htmlFor="trait" className="flex items-center text-sm font-semibold text-gray-700 mb-3">
+            <label htmlFor="trait" className="flex items-center text-sm font-semibold text-gray-900 mb-3">
               <Target className="h-4 w-4 mr-2 text-blue-600" />
               Trait of Interest
             </label>
@@ -148,7 +148,7 @@ export const CropForm: React.FC<CropFormProps> = ({ onSubmit, isLoading, apiStat
               ))}
             </select>
             <div className="mt-3">
-              <p className="text-xs text-gray-500 mb-2">Available traits for selected crop:</p>
+              <p className="text-xs text-gray-900 mb-2">Available traits for selected crop:</p>
               <div className="flex flex-wrap gap-2">
                 {traitsList.map((t) => (
                   <button

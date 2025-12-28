@@ -110,7 +110,7 @@ const Analytics = () => {
             value={comparisonMonths}
             onChange={(e) => handleTimeRangeChange(Number(e.target.value))}
             className="appearance-none bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 
-                     text-gray-700 dark:text-gray-200 py-2 px-4 pr-8 rounded-lg shadow-sm 
+                     text-gray-900 dark:text-gray-200 py-2 px-4 pr-8 rounded-lg shadow-sm 
                      focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
                      disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={loading}
@@ -121,7 +121,7 @@ const Analytics = () => {
               </option>
             ))}
           </select>
-          <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 pointer-events-none" />
+          <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-900 pointer-events-none" />
         </div>
       </div>
       </div>

@@ -101,7 +101,7 @@ const ParameterSliders: React.FC<ParameterSlidersProps> = ({ parameters, onParam
   const autoKeys = ['humidity', 'windSpeed', 'soilPh', 'soilNitrogen'];
   return (
     <div className="bg-white rounded-xl shadow-lg p-6 space-y-6">
-      <h2 className="text-xl font-bold text-gray-800 mb-4">Environmental Parameters</h2>
+      <h2 className="text-xl font-bold text-gray-900 mb-4">Environmental Parameters</h2>
       
       {sliderConfig.map(({ key, label, icon: Icon, min, max, unit, color, bgColor, weatherControlled }) => (
         <div key={key} className={`p-4 rounded-lg ${bgColor} transition-all duration-200 hover:shadow-md ${
@@ -109,8 +109,8 @@ const ParameterSliders: React.FC<ParameterSlidersProps> = ({ parameters, onParam
         }`}>
           <div className="mb-3">
             <div className="flex items-center space-x-2">
-              <Icon className="w-5 h-5 text-gray-600" />
-              <span className="font-medium text-gray-700">{label}</span>
+              <Icon className="w-5 h-5 text-gray-900" />
+              <span className="font-medium text-gray-900">{label}</span>
               {autoKeys.includes(key) && (
                 <span className="px-1 py-0 text-[9px] bg-green-100 text-green-700 rounded whitespace-nowrap">
                   Auto (from Weather/Soil API)
@@ -122,7 +122,7 @@ const ParameterSliders: React.FC<ParameterSlidersProps> = ({ parameters, onParam
                 </span>
               )}
             </div>
-            <span className="block text-sm font-bold text-gray-800 mt-2 whitespace-nowrap">
+            <span className="block text-sm font-bold text-gray-900 mt-2 whitespace-nowrap">
               {key === 'windSpeed' ? Number(parameters[key]).toFixed(2) : parameters[key]} {unit}
             </span>
           </div>
@@ -146,7 +146,7 @@ const ParameterSliders: React.FC<ParameterSlidersProps> = ({ parameters, onParam
                   rgb(229, 231, 235) 100%)`
               }}
             />
-            <div className="flex justify-between text-xs text-gray-500 mt-1">
+            <div className="flex justify-between text-xs text-gray-900 mt-1">
               <span>{min}</span>
               <span>{max}</span>
             </div>

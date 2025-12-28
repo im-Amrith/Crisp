@@ -297,7 +297,7 @@ function App() {
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-gray-900">CropSim Pro</h1>
-                <p className="text-sm text-gray-600">Advanced Plant Growth Simulation System</p>
+                <p className="text-sm text-gray-900">Advanced Plant Growth Simulation System</p>
               </div>
               {isInitialized && (
                 <div className="flex items-center space-x-2 bg-blue-100 px-3 py-1 rounded-full">
@@ -311,7 +311,7 @@ function App() {
               {/* Geolocation Toggle */}
               {geolocationService.isSupported() && (
                 <div className="flex items-center space-x-2">
-                  <MapPin className="w-4 h-4 text-gray-600" />
+                  <MapPin className="w-4 h-4 text-gray-900" />
                   <label className="relative inline-flex items-center cursor-pointer">
                     <input
                       type="checkbox"
@@ -327,10 +327,10 @@ function App() {
 
               {/* Crop Selector */}
               <div className="flex items-center space-x-2">
-                <Settings className="w-4 h-4 text-gray-600" />
+                <Settings className="w-4 h-4 text-gray-900" />
                 <div className="flex flex-col">
                   {!selectedCrop && (
-                    <label className="text-xs text-gray-600 mb-1">Select a crop...</label>
+                    <label className="text-xs text-gray-900 mb-1">Select a crop...</label>
                   )}
                   <select
                     value={selectedCrop}
@@ -475,10 +475,10 @@ function App() {
               <div className="bg-white rounded-xl shadow-lg p-8">
                 <Sprout className="w-16 h-16 text-green-600 mx-auto mb-4" />
                 <h2 className="text-2xl font-extrabold text-gray-900 mb-3 text-center">Welcome to CropSim Pro</h2>
-                <p className="text-base text-gray-700 mb-4 text-center">
+                <p className="text-base text-gray-900 mb-4 text-center">
                   Set up your weather location and select a crop to begin simulation!
                 </p>
-                <ul className="list-disc list-inside text-gray-700 text-left mx-auto max-w-xs">
+                <ul className="list-disc list-inside text-gray-900 text-left mx-auto max-w-xs">
                   <li>Use the Location Selector to choose your state/city</li>
                   <li>Or use "Use My Location" toggle to auto-detect</li>
                   <li>Select a crop from the dropdown</li>
@@ -513,7 +513,7 @@ function App() {
       {/* Footer */}
       <footer className="bg-white border-t border-gray-200 mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="text-center text-gray-600">
+          <div className="text-center text-gray-900">
             <p className="mb-2">
               <strong>CropSim Pro</strong> - Advanced Plant Growth Simulation System
             </p>

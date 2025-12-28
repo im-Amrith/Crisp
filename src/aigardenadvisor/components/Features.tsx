@@ -23,7 +23,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description, col
     <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-700 transition-colors duration-300">
       {title}
     </h3>
-    <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+    <p className="text-gray-900 leading-relaxed group-hover:text-gray-900 transition-colors duration-300">
       {description}
     </p>
     
@@ -105,7 +105,7 @@ export const Features: React.FC = () => {
             <span className="text-gray-900">Made Simple</span>
           </h2>
           
-          <p className="max-w-3xl mx-auto text-gray-600 text-xl leading-relaxed">
+          <p className="max-w-3xl mx-auto text-gray-900 text-xl leading-relaxed">
             Our cutting-edge AI platform combines machine learning, satellite data, and local expertise 
             to give you the most accurate gardening advice available.
           </p>
@@ -129,19 +129,19 @@ export const Features: React.FC = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div className="animate-scale-in">
               <div className="text-4xl font-bold text-green-600 mb-2">50K+</div>
-              <div className="text-gray-600 font-medium">Happy Gardeners</div>
+              <div className="text-gray-900 font-medium">Happy Gardeners</div>
             </div>
             <div className="animate-scale-in" style={{ animationDelay: '0.1s' }}>
               <div className="text-4xl font-bold text-blue-600 mb-2">98.5%</div>
-              <div className="text-gray-600 font-medium">Success Rate</div>
+              <div className="text-gray-900 font-medium">Success Rate</div>
             </div>
             <div className="animate-scale-in" style={{ animationDelay: '0.2s' }}>
               <div className="text-4xl font-bold text-purple-600 mb-2">2M+</div>
-              <div className="text-gray-600 font-medium">Plants Tracked</div>
+              <div className="text-gray-900 font-medium">Plants Tracked</div>
             </div>
             <div className="animate-scale-in" style={{ animationDelay: '0.3s' }}>
               <div className="text-4xl font-bold text-orange-600 mb-2">365</div>
-              <div className="text-gray-600 font-medium">Days Support</div>
+              <div className="text-gray-900 font-medium">Days Support</div>
             </div>
           </div>
         </div>

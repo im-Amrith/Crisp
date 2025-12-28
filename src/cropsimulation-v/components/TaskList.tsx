@@ -45,7 +45,7 @@ const TaskList: React.FC<TaskListProps> = ({ currentStage, parameters }) => {
       case 'high': return 'text-red-600 bg-red-100 border-red-200';
       case 'medium': return 'text-yellow-600 bg-yellow-100 border-yellow-200';
       case 'low': return 'text-green-600 bg-green-100 border-green-200';
-      default: return 'text-gray-600 bg-gray-100 border-gray-200';
+      default: return 'text-gray-900 bg-gray-100 border-gray-200';
     }
   };
 
@@ -64,8 +64,8 @@ const TaskList: React.FC<TaskListProps> = ({ currentStage, parameters }) => {
   return (
     <div className="bg-white rounded-xl shadow-lg p-6">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-bold text-gray-800">Daily Tasks</h2>
-        <div className="text-sm text-gray-600">
+        <h2 className="text-xl font-bold text-gray-900">Daily Tasks</h2>
+        <div className="text-sm text-gray-900">
           {completedTasks}/{totalTasks} completed
         </div>
       </div>
@@ -83,8 +83,8 @@ const TaskList: React.FC<TaskListProps> = ({ currentStage, parameters }) => {
       {/* Task List */}
       <div className="space-y-3">
         {tasks.length === 0 ? (
-          <div className="text-center py-8 text-gray-500">
-            <Leaf className="w-12 h-12 mx-auto mb-2 text-gray-400" />
+          <div className="text-center py-8 text-gray-900">
+            <Leaf className="w-12 h-12 mx-auto mb-2 text-gray-900" />
             <p>No tasks available for current stage</p>
           </div>
         ) : (
@@ -111,7 +111,7 @@ const TaskList: React.FC<TaskListProps> = ({ currentStage, parameters }) => {
                 
                 <div className="flex-1">
                   <div className="flex items-center space-x-2 mb-1">
-                    <h3 className={`font-medium ${task.completed ? 'line-through text-gray-500' : 'text-gray-800'}`}>
+                    <h3 className={`font-medium ${task.completed ? 'line-through text-gray-900' : 'text-gray-900'}`}>
                       {task.title}
                     </h3>
                     <span className={`px-2 py-1 rounded-full text-xs font-medium border ${getPriorityColor(task.priority)}`}>
@@ -121,11 +121,11 @@ const TaskList: React.FC<TaskListProps> = ({ currentStage, parameters }) => {
                       </div>
                     </span>
                   </div>
-                  <p className={`text-sm ${task.completed ? 'text-gray-400' : 'text-gray-600'}`}>
+                  <p className={`text-sm ${task.completed ? 'text-gray-900' : 'text-gray-900'}`}>
                     {task.description}
                   </p>
                   <div className="mt-2">
-                    <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
+                    <span className="text-xs text-gray-900 bg-gray-100 px-2 py-1 rounded">
                       {task.category}
                     </span>
                   </div>
@@ -144,19 +144,19 @@ const TaskList: React.FC<TaskListProps> = ({ currentStage, parameters }) => {
               <div className="text-lg font-bold text-red-600">
                 {tasks.filter(t => t.priority === 'high' && !t.completed).length}
               </div>
-              <div className="text-xs text-gray-600">High Priority</div>
+              <div className="text-xs text-gray-900">High Priority</div>
             </div>
             <div>
               <div className="text-lg font-bold text-yellow-600">
                 {tasks.filter(t => t.priority === 'medium' && !t.completed).length}
               </div>
-              <div className="text-xs text-gray-600">Medium Priority</div>
+              <div className="text-xs text-gray-900">Medium Priority</div>
             </div>
             <div>
               <div className="text-lg font-bold text-green-600">
                 {tasks.filter(t => t.priority === 'low' && !t.completed).length}
               </div>
-              <div className="text-xs text-gray-600">Low Priority</div>
+              <div className="text-xs text-gray-900">Low Priority</div>
             </div>
           </div>
         </div>

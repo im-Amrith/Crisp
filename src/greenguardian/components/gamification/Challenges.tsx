@@ -149,7 +149,7 @@ const Challenges: React.FC = () => {
       case 'community':
         return 'bg-green-100 text-green-800';
       default:
-        return 'bg-gray-100 text-gray-800';
+        return 'bg-gray-100 text-gray-900';
     }
   };
 
@@ -162,7 +162,7 @@ const Challenges: React.FC = () => {
       case 'hard':
         return 'text-red-600';
       default:
-        return 'text-gray-600';
+        return 'text-gray-900';
     }
   };
 
@@ -185,7 +185,7 @@ const Challenges: React.FC = () => {
             className={`px-4 py-3 text-sm font-medium ${
               activeTab === 'available' 
                 ? 'border-b-2 border-green-500 text-green-600' 
-                : 'text-gray-500 hover:text-gray-700'
+                : 'text-gray-900 hover:text-gray-900'
             }`}
             onClick={() => setActiveTab('available')}
           >
@@ -195,7 +195,7 @@ const Challenges: React.FC = () => {
             className={`px-4 py-3 text-sm font-medium ${
               activeTab === 'active' 
                 ? 'border-b-2 border-green-500 text-green-600' 
-                : 'text-gray-500 hover:text-gray-700'
+                : 'text-gray-900 hover:text-gray-900'
             }`}
             onClick={() => setActiveTab('active')}
           >
@@ -205,7 +205,7 @@ const Challenges: React.FC = () => {
             className={`px-4 py-3 text-sm font-medium ${
               activeTab === 'completed' 
                 ? 'border-b-2 border-green-500 text-green-600' 
-                : 'text-gray-500 hover:text-gray-700'
+                : 'text-gray-900 hover:text-gray-900'
             }`}
             onClick={() => setActiveTab('completed')}
           >
@@ -216,7 +216,7 @@ const Challenges: React.FC = () => {
       
       <div className="p-4">
         {filteredChallenges.length === 0 ? (
-          <div className="text-center py-8 text-gray-500">
+          <div className="text-center py-8 text-gray-900">
             No challenges in this category yet.
           </div>
         ) : (
@@ -236,7 +236,7 @@ const Challenges: React.FC = () => {
                     </div>
                   </div>
                   
-                  <p className="text-sm text-gray-600 mt-1">{challenge.description}</p>
+                  <p className="text-sm text-gray-900 mt-1">{challenge.description}</p>
                   
                   <div className="flex flex-wrap gap-2 mt-3">
                     <span className={`px-2 py-1 rounded-full text-xs font-medium ${getCategoryColor(challenge.category)}`}>
@@ -245,14 +245,14 @@ const Challenges: React.FC = () => {
                     <span className={`px-2 py-1 rounded-full text-xs font-medium bg-gray-100 ${getDifficultyColor(challenge.difficulty)}`}>
                       {challenge.difficulty.charAt(0).toUpperCase() + challenge.difficulty.slice(1)}
                     </span>
-                    <span className="px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+                    <span className="px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-900">
                       {challenge.duration}
                     </span>
                   </div>
                   
                   {activeTab === 'available' && (
                     <div className="mt-4">
-                      <div className="flex items-center text-xs text-gray-500 mb-1">
+                      <div className="flex items-center text-xs text-gray-900 mb-1">
                         <span>Completion rate: {challenge.completionRate}%</span>
                         <span className="flex-grow"></span>
                         <span>{challenge.completionRate > 75 ? 'Popular!' : challenge.completionRate < 50 ? 'Challenging' : ''}</span>
@@ -274,7 +274,7 @@ const Challenges: React.FC = () => {
                   
                   {activeTab === 'active' && (
                     <div className="mt-4">
-                      <div className="flex justify-between text-xs text-gray-500 mb-1">
+                      <div className="flex justify-between text-xs text-gray-900 mb-1">
                         <span>Started: {challenge.startDate}</span>
                         <span>Ends: {challenge.endDate}</span>
                       </div>
@@ -293,7 +293,7 @@ const Challenges: React.FC = () => {
                             ));
                           }}
                         >
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-900" viewBox="0 0 20 20" fill="currentColor">
                             <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
                           </svg>
                         </button>

@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local test scripts
+src/greenguardian/test-*.js
+
+# python
+.venv
+__pycache__/
+*.py[cod]

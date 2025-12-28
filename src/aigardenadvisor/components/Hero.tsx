@@ -20,7 +20,7 @@ export const Hero: React.FC = () => {
               <span className="block text-green-600 mt-2">for your garden</span>
             </h1>
             
-            <p className="mt-6 text-base text-gray-600 sm:text-lg md:text-xl max-w-2xl">
+            <p className="mt-6 text-base text-gray-900 sm:text-lg md:text-xl max-w-2xl">
               Get personalized crop advice for your garden. Our AI-powered advisor helps you choose the right plants based on your location, soil type, and growing conditions.
             </p>
             
@@ -57,12 +57,12 @@ export const Hero: React.FC = () => {
               {/* Floating Stats Cards */}
               <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-sm rounded-lg px-4 py-3 shadow-lg">
                 <div className="text-2xl font-bold text-green-600">98%</div>
-                <div className="text-sm text-gray-600">Success Rate</div>
+                <div className="text-sm text-gray-900">Success Rate</div>
               </div>
               
               <div className="absolute bottom-6 right-6 bg-white/90 backdrop-blur-sm rounded-lg px-4 py-3 shadow-lg">
                 <div className="text-2xl font-bold text-green-600">50K+</div>
-                <div className="text-sm text-gray-600">Happy Gardeners</div>
+                <div className="text-sm text-gray-900">Happy Gardeners</div>
               </div>
             </div>
             

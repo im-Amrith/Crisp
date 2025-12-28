@@ -36,7 +36,7 @@ const Loading: React.FC<LoadingProps> = ({
           </div>
           <div className="flex items-center justify-center space-x-2 mb-2">
             <Loader2 className="w-5 h-5 text-green-600 animate-spin" />
-            <span className="text-gray-700 font-medium">Loading FarmHub</span>
+            <span className="text-gray-900 font-medium">Loading FarmHub</span>
           </div>
           <div className="flex space-x-1 justify-center">
             <div className="w-2 h-2 bg-green-500 rounded-full animate-bounce"></div>
@@ -51,7 +51,7 @@ const Loading: React.FC<LoadingProps> = ({
   return (
     <div className="flex items-center justify-center space-x-3 p-4">
       <Loader2 className={`${sizes[size]} text-green-600 animate-spin`} />
-      <span className={`${textSizes[size]} text-gray-700 font-medium`}>{text}</span>
+      <span className={`${textSizes[size]} text-gray-900 font-medium`}>{text}</span>
     </div>
   );
 };

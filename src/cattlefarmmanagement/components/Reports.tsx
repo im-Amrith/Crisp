@@ -157,7 +157,7 @@ const Reports = () => {
   return (
     <div className="space-y-8 p-6 bg-gray-50 min-h-screen"> {/* Light theme background */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <h1 className="text-3xl font-extrabold text-gray-800 flex items-center">
+        <h1 className="text-3xl font-extrabold text-gray-900 flex items-center">
           <BarChart className="h-8 w-8 mr-3 text-green-600" /> {/* Themed icon */}
           Production Reports
         </h1>
@@ -168,9 +168,9 @@ const Reports = () => {
             type="month"
             value={activeMonth}
             onChange={(e) => setActiveMonth(e.target.value)}
-            className="pl-4 pr-10 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500 bg-white text-gray-800"
+            className="pl-4 pr-10 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500 bg-white text-gray-900"
           />
-          <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-500 pointer-events-none" /> {/* Calendar icon */}
+          <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-900 pointer-events-none" /> {/* Calendar icon */}
         </div>
       </div>
 
@@ -178,7 +178,7 @@ const Reports = () => {
       <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
         <div className="p-4 sm:p-6 border-b border-gray-100">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-            <h2 className="text-xl font-semibold text-gray-800">
+            <h2 className="text-xl font-semibold text-gray-900">
               Current Month: {format(parseISO(activeMonth), 'MMMM yyyy')}
             </h2>
 
@@ -222,11 +222,11 @@ const Reports = () => {
               <tbody className="bg-white divide-y divide-gray-100">
                 {records.map((record) => (
                   <tr key={record.id} className="hover:bg-gray-50 transition-colors duration-150">
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                       {format(parseISO(record.date), 'dd MMM yyyy')}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{record.morning_milk.toFixed(1)}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{record.evening_milk.toFixed(1)}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{record.morning_milk.toFixed(1)}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{record.evening_milk.toFixed(1)}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-green-700 font-semibold">{record.total_milk.toFixed(1)}</td>
                   </tr>
                 ))}
@@ -248,7 +248,7 @@ const Reports = () => {
             </table>
           </div>
         ) : (
-          <div className="p-8 text-center text-gray-600">
+          <div className="p-8 text-center text-gray-900">
             No milk records available for {format(parseISO(activeMonth), 'MMMM yyyy')}.
           </div>
         )}
@@ -257,7 +257,7 @@ const Reports = () => {
       {/* Archived Reports Section */}
       <div className="bg-white rounded-xl shadow-lg border border-gray-100">
         <div className="p-4 sm:p-6 border-b border-gray-100">
-          <h2 className="text-xl font-semibold text-gray-800">Past Monthly Summaries</h2>
+          <h2 className="text-xl font-semibold text-gray-900">Past Monthly Summaries</h2>
         </div>
 
         <div className="divide-y divide-gray-100">
@@ -277,10 +277,10 @@ const Reports = () => {
                       )}
                     </span>
                     <div className="flex-1">
-                      <h3 className="text-lg font-medium text-gray-800">
+                      <h3 className="text-lg font-medium text-gray-900">
                         {format(parseISO(monthData.month), 'MMMM yyyy')}
                       </h3>
-                      <p className="text-sm text-gray-600">
+                      <p className="text-sm text-gray-900">
                         Total: <span className="font-semibold text-green-700">{monthData.total_milk.toFixed(1)}L</span> | Avg Daily: <span className="font-semibold text-green-700">{monthData.average_daily.toFixed(1)}L</span>
                       </p>
                     </div>
@@ -311,19 +311,19 @@ const Reports = () => {
                 {expandedMonth === monthData.month && (
                   <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 bg-gray-50 p-4 rounded-lg border border-gray-100">
                     <div className="p-3 rounded bg-white border border-gray-200 shadow-sm">
-                      <dt className="text-sm text-gray-600">Morning Total</dt>
+                      <dt className="text-sm text-gray-900">Morning Total</dt>
                       <dd className="text-lg font-semibold text-green-700">{monthData.morning_total.toFixed(1)} L</dd>
                     </div>
                     <div className="p-3 rounded bg-white border border-gray-200 shadow-sm">
-                      <dt className="text-sm text-gray-600">Evening Total</dt>
+                      <dt className="text-sm text-gray-900">Evening Total</dt>
                       <dd className="text-lg font-semibold text-green-700">{monthData.evening_total.toFixed(1)} L</dd>
                     </div>
                     <div className="p-3 rounded bg-white border border-gray-200 shadow-sm">
-                      <dt className="text-sm text-gray-600">Highest Day</dt>
+                      <dt className="text-sm text-gray-900">Highest Day</dt>
                       <dd className="text-lg font-semibold text-green-700">{monthData.highest_day.toFixed(1)} L</dd>
                     </div>
                     <div className="p-3 rounded bg-white border border-gray-200 shadow-sm">
-                      <dt className="text-sm text-gray-600">Lowest Day</dt>
+                      <dt className="text-sm text-gray-900">Lowest Day</dt>
                       <dd className="text-lg font-semibold text-green-700">{monthData.lowest_day.toFixed(1)} L</dd>
                     </div>
                     {/* Placeholder for any additional data fields */}
@@ -332,7 +332,7 @@ const Reports = () => {
               </div>
             ))
           ) : (
-            <div className="p-8 text-center text-gray-600">
+            <div className="p-8 text-center text-gray-900">
               No archived reports available for the last 12 months.
             </div>
           )}

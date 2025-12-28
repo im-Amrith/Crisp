@@ -61,7 +61,7 @@ export default function VoiceAssistant({ language, isListening, isSpeaking, onCl
   const getStatusColor = () => {
     if (isSpeaking) return "text-blue-700 bg-blue-50";
     if (isListening) return "text-green-700 bg-green-50";
-    return "text-gray-700 bg-gray-50";
+    return "text-gray-900 bg-gray-50";
   };
 
   return (
@@ -73,7 +73,7 @@ export default function VoiceAssistant({ language, isListening, isSpeaking, onCl
           </div>
           <div className="flex-1">
             <h5 className="font-medium text-gray-900">{currentContent.title}</h5>
-            <p className="text-xs text-gray-600">
+            <p className="text-xs text-gray-900">
               {currentContent.languageNote}
             </p>
           </div>
@@ -133,7 +133,7 @@ export default function VoiceAssistant({ language, isListening, isSpeaking, onCl
                   <h4 className="font-medium text-gray-900 mb-2">
                     {language === 'english' ? 'Example Commands:' : 'उदाहरण कमांड:'}
                   </h4>
-                  <ul className="space-y-1 text-gray-600">
+                  <ul className="space-y-1 text-gray-900">
                     {currentContent.helpCommands.map((command, index) => (
                       <li key={index} className="flex items-start">
                         <span className="mr-2">•</span>

@@ -49,18 +49,18 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
           <Icon className="w-6 h-6 text-white" />
         </div>
         <div className="ml-4">
-          <h3 className="text-xl font-bold text-gray-900 group-hover:text-gray-700 transition-colors">
+          <h3 className="text-xl font-bold text-gray-900 group-hover:text-gray-900 transition-colors">
             {title}
           </h3>
         </div>
       </div>
       
-      <p className="text-gray-600 mb-4 leading-relaxed">{description}</p>
+      <p className="text-gray-900 mb-4 leading-relaxed">{description}</p>
       
       {features.length > 0 && (
         <div className="space-y-2">
           {features.map((feature, index) => (
-            <div key={index} className="flex items-center text-sm text-gray-700">
+            <div key={index} className="flex items-center text-sm text-gray-900">
               <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
               <span>{feature}</span>
             </div>

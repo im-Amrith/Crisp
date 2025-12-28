@@ -411,10 +411,10 @@ const Advanced3DCropSimulation: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
             🌾 Advanced 3D Crop Simulation
           </h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-900 max-w-3xl mx-auto">
             Experience real-time 3D farming simulation with advanced biosphere systems, 
             mixed cropping, and comprehensive yield optimization
           </p>
@@ -424,19 +424,19 @@ const Advanced3DCropSimulation: React.FC = () => {
           {/* Left Panel - Farm Setup */}
           <div className="space-y-6">
             {/* Crop Selection */}
-            <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-lg font-semibold mb-4 flex items-center">
-                <Sprout className="w-5 h-5 mr-2 text-green-600" />
+            <div className="bg-white rounded-xl shadow-lg p-6 text-gray-900">
+              <h3 className="text-lg font-semibold mb-4 flex items-center text-gray-900">
+                <Sprout className="w-5 h-5 mr-2 text-green-600 " />
                 Crop Selection
               </h3>
               
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Primary Crop</label>
+                  <label className="block text-sm font-medium mb-2 text-gray-900 text-gray-900">Primary Crop</label>
                   <select
                     value={selectedCrop}
                     onChange={(e) => setSelectedCrop(e.target.value)}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900 bg-white"
                   >
                     <option value="rice">Rice (धान)</option>
                     <option value="wheat">Wheat (गेहूं)</option>
@@ -446,11 +446,11 @@ const Advanced3DCropSimulation: React.FC = () => {
 
                 {mixedCropping && (
                   <div>
-                    <label className="block text-sm font-medium mb-2">Secondary Crop</label>
+                    <label className="block text-sm font-medium mb-2 text-gray-900 text-gray-900">Secondary Crop</label>
                     <select
                       value={secondaryCrop}
                       onChange={(e) => setSecondaryCrop(e.target.value)}
-                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900 bg-white"
                     >
                       <option value="">Select secondary crop</option>
                       <option value="legumes">Legumes (दलहन)</option>
@@ -461,11 +461,11 @@ const Advanced3DCropSimulation: React.FC = () => {
                 )}
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Variety</label>
+                  <label className="block text-sm font-medium mb-2 text-gray-900 text-gray-900">Variety</label>
                   <select
                     value={cropParams.variety}
                     onChange={(e) => setCropParams(prev => ({ ...prev, variety: e.target.value }))}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-900 bg-white"
                   >
                     {cropDatabase[selectedCrop as keyof typeof cropDatabase]?.varieties.map(variety => (
                       <option key={variety} value={variety}>{variety}</option>
@@ -477,14 +477,14 @@ const Advanced3DCropSimulation: React.FC = () => {
 
             {/* Environmental Controls */}
             <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-lg font-semibold mb-4 flex items-center">
+              <h3 className="text-lg font-semibold mb-4 flex items-center text-gray-900">
                 <Settings className="w-5 h-5 mr-2 text-blue-600" />
                 Environmental Parameters
               </h3>
               
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2 flex items-center">
+                  <label className="block text-sm font-medium mb-2 text-gray-900 flex items-center">
                     <Sun className="w-4 h-4 mr-1 text-yellow-500" />
                     Sunlight: {environment.sunlight} hours/day
                   </label>
@@ -499,7 +499,7 @@ const Advanced3DCropSimulation: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2 flex items-center">
+                  <label className="block text-sm font-medium mb-2 text-gray-900 flex items-center">
                     <Droplets className="w-4 h-4 mr-1 text-blue-500" />
                     Water: {environment.water} mm/week
                   </label>
@@ -514,7 +514,7 @@ const Advanced3DCropSimulation: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2 flex items-center">
+                  <label className="block text-sm font-medium mb-2 text-gray-900 flex items-center">
                     <Thermometer className="w-4 h-4 mr-1 text-red-500" />
                     Temperature: {environment.temperature}°C
                   </label>
@@ -529,7 +529,7 @@ const Advanced3DCropSimulation: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">
+                  <label className="block text-sm font-medium mb-2 text-gray-900">
                     Humidity: {environment.humidity}%
                   </label>
                   <input
@@ -543,7 +543,7 @@ const Advanced3DCropSimulation: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">
+                  <label className="block text-sm font-medium mb-2 text-gray-900">
                     Soil pH: {environment.soilPH}
                   </label>
                   <input
@@ -560,15 +560,15 @@ const Advanced3DCropSimulation: React.FC = () => {
             </div>
 
             {/* Advanced Systems */}
-            <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-lg font-semibold mb-4 flex items-center">
+            <div className="bg-white rounded-xl shadow-lg p-6 text-gray-900">
+              <h3 className="text-lg font-semibold mb-4 flex items-center text-gray-900">
                 <Layers className="w-5 h-5 mr-2 text-purple-600" />
                 Biosphere Systems
               </h3>
               
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Integration System</label>
+                  <label className="block text-sm font-medium mb-2 text-gray-900">Integration System</label>
                   <select
                     value={biosphereSystem}
                     onChange={(e) => setBiosphereSystem(e.target.value)}
@@ -623,7 +623,7 @@ const Advanced3DCropSimulation: React.FC = () => {
           {/* Center Panel - 3D Visualization */}
           <div className="bg-white rounded-xl shadow-lg p-6">
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-lg font-semibold flex items-center">
+              <h3 className="text-lg font-semibold flex items-center text-gray-900">
                 <Eye className="w-5 h-5 mr-2 text-green-600" />
                 3D Farm View
               </h3>
@@ -701,21 +701,21 @@ const Advanced3DCropSimulation: React.FC = () => {
             {/* Current Stage Info */}
             {currentStage && (
               <div className="bg-white rounded-xl shadow-lg p-6">
-                <h3 className="text-lg font-semibold mb-4 flex items-center">
+                <h3 className="text-lg font-semibold mb-4 flex items-center text-gray-900">
                   <Calendar className="w-5 h-5 mr-2 text-green-600" />
                   Current Stage: {currentStage.stage}
                 </h3>
                 
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">Height:</span>
-                    <span className="font-semibold">{currentStage.height.toFixed(1)} cm</span>
+                    <span className="text-sm text-gray-900 ">Height:</span>
+                    <span className="font-semibold text-gray-900">{currentStage.height.toFixed(1)} cm</span>
                   </div>
                   
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">Health:</span>
+                    <span className="text-sm text-gray-900">Health:</span>
                     <div className="flex items-center">
-                      <div className="w-20 h-2 bg-gray-200 rounded-full mr-2">
+                      <div className="w-20 h-2 bg-gray-200 rounded-full mr-2 ">
                         <div 
                           className={`h-2 rounded-full ${
                             currentStage.health > 70 ? 'bg-green-500' : 
@@ -724,13 +724,13 @@ const Advanced3DCropSimulation: React.FC = () => {
                           style={{ width: `${currentStage.health}%` }}
                         />
                       </div>
-                      <span className="text-sm font-semibold">{currentStage.health.toFixed(1)}%</span>
+                      <span className="text-sm font-semibold text-gray-900">{currentStage.health.toFixed(1)}%</span>
                     </div>
                   </div>
                   
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">Expected Yield:</span>
-                    <span className="font-semibold">{expectedYield.toFixed(0)} kg/ha</span>
+                    <span className="text-sm text-gray-900">Expected Yield:</span>
+                    <span className="font-semibold text-gray-900">{expectedYield.toFixed(0)} kg/ha</span>
                   </div>
                 </div>
 
@@ -766,7 +766,7 @@ const Advanced3DCropSimulation: React.FC = () => {
 
             {/* AI Suggestions */}
             <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-lg font-semibold mb-4 flex items-center">
+              <h3 className="text-lg font-semibold mb-4 flex items-center text-gray-900">
                 <Lightbulb className="w-5 h-5 mr-2 text-yellow-600" />
                 AI Recommendations
               </h3>
@@ -780,14 +780,14 @@ const Advanced3DCropSimulation: React.FC = () => {
                     </div>
                   ))
                 ) : (
-                  <p className="text-gray-500 text-sm">No suggestions at this time</p>
+                  <p className="text-gray-900 text-sm">No suggestions at this time</p>
                 )}
               </div>
             </div>
 
             {/* Yield Prediction */}
             <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-lg font-semibold mb-4 flex items-center">
+              <h3 className="text-lg font-semibold mb-4 flex items-center text-gray-900">
                 <BarChart3 className="w-5 h-5 mr-2 text-purple-600" />
                 Yield Prediction
               </h3>
@@ -801,8 +801,8 @@ const Advanced3DCropSimulation: React.FC = () => {
                 </div>
 
                 <div className="space-y-2 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Base yield:</span>
+                  <div className="flex justify-between text-gray-900">
+                    <span className="text-gray-900">Base yield:</span>
                     <span>{cropDatabase[selectedCrop as keyof typeof cropDatabase]?.baseYield || 0} kg/ha</span>
                   </div>
                   
@@ -823,13 +823,13 @@ const Advanced3DCropSimulation: React.FC = () => {
 
                 <div className="pt-4 border-t border-gray-200">
                   <div className="text-center">
-                    <div className="text-lg font-semibold text-gray-800">
+                    <div className="text-lg font-semibold text-gray-900">
                       Estimated Revenue
                     </div>
                     <div className="text-2xl font-bold text-green-600">
                       ₹{(expectedYield * 25).toLocaleString()}
                     </div>
-                    <div className="text-xs text-gray-500">
+                    <div className="text-xs text-gray-900">
                       (@ ₹25/kg average market price)
                     </div>
                   </div>

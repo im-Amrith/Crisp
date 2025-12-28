@@ -261,7 +261,7 @@ export default function PhotoCapture({ onPhotoCapture, language }: PhotoCaptureP
     <Card className="w-full max-w-md mx-auto">
       <CardHeader>
         <CardTitle className="text-center">{currentContent.title}</CardTitle>
-        <p className="text-sm text-gray-600 text-center">{currentContent.description}</p>
+        <p className="text-sm text-gray-900 text-center">{currentContent.description}</p>
       </CardHeader>
       <CardContent className="space-y-4">
         {cameraError && (

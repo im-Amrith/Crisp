@@ -65,34 +65,35 @@ const DiseasePredictor: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto p-8 bg-white shadow-lg rounded-lg my-8">
-      <h1 className="text-3xl font-bold text-center text-green-800 mb-6">Plant Disease Prediction</h1>
-      <p className="text-center text-gray-600 mb-8">Upload an image of a plant leaf to predict potential diseases.</p>
+    <div className="container mx-auto p-8 bg-white shadow-2xl rounded-xl my-8 border border-gray-200">
+      <h1 className="text-4xl font-extrabold text-center text-green-900 mb-6">Plant Disease Prediction</h1>
+      <p className="text-center text-black font-medium text-lg mb-8">Upload an image of a plant leaf to predict potential diseases.</p>
 
       <div className="flex flex-col items-center space-y-6">
-        <div className="w-full max-w-md border-2 border-dashed border-gray-300 rounded-lg p-6 text-center relative">
+        <div className="w-full max-w-md border-4 border-dashed border-green-200 rounded-xl p-8 text-center relative bg-green-50/30 hover:bg-green-50 transition-colors">
           <input
             type="file"
             accept="image/*"
             onChange={handleFileChange}
-            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
           />
           {previewUrl ? (
             <div className="relative">
-              <img src={previewUrl} alt="Preview" className="max-w-full h-auto rounded-md mx-auto" />
+              <img src={previewUrl} alt="Preview" className="max-w-full h-64 object-contain rounded-lg mx-auto shadow-md" />
               <button
-                onClick={clearSelection}
-                className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1 hover:bg-red-600 transition-colors"
+                onClick={(e) => { e.stopPropagation(); clearSelection(); }}
+                className="absolute -top-3 -right-3 bg-red-600 text-white rounded-full p-1.5 hover:bg-red-700 transition-transform hover:scale-110 shadow-lg z-20"
                 aria-label="Clear image"
               >
-                <XCircle size={20} />
+                <XCircle size={24} />
               </button>
             </div>
           ) : (
-            <div className="flex flex-col items-center justify-center h-32">
-              <UploadCloud className="text-gray-400 mb-2" size={48} />
-              <p className="text-gray-500">Drag & drop an image or click to upload</p>
-              <p className="text-sm text-gray-400">(JPG, JPEG, PNG)</p>
+            <div className="flex flex-col items-center justify-center h-48">
+              <UploadCloud className="text-green-700 mb-4" size={64} />
+              <p className="text-black font-bold text-xl">Drag & drop an image</p>
+              <p className="text-green-800 font-semibold">or click to upload</p>
+              <p className="text-sm text-gray-700 mt-2">(JPG, JPEG, PNG)</p>
             </div>
           )}
         </div>
@@ -100,26 +101,31 @@ const DiseasePredictor: React.FC = () => {
         <button
           onClick={handlePredict}
           disabled={!selectedFile || loading}
-          className={`px-6 py-3 rounded-lg text-white font-semibold transition-colors flex items-center justify-center
-            ${!selectedFile || loading ? 'bg-green-300 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700'}
-          `}
+          className={`flex items-center justify-center px-10 py-4 rounded-full text-white font-bold text-xl shadow-xl transition-all transform hover:scale-105 active:scale-95 ${
+            !selectedFile || loading
+              ? 'bg-gray-400 cursor-not-allowed'
+              : 'bg-green-600 hover:bg-green-700'
+          }`}
         >
-          {loading && <Loader2 className="animate-spin mr-2" size={20} />}
-          {loading ? 'Predicting...' : 'Predict Disease'}
+          {loading && <Loader2 className="animate-spin mr-3" size={24} />}
+          {loading ? 'Analyzing...' : 'Predict Disease'}
         </button>
       </div>
 
       {error && (
-        <div className="mt-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg text-center">
-          <p className="font-semibold">Error:</p>
-          <p>{error}</p>
+        <div className="mt-6 p-4 bg-red-50 border-l-4 border-red-500 rounded-r-lg flex items-start max-w-md mx-auto">
+          <XCircle className="text-red-500 mr-3 mt-0.5 flex-shrink-0" size={20} />
+          <div>
+            <p className="text-red-800 font-bold">Error:</p>
+            <p className="text-red-700">{error}</p>
+          </div>
         </div>
       )}
 
       {prediction && (
-        <div className="mt-6 p-4 bg-green-100 border border-green-400 text-green-800 rounded-lg text-center">
-          <h2 className="text-xl font-semibold mb-2">Prediction Result:</h2>
-          <p className="text-2xl font-bold">{prediction}</p>
+        <div className="mt-6 p-8 bg-green-50 border-2 border-green-500 rounded-2xl text-center shadow-inner max-w-md mx-auto">
+          <h2 className="text-2xl font-bold text-green-900 mb-2">Prediction Result:</h2>
+          <p className="text-4xl font-black text-green-700 animate-bounce">{prediction}</p>
         </div>
       )}
     </div>

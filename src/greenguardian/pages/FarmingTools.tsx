@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import LocationSelector from '../components/common/LocationSelector';
 import CropCalendar from '../components/farming/CropCalendar';
 import PlantHealthAnalyzer from '../components/plant/PlantHealthAnalyzer';
+import { getEnvironmentalData, EnvironmentalData } from '../services/api';
 
 interface Location {
   id: string;
@@ -13,6 +14,8 @@ interface Location {
 const FarmingTools: React.FC = () => {
   const [currentLocation, setCurrentLocation] = useState<Location | null>(null);
   const [activeTab, setActiveTab] = useState<'calendar' | 'health'>('calendar');
+  const [weatherData, setWeatherData] = useState<EnvironmentalData | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
   
   // Mock saved locations for demo
   const savedLocations: Location[] = [
@@ -20,6 +23,24 @@ const FarmingTools: React.FC = () => {
     { id: '2', name: 'Work', lat: 40.7484, lng: -73.9857 },
     { id: '3', name: 'Farm', lat: 40.6782, lng: -73.9442 }
   ];
+
+  useEffect(() => {
+    if (currentLocation) {
+      fetchWeatherData(currentLocation.lat, currentLocation.lng);
+    }
+  }, [currentLocation]);
+
+  const fetchWeatherData = async (lat: number, lng: number) => {
+    setLoading(true);
+    try {
+      const data = await getEnvironmentalData(lat, lng);
+      setWeatherData(data);
+    } catch (error) {
+      console.error('Error fetching weather data:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
   
   const handleLocationSelect = (location: Location) => {
     setCurrentLocation(location);
@@ -72,7 +93,9 @@ const FarmingTools: React.FC = () => {
           
           <div className="mt-6 bg-white p-4 rounded-lg shadow-md">
             <h3 className="font-medium mb-2">Current Weather</h3>
-            {currentLocation ? (
+            {loading ? (
+              <p className="text-gray-500 text-sm">Loading weather data...</p>
+            ) : currentLocation && weatherData ? (
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center">
@@ -80,7 +103,7 @@ const FarmingTools: React.FC = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                     </svg>
                     <div>
-                      <p className="text-2xl font-semibold">72°F</p>
+                      <p className="text-2xl font-semibold">{weatherData.weather.temperature}°C</p>
                       <p className="text-sm text-gray-500">Sunny</p>
                     </div>
                   </div>
@@ -88,19 +111,21 @@ const FarmingTools: React.FC = () => {
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span className="text-gray-500">Humidity</span>
-                    <span>65%</span>
+                    <span>{weatherData.weather.humidity}%</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-500">Wind</span>
-                    <span>8 mph NE</span>
+                    <span>{weatherData.weather.windSpeed} mph {weatherData.weather.windDirection}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-500">Precipitation</span>
-                    <span>0%</span>
+                    <span className="text-gray-500">UV Index</span>
+                    <span>{weatherData.weather.uvIndex}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-500">Soil Moisture</span>
-                    <span>Medium</span>
+                    <span className="text-gray-500">AQI</span>
+                    <span className={weatherData.airQuality.aqi > 100 ? 'text-red-500' : 'text-green-500'}>
+                      {weatherData.airQuality.aqi} ({weatherData.airQuality.category})
+                    </span>
                   </div>
                 </div>
               </div>

@@ -91,7 +91,7 @@ const CowManagement = () => {
       case 'Deceased':
         return 'bg-red-100 text-red-800 border border-red-200';
       case 'Inactive': // Assuming Inactive is a possible status
-        return 'bg-gray-100 text-gray-800 border border-gray-200';
+        return 'bg-gray-100 text-gray-900 border border-gray-200';
       default:
         return 'bg-blue-100 text-blue-800 border border-blue-200';
     }
@@ -102,13 +102,13 @@ const CowManagement = () => {
   };
 
   // Common input and label styling
-  const inputClassName = "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 bg-gray-50 text-gray-800 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200";
-  const labelClassName = "block text-sm font-medium text-gray-700 dark:text-gray-200";
+  const inputClassName = "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 bg-gray-50 text-gray-900 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200";
+  const labelClassName = "block text-sm font-medium text-gray-900 dark:text-gray-200";
 
   return (
     <div className="space-y-8 p-6 bg-gray-50 min-h-screen"> {/* Light background */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <h1 className="text-3xl font-extrabold text-gray-800 flex items-center">
+        <h1 className="text-3xl font-extrabold text-gray-900 flex items-center">
           <Tag className="h-8 w-8 mr-3 text-green-600" /> {/* Themed icon */}
           Animal Registry
         </h1>
@@ -123,7 +123,7 @@ const CowManagement = () => {
 
       {/* Filters and Search Section */}
       <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
-        <h2 className="text-xl font-semibold mb-4 text-gray-800">Filter & Search Animals</h2>
+        <h2 className="text-xl font-semibold mb-4 text-gray-900">Filter & Search Animals</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label htmlFor="search" className={labelClassName}>Search by Tag Number</label>
@@ -137,7 +137,7 @@ const CowManagement = () => {
                 className={inputClassName + " pl-10"} // Added padding for icon
               />
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <Search className="h-5 w-5 text-gray-400" />
+                <Search className="h-5 w-5 text-gray-900" />
               </div>
             </div>
           </div>
@@ -201,16 +201,16 @@ const CowManagement = () => {
                   className="hover:bg-gray-50 cursor-pointer transition-colors duration-150"
                   onClick={() => handleRowClick(cow.id)}
                 >
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                     {cow.tag_number}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                     {cow.gender}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                     {cow.age_category} ({calculateAge(cow.date_of_birth)})
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                     {cow.color}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm">
@@ -223,7 +223,7 @@ const CowManagement = () => {
             </tbody>
           </table>
         ) : (
-          <div className="p-8 text-center text-gray-600">
+          <div className="p-8 text-center text-gray-900">
             No animals found matching the current criteria.
           </div>
         )}

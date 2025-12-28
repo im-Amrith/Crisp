@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Define the base URL for the API
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || '/api';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || '/api';
 
 // Create an axios instance with default config
 const api = axios.create({
@@ -132,6 +132,16 @@ export const getSavedLocations = async (): Promise<Array<{ id: string; name: str
   } catch (error) {
     console.error('Error fetching saved locations:', error);
     throw error;
+  }
+};
+
+export const getAlerts = async (lat: number, lng: number): Promise<any[]> => {
+  try {
+    const response = await api.get<any[]>(`/alerts?lat=${lat}&lng=${lng}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching alerts:', error);
+    return [];
   }
 };
 

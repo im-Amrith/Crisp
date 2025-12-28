@@ -5,8 +5,8 @@ const client = new Client();
 
 // Set the endpoint and project ID
 client
-  .setEndpoint(process.env.REACT_APP_APPWRITE_ENDPOINT || 'https://fra.cloud.appwrite.io/v1')
-  .setProject(process.env.REACT_APP_APPWRITE_PROJECT_ID || '685054a70005df878ce8');
+  .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT || 'https://fra.cloud.appwrite.io/v1')
+  .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID || '685054a70005df878ce8');
 
 // Export the account instance
 export const account = new Account(client);

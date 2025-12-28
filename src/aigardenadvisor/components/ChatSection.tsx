@@ -222,7 +222,7 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
       case 'Beginner': return 'text-green-600 bg-green-100';
       case 'Intermediate': return 'text-yellow-600 bg-yellow-100';
       case 'Advanced': return 'text-red-600 bg-red-100';
-      default: return 'text-gray-600 bg-gray-100';
+      default: return 'text-gray-900 bg-gray-100';
     }
   };
 
@@ -245,7 +245,7 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
                     ? 'bg-green-600 text-white'
                     : status === 'current'
                     ? 'bg-green-600 text-white ring-4 ring-green-200'
-                    : 'bg-gray-200 text-gray-600'
+                    : 'bg-gray-200 text-gray-900'
                 }`}
               >
                 {status === 'completed' ? (
@@ -274,13 +274,13 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
         return (
           <div className="space-y-6">
             <div className="text-center">
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Basic Garden Information</h3>
-              <p className="text-gray-600">Tell us about your garden location and setup</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Basic Garden Information</h3>
+              <p className="text-gray-900">Tell us about your garden location and setup</p>
             </div>
             
             <div className="space-y-4">
               <div>
-                <label htmlFor="location" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="location" className="block text-sm font-medium text-gray-900 mb-2">
                   Location (City, State/Province, Country) *
                 </label>
                 <input
@@ -293,8 +293,8 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
                       setFormErrors(prev => ({ ...prev, location: undefined }));
                     }
                   }}
-                  className={`w-full border rounded-lg py-3 px-4 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors ${
-                    formErrors.location ? 'border-red-300 bg-red-50' : 'border-gray-300'
+                  className={`w-full border rounded-lg py-3 px-4 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors ${
+                    formErrors.location ? 'border-red-300 bg-red-50' : 'border-gray-300 bg-white'
                   }`}
                   placeholder="e.g., Seattle, WA, USA"
                 />
@@ -308,7 +308,7 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="climateZone" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="climateZone" className="block text-sm font-medium text-gray-900 mb-2">
                     Climate Zone (if known)
                   </label>
                   <input
@@ -316,13 +316,13 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
                     id="climateZone"
                     value={formData.climateZone}
                     onChange={(e) => setFormData(prev => ({ ...prev, climateZone: e.target.value }))}
-                    className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                    className="w-full border border-gray-300 rounded-lg py-3 px-4 text-gray-900 placeholder-gray-400 bg-white focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                     placeholder="e.g., Zone 8b, Mediterranean, Tropical"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="frostDates" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="frostDates" className="block text-sm font-medium text-gray-900 mb-2">
                     Last/First Frost Dates (if known)
                   </label>
                   <input
@@ -330,7 +330,7 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
                     id="frostDates"
                     value={formData.frostDates}
                     onChange={(e) => setFormData(prev => ({ ...prev, frostDates: e.target.value }))}
-                    className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                    className="w-full border border-gray-300 rounded-lg py-3 px-4 text-gray-900 placeholder-gray-400 bg-white focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                     placeholder="e.g., Last: March 15, First: November 10"
                   />
                 </div>
@@ -338,14 +338,14 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="gardenSize" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="gardenSize" className="block text-sm font-medium text-gray-900 mb-2">
                     Garden Size *
                   </label>
                   <select
                     id="gardenSize"
                     value={formData.gardenSize}
                     onChange={(e) => setFormData(prev => ({ ...prev, gardenSize: e.target.value as GardenFormData['gardenSize'] }))}
-                    className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                    className="w-full border border-gray-300 rounded-lg py-3 px-4 text-gray-900 placeholder-gray-400 bg-white focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                   >
                     <option value="Small">Small (containers/balcony)</option>
                     <option value="Medium">Medium (backyard plot)</option>
@@ -354,7 +354,7 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
                 </div>
                 
                 <div>
-                  <label htmlFor="gardenSpace" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="gardenSpace" className="block text-sm font-medium text-gray-900 mb-2">
                     Available Space (dimensions)
                   </label>
                   <input
@@ -362,21 +362,21 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
                     id="gardenSpace"
                     value={formData.gardenSpace}
                     onChange={(e) => setFormData(prev => ({ ...prev, gardenSpace: e.target.value }))}
-                    className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                    className="w-full border border-gray-300 rounded-lg py-3 px-4 text-gray-900 placeholder-gray-400 bg-white focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"                    
                     placeholder="e.g., 4x8 feet, 20 containers, 1/4 acre"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="growingMethod" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="growingMethod" className="block text-sm font-medium text-gray-900 mb-2">
                   Growing Method *
                 </label>
                 <select
                   id="growingMethod"
                   value={formData.growingMethod}
                   onChange={(e) => setFormData(prev => ({ ...prev, growingMethod: e.target.value as GardenFormData['growingMethod'] }))}
-                  className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                  className="w-full border border-gray-300 rounded-lg py-3 px-4 text-gray-900 placeholder-gray-400 bg-white focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                 >
                   <option value="In-ground">In-ground planting</option>
                   <option value="Raised Beds">Raised beds</option>
@@ -392,21 +392,21 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
         return (
           <div className="space-y-6">
             <div className="text-center">
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Soil & Growing Conditions</h3>
-              <p className="text-gray-600">Help us understand your garden environment</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Soil & Growing Conditions</h3>
+              <p className="text-gray-900">Help us understand your garden environment</p>
             </div>
             
             <div className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="soilType" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="soilType" className="block text-sm font-medium text-gray-900 mb-2">
                     Soil Type *
                   </label>
                   <select
                     id="soilType"
                     value={formData.soilType}
                     onChange={(e) => setFormData(prev => ({ ...prev, soilType: e.target.value as GardenFormData['soilType'] }))}
-                    className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                    className="w-full border border-gray-300 rounded-lg py-3 px-4 text-gray-900 placeholder-gray-400 bg-white focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                   >
                     <option value="Unknown">Unknown/Not sure</option>
                     <option value="Clay">Clay (heavy, holds water)</option>
@@ -418,14 +418,14 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
                 </div>
                 
                 <div>
-                  <label htmlFor="soilPH" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="soilPH" className="block text-sm font-medium text-gray-900 mb-2">
                     Soil pH (if known)
                   </label>
                   <select
                     id="soilPH"
                     value={formData.soilPH}
                     onChange={(e) => setFormData(prev => ({ ...prev, soilPH: e.target.value as GardenFormData['soilPH'] }))}
-                    className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                    className="w-full border border-gray-300 rounded-lg py-3 px-4 text-gray-900 placeholder-gray-400 bg-white focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                   >
                     <option value="Unknown">Unknown/Not tested</option>
                     <option value="Acidic (below 6.5)">Acidic (below 6.5)</option>
@@ -437,14 +437,14 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="sunExposure" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="sunExposure" className="block text-sm font-medium text-gray-900 mb-2">
                     Sun Exposure *
                   </label>
                   <select
                     id="sunExposure"
                     value={formData.sunExposure}
                     onChange={(e) => setFormData(prev => ({ ...prev, sunExposure: e.target.value as GardenFormData['sunExposure'] }))}
-                    className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                    className="w-full border border-gray-300 rounded-lg py-3 px-4 text-gray-900 placeholder-gray-400 bg-white focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                   >
                     <option value="Full Sun">Full Sun (6+ hours direct sun)</option>
                     <option value="Partial Sun">Partial Sun (4-6 hours sun)</option>
@@ -454,14 +454,14 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
                 </div>
 
                 <div>
-                  <label htmlFor="wateringFrequency" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="wateringFrequency" className="block text-sm font-medium text-gray-900 mb-2">
                     Preferred Watering Schedule *
                   </label>
                   <select
                     id="wateringFrequency"
                     value={formData.wateringFrequency}
                     onChange={(e) => setFormData(prev => ({ ...prev, wateringFrequency: e.target.value as GardenFormData['wateringFrequency'] }))}
-                    className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                    className="w-full border border-gray-300 rounded-lg py-3 px-4 text-gray-900 placeholder-gray-400 bg-white focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                   >
                     <option value="Daily">Daily watering</option>
                     <option value="Every 2-3 days">Every 2-3 days</option>
@@ -472,14 +472,14 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
               </div>
 
               <div>
-                <label htmlFor="cropType" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="cropType" className="block text-sm font-medium text-gray-900 mb-2">
                   Crop Preference *
                 </label>
                 <select
                   id="cropType"
                   value={formData.cropType}
                   onChange={(e) => setFormData(prev => ({ ...prev, cropType: e.target.value as GardenFormData['cropType'] }))}
-                  className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                  className="w-full border border-gray-300 rounded-lg py-3 px-4 text-gray-900 placeholder-gray-400 bg-white focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                 >
                   <option value="Vegetables">Vegetables</option>
                   <option value="Flowers">Flowers</option>
@@ -495,21 +495,21 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
         return (
           <div className="space-y-6">
             <div className="text-center">
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Your Gardening Profile</h3>
-              <p className="text-gray-600">Let us know about your experience and preferences</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Your Gardening Profile</h3>
+              <p className="text-gray-900">Let us know about your experience and preferences</p>
             </div>
             
             <div className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
-                  <label htmlFor="experience" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="experience" className="block text-sm font-medium text-gray-900 mb-2">
                     Experience Level *
                   </label>
                   <select
                     id="experience"
                     value={formData.experience}
                     onChange={(e) => setFormData(prev => ({ ...prev, experience: e.target.value as GardenFormData['experience'] }))}
-                    className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                    className="w-full border border-gray-300 rounded-lg py-3 px-4 text-gray-900 placeholder-gray-400 bg-white focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                   >
                     <option value="Beginner">Beginner</option>
                     <option value="Intermediate">Intermediate</option>
@@ -518,14 +518,14 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
                 </div>
                 
                 <div>
-                  <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="budget" className="block text-sm font-medium text-gray-900 mb-2">
                     Budget *
                   </label>
                   <select
                     id="budget"
                     value={formData.budget}
                     onChange={(e) => setFormData(prev => ({ ...prev, budget: e.target.value as GardenFormData['budget'] }))}
-                    className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                    className="w-full border border-gray-300 rounded-lg py-3 px-4 text-gray-900 placeholder-gray-400 bg-white focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                   >
                     <option value="Low">Low ($0-50)</option>
                     <option value="Medium">Medium ($50-200)</option>
@@ -534,14 +534,14 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
                 </div>
 
                 <div>
-                  <label htmlFor="timeCommitment" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="timeCommitment" className="block text-sm font-medium text-gray-900 mb-2">
                     Time Available *
                   </label>
                   <select
                     id="timeCommitment"
                     value={formData.timeCommitment}
                     onChange={(e) => setFormData(prev => ({ ...prev, timeCommitment: e.target.value as GardenFormData['timeCommitment'] }))}
-                    className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                    className="w-full border border-gray-300 rounded-lg py-3 px-4 text-gray-900 placeholder-gray-400 bg-white focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                   >
                     <option value="Less than 1 hour/week">Less than 1 hour/week</option>
                     <option value="1-3 hours/week">1-3 hours/week</option>
@@ -553,14 +553,14 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="maintenanceLevel" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="maintenanceLevel" className="block text-sm font-medium text-gray-900 mb-2">
                     Maintenance Preference *
                   </label>
                   <select
                     id="maintenanceLevel"
                     value={formData.maintenanceLevel}
                     onChange={(e) => setFormData(prev => ({ ...prev, maintenanceLevel: e.target.value as GardenFormData['maintenanceLevel'] }))}
-                    className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                    className="w-full border border-gray-300 rounded-lg py-3 px-4 text-gray-900 placeholder-gray-400 bg-white focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                   >
                     <option value="Low Maintenance">Low maintenance</option>
                     <option value="Moderate">Moderate maintenance</option>
@@ -569,14 +569,14 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
                 </div>
 
                 <div>
-                  <label htmlFor="organicPreference" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="organicPreference" className="block text-sm font-medium text-gray-900 mb-2">
                     Organic Preference *
                   </label>
                   <select
                     id="organicPreference"
                     value={formData.organicPreference}
                     onChange={(e) => setFormData(prev => ({ ...prev, organicPreference: e.target.value as GardenFormData['organicPreference'] }))}
-                    className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                    className="w-full border border-gray-300 rounded-lg py-3 px-4 text-gray-900 placeholder-gray-400 bg-white focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                   >
                     <option value="Yes">Yes, organic only</option>
                     <option value="Preferred but not required">Preferred but not required</option>
@@ -586,14 +586,14 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
               </div>
 
               <div>
-                <label htmlFor="gardenPurpose" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="gardenPurpose" className="block text-sm font-medium text-gray-900 mb-2">
                   Primary Garden Purpose *
                 </label>
                 <select
                   id="gardenPurpose"
                   value={formData.gardenPurpose}
                   onChange={(e) => setFormData(prev => ({ ...prev, gardenPurpose: e.target.value as GardenFormData['gardenPurpose'] }))}
-                  className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                  className="w-full border border-gray-300 rounded-lg py-3 px-4 text-gray-900 placeholder-gray-400 bg-white focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                 >
                   <option value="Food Production">Food production</option>
                   <option value="Aesthetic/Beauty">Aesthetic/Beauty</option>
@@ -609,13 +609,13 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
         return (
           <div className="space-y-6">
             <div className="text-center">
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Planting Timeline & Goals</h3>
-              <p className="text-gray-600">Tell us about your planting schedule and objectives</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Planting Timeline & Goals</h3>
+              <p className="text-gray-900">Tell us about your planting schedule and objectives</p>
             </div>
             
             <div className="space-y-4">
               <div>
-                <label htmlFor="expectedSowingTime" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="expectedSowingTime" className="block text-sm font-medium text-gray-900 mb-2">
                   Expected Sowing Time
                 </label>
                 <input
@@ -623,34 +623,34 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
                   id="expectedSowingTime"
                   value={formData.expectedSowingTime}
                   onChange={(e) => setFormData(prev => ({ ...prev, expectedSowingTime: e.target.value }))}
-                  className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                  className="w-full border border-gray-300 rounded-lg py-3 px-4 text-gray-900 placeholder-gray-400 bg-white focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                   placeholder="e.g., Early March, Mid-April, When soil is workable"
                 />
               </div>
 
               <div>
-                <label htmlFor="harvestGoals" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="harvestGoals" className="block text-sm font-medium text-gray-900 mb-2">
                   Harvest Goals
                 </label>
                 <textarea
                   id="harvestGoals"
                   value={formData.harvestGoals}
                   onChange={(e) => setFormData(prev => ({ ...prev, harvestGoals: e.target.value }))}
-                  className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                  className="w-full border border-gray-300 rounded-lg py-3 px-4 text-gray-900 placeholder-gray-400 bg-white focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                   rows={3}
                   placeholder="e.g., Fresh salads all summer, preserve for winter, share with neighbors, specific quantities needed"
                 />
               </div>
 
               <div>
-                <label htmlFor="pestConcerns" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="pestConcerns" className="block text-sm font-medium text-gray-900 mb-2">
                   Pest Concerns or Previous Issues
                 </label>
                 <textarea
                   id="pestConcerns"
                   value={formData.pestConcerns}
                   onChange={(e) => setFormData(prev => ({ ...prev, pestConcerns: e.target.value }))}
-                  className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                  className="w-full border border-gray-300 rounded-lg py-3 px-4 text-gray-900 placeholder-gray-400 bg-white focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                   rows={3}
                   placeholder="e.g., Aphids on previous crops, deer problems, slugs, specific pests in your area"
                 />
@@ -663,34 +663,34 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
         return (
           <div className="space-y-6">
             <div className="text-center">
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Additional Details</h3>
-              <p className="text-gray-600">Final touches to personalize your recommendations</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Additional Details</h3>
+              <p className="text-gray-900">Final touches to personalize your recommendations</p>
             </div>
             
             <div className="space-y-4">
               <div>
-                <label htmlFor="previousCrops" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="previousCrops" className="block text-sm font-medium text-gray-900 mb-2">
                   Previous Crops Grown
                 </label>
                 <textarea
                   id="previousCrops"
                   value={formData.previousCrops}
                   onChange={(e) => setFormData(prev => ({ ...prev, previousCrops: e.target.value }))}
-                  className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                  className="w-full border border-gray-300 rounded-lg py-3 px-4 text-gray-900 placeholder-gray-400 bg-white focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                   rows={3}
                   placeholder="e.g., Tomatoes, lettuce, herbs, beans (helps with crop rotation recommendations)"
                 />
               </div>
 
               <div>
-                <label htmlFor="specificGoals" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="specificGoals" className="block text-sm font-medium text-gray-900 mb-2">
                   Specific Goals or Preferences
                 </label>
                 <textarea
                   id="specificGoals"
                   value={formData.specificGoals}
                   onChange={(e) => setFormData(prev => ({ ...prev, specificGoals: e.target.value }))}
-                  className="w-full border border-gray-300 rounded-lg py-3 px-4 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+                  className="w-full border border-gray-300 rounded-lg py-3 px-4 text-gray-900 placeholder-gray-400 bg-white focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                   rows={3}
                   placeholder="e.g., Want colorful flowers, prefer heirloom varieties, need pest-resistant plants, want continuous harvest, attract pollinators"
                 />
@@ -709,7 +709,7 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Get Personalized AI Garden Recommendations</h2>
-          <p className="max-w-2xl mx-auto text-gray-600 text-lg">
+          <p className="max-w-2xl mx-auto text-gray-900 text-lg">
             Complete our comprehensive questionnaire for highly customized crop recommendations
             tailored to your unique growing situation and goals.
           </p>
@@ -811,7 +811,7 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
                 <h3 className="text-2xl font-semibold text-gray-900 mb-2">
                   Your Personalized Crop Recommendations
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-900">
                   Based on your comprehensive garden profile for {formData.location}
                 </p>
               </div>
@@ -836,7 +836,7 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
                               ? 'bg-green-100 text-green-600 cursor-default'
                               : savingCrop === crop.name
                               ? 'bg-blue-100 text-blue-600'
-                              : 'bg-gray-100 text-gray-600 hover:bg-green-100 hover:text-green-600'
+                              : 'bg-gray-100 text-gray-900 hover:bg-green-100 hover:text-green-600'
                           }`}
                           title={
                             savedCrops.has(crop.name) 
@@ -861,24 +861,24 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
                       <div className="flex items-start">
                         <Clock className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
                         <div className="ml-2">
-                          <p className="text-sm font-medium text-gray-700">Planting Time</p>
-                          <p className="text-sm text-gray-600">{crop.planting_time}</p>
+                          <p className="text-sm font-medium text-gray-900">Planting Time</p>
+                          <p className="text-sm text-gray-900">{crop.planting_time}</p>
                         </div>
                       </div>
                       
                       <div className="flex items-start">
                         <Calendar className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
                         <div className="ml-2">
-                          <p className="text-sm font-medium text-gray-700">Harvest Time</p>
-                          <p className="text-sm text-gray-600">{crop.harvest_time}</p>
+                          <p className="text-sm font-medium text-gray-900">Harvest Time</p>
+                          <p className="text-sm text-gray-900">{crop.harvest_time}</p>
                         </div>
                       </div>
                       
                       <div className="flex items-start">
                         <Droplets className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
                         <div className="ml-2">
-                          <p className="text-sm font-medium text-gray-700">Watering</p>
-                          <p className="text-sm text-gray-600">{crop.watering_frequency}</p>
+                          <p className="text-sm font-medium text-gray-900">Watering</p>
+                          <p className="text-sm text-gray-900">{crop.watering_frequency}</p>
                         </div>
                       </div>
 
@@ -886,8 +886,8 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
                         <div className="flex items-start">
                           <Users className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
                           <div className="ml-2">
-                            <p className="text-sm font-medium text-gray-700">Companion Plants</p>
-                            <p className="text-sm text-gray-600">{crop.companion_plants}</p>
+                            <p className="text-sm font-medium text-gray-900">Companion Plants</p>
+                            <p className="text-sm text-gray-900">{crop.companion_plants}</p>
                           </div>
                         </div>
                       )}
@@ -896,8 +896,8 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
                         <div className="flex items-start">
                           <Target className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
                           <div className="ml-2">
-                            <p className="text-sm font-medium text-gray-700">Expected Yield</p>
-                            <p className="text-sm text-gray-600">{crop.expected_yield}</p>
+                            <p className="text-sm font-medium text-gray-900">Expected Yield</p>
+                            <p className="text-sm text-gray-900">{crop.expected_yield}</p>
                           </div>
                         </div>
                       )}
@@ -906,8 +906,8 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
                         <div className="flex items-start">
                           <Lightbulb className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
                           <div className="ml-2">
-                            <p className="text-sm font-medium text-gray-700">Care Tips</p>
-                            <p className="text-sm text-gray-600">{crop.care_tips}</p>
+                            <p className="text-sm font-medium text-gray-900">Care Tips</p>
+                            <p className="text-sm text-gray-900">{crop.care_tips}</p>
                           </div>
                         </div>
                       )}
@@ -916,8 +916,8 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
                         <div className="flex items-start">
                           <Bug className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
                           <div className="ml-2">
-                            <p className="text-sm font-medium text-gray-700">Pest Management</p>
-                            <p className="text-sm text-gray-600">{crop.pest_management}</p>
+                            <p className="text-sm font-medium text-gray-900">Pest Management</p>
+                            <p className="text-sm text-gray-900">{crop.pest_management}</p>
                           </div>
                         </div>
                       )}
@@ -926,8 +926,8 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
                         <div className="flex items-start">
                           <Beaker className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
                           <div className="ml-2">
-                            <p className="text-sm font-medium text-gray-700">Soil Requirements</p>
-                            <p className="text-sm text-gray-600">{crop.soil_requirements}</p>
+                            <p className="text-sm font-medium text-gray-900">Soil Requirements</p>
+                            <p className="text-sm text-gray-900">{crop.soil_requirements}</p>
                           </div>
                         </div>
                       )}
@@ -936,8 +936,8 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
                         <div className="flex items-start">
                           <Plant className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
                           <div className="ml-2">
-                            <p className="text-sm font-medium text-gray-700">Growth Tips</p>
-                            <p className="text-sm text-gray-600">{crop.growth_tips}</p>
+                            <p className="text-sm font-medium text-gray-900">Growth Tips</p>
+                            <p className="text-sm text-gray-900">{crop.growth_tips}</p>
                           </div>
                         </div>
                       )}
@@ -946,8 +946,8 @@ export const ChatSection: React.FC<ChatSectionProps> = ({ onOpenJournal }) => {
                         <div className="flex items-start">
                           <Gauge className="h-5 w-5 text-green-600 mt-1 flex-shrink-0" />
                           <div className="ml-2">
-                            <p className="text-sm font-medium text-gray-700">Spacing Requirements</p>
-                            <p className="text-sm text-gray-600">{crop.spacing_requirements}</p>
+                            <p className="text-sm font-medium text-gray-900">Spacing Requirements</p>
+                            <p className="text-sm text-gray-900">{crop.spacing_requirements}</p>
                           </div>
                         </div>
                       )}

@@ -98,7 +98,7 @@ const TestimonialsSection: React.FC = () => {
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Success Stories from <span className="text-blue-600">Indian Farmers</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-900 max-w-3xl mx-auto">
             Real farmers, real results. See how our AI-powered platform is transforming agriculture across India 
             and helping farmers achieve unprecedented success.
           </p>
@@ -120,7 +120,7 @@ const TestimonialsSection: React.FC = () => {
 
               {/* Quote Icon */}
               <div className="absolute top-6 left-6 opacity-10">
-                <Quote className="w-8 h-8 text-gray-400" />
+                <Quote className="w-8 h-8 text-gray-900" />
               </div>
 
               <div className="relative z-10">
@@ -129,8 +129,8 @@ const TestimonialsSection: React.FC = () => {
                   <div className="text-3xl mr-4">{testimonial.image}</div>
                   <div className="flex-1">
                     <h4 className="text-lg font-bold text-gray-900">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-600">{testimonial.nameEng}</p>
-                    <div className="flex items-center text-sm text-gray-500">
+                    <p className="text-sm text-gray-900">{testimonial.nameEng}</p>
+                    <div className="flex items-center text-sm text-gray-900">
                       <MapPin className="w-3 h-3 mr-1" />
                       {testimonial.location} • {testimonial.crop}
                     </div>
@@ -146,10 +146,10 @@ const TestimonialsSection: React.FC = () => {
 
                 {/* Testimonial */}
                 <div className="space-y-3 mb-4">
-                  <p className="text-gray-700 text-sm leading-relaxed italic">
+                  <p className="text-gray-900 text-sm leading-relaxed italic">
                     "{testimonial.testimonial}"
                   </p>
-                  <p className="text-gray-600 text-xs leading-relaxed">
+                  <p className="text-gray-900 text-xs leading-relaxed">
                     "{testimonial.testimonialHindi}"
                   </p>
                 </div>
@@ -158,9 +158,9 @@ const TestimonialsSection: React.FC = () => {
                 <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                   <div className="text-center">
                     <div className="text-lg font-bold text-green-600">{testimonial.savings}</div>
-                    <div className="text-xs text-gray-500">Savings</div>
+                    <div className="text-xs text-gray-900">Savings</div>
                   </div>
-                  <div className="flex items-center text-sm text-gray-600">
+                  <div className="flex items-center text-sm text-gray-900">
                     <Zap className="w-4 h-4 mr-1 text-yellow-500" />
                     Verified
                   </div>
@@ -178,26 +178,26 @@ const TestimonialsSection: React.FC = () => {
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-3xl font-bold text-blue-600 mb-2">4.9/5</div>
-              <div className="text-gray-600 font-medium">Average Rating</div>
-              <div className="text-sm text-gray-500">Based on 50,000+ reviews</div>
+              <div className="text-gray-900 font-medium">Average Rating</div>
+              <div className="text-sm text-gray-900">Based on 50,000+ reviews</div>
             </div>
             
             <div>
               <div className="text-3xl font-bold text-green-600 mb-2">45%</div>
-              <div className="text-gray-600 font-medium">Avg Yield Increase</div>
-              <div className="text-sm text-gray-500">Across all crop types</div>
+              <div className="text-gray-900 font-medium">Avg Yield Increase</div>
+              <div className="text-sm text-gray-900">Across all crop types</div>
             </div>
             
             <div>
               <div className="text-3xl font-bold text-orange-600 mb-2">₹3.5L</div>
-              <div className="text-gray-600 font-medium">Avg Savings</div>
-              <div className="text-sm text-gray-500">Per farmer per year</div>
+              <div className="text-gray-900 font-medium">Avg Savings</div>
+              <div className="text-sm text-gray-900">Per farmer per year</div>
             </div>
             
             <div>
               <div className="text-3xl font-bold text-purple-600 mb-2">98%</div>
-              <div className="text-gray-600 font-medium">Satisfaction Rate</div>
-              <div className="text-sm text-gray-500">Would recommend to others</div>
+              <div className="text-gray-900 font-medium">Satisfaction Rate</div>
+              <div className="text-sm text-gray-900">Would recommend to others</div>
             </div>
           </div>
         </div>

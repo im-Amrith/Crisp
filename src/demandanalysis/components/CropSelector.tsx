@@ -23,7 +23,7 @@ export const CropSelector: React.FC<CropSelectorProps> = ({
 
       <div className="space-y-4">
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-3">
+          <label className="block text-sm font-semibold text-gray-900 mb-3">
             Crop Variety
           </label>
           <select

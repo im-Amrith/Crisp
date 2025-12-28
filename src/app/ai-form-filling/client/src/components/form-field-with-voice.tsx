@@ -99,7 +99,7 @@ export default function FormFieldWithVoice({
                 type="button"
                 variant="ghost"
                 size="sm"
-                className="absolute right-2 top-2 p-1 h-8 w-8 text-gray-400 hover:text-gov-blue"
+                className="absolute right-2 top-2 p-1 h-8 w-8 text-gray-900 hover:text-gov-blue"
                 onClick={onVoiceInput}
               >
                 <Mic size={16} />
@@ -132,7 +132,7 @@ export default function FormFieldWithVoice({
                   type="button"
                   variant="ghost"
                   size="sm"
-                  className="absolute right-8 top-2 p-1 h-8 w-8 text-gray-400 hover:text-gov-blue"
+                  className="absolute right-8 top-2 p-1 h-8 w-8 text-gray-900 hover:text-gov-blue"
                   onClick={onVoiceInput}
                 >
                   <Mic size={16} />
@@ -147,7 +147,7 @@ export default function FormFieldWithVoice({
         return (
           <div className="relative">
             {field.name === 'annualIncome' && (
-              <div className="absolute left-3 top-3 text-gray-500">₹</div>
+              <div className="absolute left-3 top-3 text-gray-900">₹</div>
             )}
             <Input
               type="number"
@@ -160,7 +160,7 @@ export default function FormFieldWithVoice({
                 type="button"
                 variant="ghost"
                 size="sm"
-                className="absolute right-2 top-2 p-1 h-8 w-8 text-gray-400 hover:text-gov-blue"
+                className="absolute right-2 top-2 p-1 h-8 w-8 text-gray-900 hover:text-gov-blue"
                 onClick={onVoiceInput}
               >
                 <Mic size={16} />
@@ -184,7 +184,7 @@ export default function FormFieldWithVoice({
                 type="button"
                 variant="ghost"
                 size="sm"
-                className="absolute right-2 top-2 p-1 h-8 w-8 text-gray-400 hover:text-gov-blue"
+                className="absolute right-2 top-2 p-1 h-8 w-8 text-gray-900 hover:text-gov-blue"
                 onClick={onVoiceInput}
               >
                 <Mic size={16} />
@@ -201,7 +201,7 @@ export default function FormFieldWithVoice({
       name={field.name}
       render={({ field: formField }) => (
         <FormItem className="relative">
-          <FormLabel className="block text-sm font-medium text-gray-700 mb-2">
+          <FormLabel className="block text-sm font-medium text-gray-900 mb-2">
             {label} {field.required && <span className="text-red-500">*</span>}
           </FormLabel>
           <FormControl>

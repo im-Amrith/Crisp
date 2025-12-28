@@ -26,10 +26,10 @@ const NavLink = ({ to, icon: Icon, children }: { to: string; icon: any; children
       className={`flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200
         ${isActive
           ? 'bg-green-100 text-green-700 dark:bg-green-800/30 dark:text-green-300 shadow-sm' // Brighter green for active, subtle shadow
-          : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700' // Improved hover for inactive
+          : 'text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700' // Improved hover for inactive
         }`}
     >
-      <Icon className={`h-5 w-5 ${isActive ? 'text-green-600 dark:text-green-400' : 'text-gray-500 dark:text-gray-400'}`} /> {/* Icon size and color adjustment */}
+      <Icon className={`h-5 w-5 ${isActive ? 'text-green-600 dark:text-green-400' : 'text-gray-900 dark:text-gray-900'}`} /> {/* Icon size and color adjustment */}
       <span>{children}</span>
     </Link>
   );
@@ -89,7 +89,7 @@ const Navbar = () => {
 
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 transition-colors duration-200"
+              className="p-2 rounded-full text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 transition-colors duration-200"
               aria-label="Toggle theme"
             >
               {isDark ? <Sun className="h-5 w-5 text-yellow-500" /> : <Moon className="h-5 w-5 text-blue-500" />} {/* Colored icons */}
@@ -100,14 +100,14 @@ const Navbar = () => {
           <div className="flex items-center space-x-2 md:hidden">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 transition-colors duration-200"
+              className="p-2 rounded-full text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 transition-colors duration-200"
               aria-label="Toggle theme"
             >
               {isDark ? <Sun className="h-5 w-5 text-yellow-500" /> : <Moon className="h-5 w-5 text-blue-500" />}
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-full text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 transition-colors duration-200"
+              className="p-2 rounded-full text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 transition-colors duration-200"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}

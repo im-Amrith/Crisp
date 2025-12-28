@@ -216,7 +216,7 @@ const CropCalendar: React.FC<CropCalendarProps> = ({
       );
     } else {
       return (
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-900" viewBox="0 0 20 20" fill="currentColor">
           <path fillRule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14a6 6 0 110-12 6 6 0 010 12z" clipRule="evenodd" />
         </svg>
       );
@@ -234,7 +234,7 @@ const CropCalendar: React.FC<CropCalendarProps> = ({
       
       <div className="p-4">
         <div className="mb-6">
-          <label htmlFor="month-select" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="month-select" className="block text-sm font-medium text-gray-900 mb-1">
             Select Month
           </label>
           <select
@@ -277,16 +277,16 @@ const CropCalendar: React.FC<CropCalendarProps> = ({
         {loading ? (
           <div className="text-center py-8">
             <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-green-700 mx-auto mb-2"></div>
-            <p className="text-gray-600">Loading crop data...</p>
+            <p className="text-gray-900">Loading crop data...</p>
           </div>
         ) : (
           <div>
             {getFilteredCrops().length === 0 ? (
               <div className="text-center py-8 bg-gray-50 rounded-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 mx-auto text-gray-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 mx-auto text-gray-900 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                 </svg>
-                <p className="text-gray-600">No crops found for the selected filter in {months[selectedMonth - 1]}</p>
+                <p className="text-gray-900">No crops found for the selected filter in {months[selectedMonth - 1]}</p>
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -348,12 +348,12 @@ const CropCalendar: React.FC<CropCalendarProps> = ({
                     
                     {selectedCrop?.id === crop.id && (
                       <div className="p-3 bg-gray-50 border-t">
-                        <p className="text-sm text-gray-700">{crop.description}</p>
+                        <p className="text-sm text-gray-900">{crop.description}</p>
                         <div className="mt-2">
-                          <h4 className="text-xs font-medium text-gray-500">SOIL TYPE</h4>
+                          <h4 className="text-xs font-medium text-gray-900">SOIL TYPE</h4>
                           <div className="flex flex-wrap gap-1 mt-1">
                             {crop.soilType.map(soil => (
-                              <span key={soil} className="px-2 py-1 bg-gray-200 text-gray-700 text-xs rounded-full">
+                              <span key={soil} className="px-2 py-1 bg-gray-200 text-gray-900 text-xs rounded-full">
                                 {soil}
                               </span>
                             ))}
@@ -361,8 +361,8 @@ const CropCalendar: React.FC<CropCalendarProps> = ({
                         </div>
                         
                         <div className="mt-3 pt-3 border-t border-gray-200">
-                          <h4 className="text-xs font-medium text-gray-500 mb-1">PLANTING TIPS</h4>
-                          <ul className="list-disc pl-5 text-xs text-gray-700 space-y-1">
+                          <h4 className="text-xs font-medium text-gray-900 mb-1">PLANTING TIPS</h4>
+                          <ul className="list-disc pl-5 text-xs text-gray-900 space-y-1">
                             <li>Plant seeds {crop.name.toLowerCase() === 'tomatoes' || crop.name.toLowerCase() === 'bell peppers' ? '1/4 inch deep' : '1/2 inch deep'}</li>
                             <li>Space plants {crop.name.toLowerCase() === 'lettuce' || crop.name.toLowerCase() === 'spinach' ? '6-8 inches' : '12-18 inches'} apart</li>
                             <li>Water {crop.waterRequirements === 'low' ? 'sparingly' : crop.waterRequirements === 'medium' ? 'regularly' : 'frequently'}</li>

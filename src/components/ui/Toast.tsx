@@ -75,7 +75,7 @@ const Toast: React.FC<ToastProps> = ({
               {title}
             </h4>
             {message && (
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <p className="text-sm text-gray-900 leading-relaxed">
                 {message}
               </p>
             )}
@@ -86,7 +86,7 @@ const Toast: React.FC<ToastProps> = ({
               setIsVisible(false);
               setTimeout(() => onRemove(id), 300);
             }}
-            className="ml-2 text-gray-400 hover:text-gray-600 transition-colors duration-200"
+            className="ml-2 text-gray-900 hover:text-gray-900 transition-colors duration-200"
           >
             <X className="w-4 h-4" />
           </button>

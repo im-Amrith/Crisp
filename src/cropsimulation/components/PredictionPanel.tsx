@@ -410,7 +410,7 @@ const PredictionPanel: React.FC<PredictionPanelProps> = ({
 
   return (
     <div className="bg-white rounded-xl shadow-lg p-6">
-      <h2 className="text-xl font-bold text-gray-800 mb-6">Predictions & Recommendations</h2>
+      <h2 className="text-xl font-bold text-gray-900 mb-6">Predictions & Recommendations</h2>
       
       {showOptimum ? (
         <div className="mb-6 p-4 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg border border-green-200">
@@ -514,7 +514,7 @@ const PredictionPanel: React.FC<PredictionPanelProps> = ({
             <div className="mb-6">
               <div className="flex items-center space-x-2 mb-3">
                 <Droplets className="w-5 h-5 text-blue-600" />
-                <h3 className="font-semibold text-gray-800">Smart Fertilizer Recommendations</h3>
+                <h3 className="font-semibold text-gray-900">Smart Fertilizer Recommendations</h3>
               </div>
               <div className="space-y-3">
                 {fertilizerRecs.map((rec, index) => (
@@ -536,7 +536,7 @@ const PredictionPanel: React.FC<PredictionPanelProps> = ({
             <div className="mb-6">
               <div className="flex items-center space-x-2 mb-3">
                 <AlertTriangle className="w-5 h-5 text-red-600" />
-                <h3 className="font-semibold text-gray-800">Alerts & Warnings</h3>
+                <h3 className="font-semibold text-gray-900">Alerts & Warnings</h3>
               </div>
               <div className="space-y-2">
                 {warnings.map((warning, index) => (
@@ -567,10 +567,10 @@ const PredictionPanel: React.FC<PredictionPanelProps> = ({
 
           {/* Growth Progress Summary */}
           <div className="p-4 bg-gray-50 rounded-lg">
-            <h3 className="font-semibold text-gray-800 mb-2">Growth Progress</h3>
+            <h3 className="font-semibold text-gray-900 mb-2">Growth Progress</h3>
             <div className="grid grid-cols-2 gap-4 text-sm">
               <div>
-                <span className="text-gray-600">Current Stage:</span>
+                <span className="text-gray-900">Current Stage:</span>
                 <p className="font-bold text-black">
                   {currentStage ? `BBCH ${currentStage.code}` : 'N/A'}
                   {readyForHarvest && (
@@ -579,21 +579,21 @@ const PredictionPanel: React.FC<PredictionPanelProps> = ({
                 </p>
               </div>
               <div>
-                <span className="text-gray-600">Days Since Planting:</span>
+                <span className="text-gray-900">Days Since Planting:</span>
                 <p className="font-bold text-black">{currentDay}</p>
               </div>
               <div>
-                <span className="text-gray-600">Humidity:</span>
+                <span className="text-gray-900">Humidity:</span>
                 <p className="font-bold text-black">{parameters.humidity} %</p>
               </div>
               <div>
-                <span className="text-gray-600">Wind Speed:</span>
+                <span className="text-gray-900">Wind Speed:</span>
                 <p className="font-bold text-black">{Number(parameters.windSpeed).toFixed(2)} m/s</p>
               </div>
               {pcseData && (
                 <>
                   <div>
-                    <span className="text-gray-600">Model Dev. Stage:</span>
+                    <span className="text-gray-900">Model Dev. Stage:</span>
                     <p className="font-bold text-black">
                       {pcseData.developmentStage.toFixed(2)}
                       {pcseData.developmentStage >= 2.0 && (
@@ -602,7 +602,7 @@ const PredictionPanel: React.FC<PredictionPanelProps> = ({
                     </p>
                   </div>
                   <div>
-                    <span className="text-gray-600">Overall Health:</span>
+                    <span className="text-gray-900">Overall Health:</span>
                     <p className="font-bold text-black">
                       {(((pcseData.stressIndicators.waterStress + pcseData.stressIndicators.nitrogenStress + pcseData.stressIndicators.temperatureStress) / 3) * 100).toFixed(0)}%
                     </p>

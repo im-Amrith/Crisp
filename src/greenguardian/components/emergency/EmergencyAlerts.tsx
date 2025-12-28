@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { getAlerts } from '../../services/api';
 
 interface Alert {
   id: string;
@@ -51,129 +52,8 @@ const EmergencyAlerts: React.FC<EmergencyAlertsProps> = ({ location }) => {
     setError(null);
     
     try {
-      // In a real implementation, you would fetch alerts from an API
-      // For demo purposes, we'll simulate an API call with mock data
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      // Generate mock alerts based on location
-      const mockAlerts: Alert[] = [
-        {
-          id: '1',
-          type: 'pollution',
-          severity: 'high',
-          title: 'Severe Air Pollution Alert',
-          description: 'Air quality index has reached hazardous levels due to industrial emissions and weather conditions. Vulnerable populations should take precautions.',
-          location: location.name,
-          startTime: new Date(Date.now() - 3600000).toISOString(), // 1 hour ago
-          isActive: true,
-          affectedAreas: ['Downtown', 'Industrial Zone', 'Eastern Suburbs'],
-          safetyInstructions: [
-            'Stay indoors with windows closed',
-            'Use air purifiers if available',
-            'Wear N95 masks if going outside is necessary',
-            'Avoid outdoor exercise',
-            'Keep hydrated'
-          ],
-          emergencyContacts: [
-            {
-              name: 'Environmental Protection Agency',
-              phone: '1800-123-4567',
-              type: 'other'
-            },
-            {
-              name: 'Health Department Hotline',
-              phone: '1800-765-4321',
-              type: 'medical'
-            },
-            {
-              name: 'Emergency Services',
-              phone: '112',
-              type: 'other'
-            }
-          ]
-        },
-        {
-          id: '2',
-          type: 'flood',
-          severity: 'medium',
-          title: 'Flash Flood Warning',
-          description: 'Heavy rainfall may cause flash flooding in low-lying areas. Residents should be prepared for possible evacuation.',
-          location: location.name,
-          startTime: new Date(Date.now() - 7200000).toISOString(), // 2 hours ago
-          endTime: new Date(Date.now() + 18000000).toISOString(), // 5 hours from now
-          isActive: true,
-          affectedAreas: ['Riverside', 'Valley Area', 'Downtown'],
-          safetyInstructions: [
-            'Move to higher ground',
-            'Avoid walking or driving through flood waters',
-            'Prepare emergency supplies',
-            'Follow evacuation orders if issued',
-            'Disconnect electrical appliances'
-          ],
-          evacuationRoutes: [
-            {
-              name: 'Northern Route',
-              description: 'Exit via Highway 101 North to Highland Shelter',
-              mapUrl: 'https://maps.google.com/?q=evacuation+center'
-            },
-            {
-              name: 'Eastern Route',
-              description: 'Take Main Street East to Community College Shelter',
-              mapUrl: 'https://maps.google.com/?q=community+college+shelter'
-            }
-          ],
-          emergencyContacts: [
-            {
-              name: 'Flood Control District',
-              phone: '1800-555-7890',
-              type: 'disaster'
-            },
-            {
-              name: 'Emergency Services',
-              phone: '112',
-              type: 'other'
-            },
-            {
-              name: 'Coast Guard',
-              phone: '1800-999-0000',
-              type: 'other'
-            }
-          ]
-        },
-        {
-          id: '3',
-          type: 'heatwave',
-          severity: 'medium',
-          title: 'Heat Advisory',
-          description: 'Extreme temperatures expected over the next 3 days. Take precautions to prevent heat-related illnesses.',
-          location: location.name,
-          startTime: new Date(Date.now() - 86400000).toISOString(), // 1 day ago
-          endTime: new Date(Date.now() + 172800000).toISOString(), // 2 days from now
-          isActive: true,
-          affectedAreas: ['Entire City', 'Surrounding Counties'],
-          safetyInstructions: [
-            'Stay in air-conditioned areas',
-            'Drink plenty of fluids',
-            'Wear lightweight clothing',
-            'Check on vulnerable neighbors',
-            'Never leave children or pets in vehicles'
-          ],
-          emergencyContacts: [
-            {
-              name: 'Health Department',
-              phone: '1800-222-3333',
-              type: 'medical'
-            },
-            {
-              name: 'Emergency Services',
-              phone: '112',
-              type: 'other'
-            }
-          ]
-        }
-      ];
-      
-      setAlerts(mockAlerts);
+      const data = await getAlerts(location.lat, location.lng);
+      setAlerts(data);
     } catch (err) {
       console.error('Error fetching alerts:', err);
       setError('Failed to fetch emergency alerts. Please try again later.');
@@ -193,7 +73,7 @@ const EmergencyAlerts: React.FC<EmergencyAlertsProps> = ({ location }) => {
       case 'critical':
         return 'bg-red-100 text-red-800 border-red-200';
       default:
-        return 'bg-gray-100 text-gray-800 border-gray-200';
+        return 'bg-gray-100 text-gray-900 border-gray-200';
     }
   };
 
@@ -296,16 +176,16 @@ const EmergencyAlerts: React.FC<EmergencyAlertsProps> = ({ location }) => {
       <div className="p-4">
         {!location ? (
           <div className="text-center py-8">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 mx-auto text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 mx-auto text-gray-900 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
-            <p className="text-gray-600">Select a location to view emergency alerts</p>
+            <p className="text-gray-900">Select a location to view emergency alerts</p>
           </div>
         ) : isLoading ? (
           <div className="text-center py-12">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4"></div>
-            <p className="text-gray-600">Loading emergency alerts...</p>
+            <p className="text-gray-900">Loading emergency alerts...</p>
           </div>
         ) : error ? (
           <div className="bg-red-50 p-4 rounded-lg text-red-700">
@@ -317,7 +197,7 @@ const EmergencyAlerts: React.FC<EmergencyAlertsProps> = ({ location }) => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             <p className="text-green-700 font-medium">No active alerts for this area</p>
-            <p className="text-sm text-gray-600 mt-2">The area is currently safe from environmental emergencies</p>
+            <p className="text-sm text-gray-900 mt-2">The area is currently safe from environmental emergencies</p>
           </div>
         ) : (
           <div>
@@ -347,11 +227,11 @@ const EmergencyAlerts: React.FC<EmergencyAlertsProps> = ({ location }) => {
                     </span>
                   </div>
                   
-                  <p className="text-gray-700 mb-4">{selectedAlert.description}</p>
+                  <p className="text-gray-900 mb-4">{selectedAlert.description}</p>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
-                      <h4 className="text-sm font-medium text-gray-700 mb-1">Affected Areas</h4>
+                      <h4 className="text-sm font-medium text-gray-900 mb-1">Affected Areas</h4>
                       <ul className="list-disc pl-5 text-sm">
                         {selectedAlert.affectedAreas.map((area, index) => (
                           <li key={index}>{area}</li>
@@ -359,7 +239,7 @@ const EmergencyAlerts: React.FC<EmergencyAlertsProps> = ({ location }) => {
                       </ul>
                     </div>
                     <div>
-                      <h4 className="text-sm font-medium text-gray-700 mb-1">Alert Timeline</h4>
+                      <h4 className="text-sm font-medium text-gray-900 mb-1">Alert Timeline</h4>
                       <p className="text-sm">
                         <span className="font-medium">Started:</span> {formatDate(selectedAlert.startTime)}
                       </p>
@@ -372,7 +252,7 @@ const EmergencyAlerts: React.FC<EmergencyAlertsProps> = ({ location }) => {
                   </div>
                   
                   <div className="mb-6">
-                    <h4 className="text-sm font-medium text-gray-700 mb-2">Safety Instructions</h4>
+                    <h4 className="text-sm font-medium text-gray-900 mb-2">Safety Instructions</h4>
                     <ul className="bg-white rounded-lg border border-gray-200 p-3 space-y-1">
                       {selectedAlert.safetyInstructions.map((instruction, index) => (
                         <li key={index} className="flex items-start">
@@ -387,12 +267,12 @@ const EmergencyAlerts: React.FC<EmergencyAlertsProps> = ({ location }) => {
                   
                   {selectedAlert.evacuationRoutes && (
                     <div className="mb-6">
-                      <h4 className="text-sm font-medium text-gray-700 mb-2">Evacuation Routes</h4>
+                      <h4 className="text-sm font-medium text-gray-900 mb-2">Evacuation Routes</h4>
                       <div className="space-y-3">
                         {selectedAlert.evacuationRoutes.map((route, index) => (
                           <div key={index} className="bg-white rounded-lg border border-gray-200 p-3">
                             <h5 className="font-medium">{route.name}</h5>
-                            <p className="text-sm text-gray-600 mb-2">{route.description}</p>
+                            <p className="text-sm text-gray-900 mb-2">{route.description}</p>
                             <a 
                               href={route.mapUrl} 
                               target="_blank" 
@@ -411,17 +291,17 @@ const EmergencyAlerts: React.FC<EmergencyAlertsProps> = ({ location }) => {
                   )}
                   
                   <div>
-                    <h4 className="text-sm font-medium text-gray-700 mb-2">Emergency Contacts</h4>
+                    <h4 className="text-sm font-medium text-gray-900 mb-2">Emergency Contacts</h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                       {selectedAlert.emergencyContacts.map((contact, index) => (
                         <div key={index} className="bg-white rounded-lg border border-gray-200 p-3 flex justify-between items-center">
                           <div className="flex items-center">
-                            <div className="mr-2 text-gray-600">
+                            <div className="mr-2 text-gray-900">
                               {getContactTypeIcon(contact.type)}
                             </div>
                             <div>
                               <div className="font-medium">{contact.name}</div>
-                              <div className="text-sm text-gray-600">{contact.phone}</div>
+                              <div className="text-sm text-gray-900">{contact.phone}</div>
                             </div>
                           </div>
                           <button
@@ -461,7 +341,7 @@ const EmergencyAlerts: React.FC<EmergencyAlertsProps> = ({ location }) => {
                       </span>
                     </div>
                     <div className="mt-2 flex justify-between items-center">
-                      <div className="text-xs text-gray-600">
+                      <div className="text-xs text-gray-900">
                         Started: {formatDate(alert.startTime)}
                       </div>
                       <button

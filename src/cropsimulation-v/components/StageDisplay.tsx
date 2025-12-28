@@ -110,20 +110,20 @@ const StageDisplay: React.FC<StageDisplayProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <div className="bg-gray-50 p-4 rounded-lg">
               <div className="flex items-center space-x-2 mb-2">
-                <Calendar className="w-4 h-4 text-gray-600" />
-                <span className="font-medium text-gray-700">Timeline</span>
+                <Calendar className="w-4 h-4 text-gray-900" />
+                <span className="font-medium text-gray-900">Timeline</span>
               </div>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-900">
                 {currentDay === 0 ? 'Not Started' : `Day ${currentDay} of growth cycle`}
               </p>
             </div>
 
             <div className="bg-gray-50 p-4 rounded-lg">
               <div className="flex items-center space-x-2 mb-2">
-                <Info className="w-4 h-4 text-gray-600" />
-                <span className="font-medium text-gray-700">Stage Type</span>
+                <Info className="w-4 h-4 text-gray-900" />
+                <span className="font-medium text-gray-900">Stage Type</span>
               </div>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-900">
                 {formatStageType(currentStage.stage.stage_type)}
               </p>
             </div>
@@ -198,8 +198,8 @@ const StageDisplay: React.FC<StageDisplayProps> = ({
           </div>
         </div>
       ) : (
-        <div className="p-6 text-center text-gray-500">
-          <Leaf className="w-12 h-12 mx-auto mb-2 text-gray-400" />
+        <div className="p-6 text-center text-gray-900">
+          <Leaf className="w-12 h-12 mx-auto mb-2 text-gray-900" />
           <p>{currentDay === 0 ? 'Select a crop and start the simulation' : 'No stage data available'}</p>
         </div>
       )}

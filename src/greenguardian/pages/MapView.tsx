@@ -45,70 +45,9 @@ const MapView: React.FC = () => {
     setError(null);
     
     try {
-      // In a real app, this would call the API
-      // For demo purposes, we'll use mock data
-      // const data = await getEnvironmentalData(lat, lng);
-      
-      // Mock data
-      const mockData: EnvironmentalData = {
-        airQuality: {
-          aqi: 42,
-          pollutants: {
-            pm25: 12.3,
-            pm10: 25.7,
-            o3: 35.2,
-            no2: 15.8,
-            so2: 5.2,
-            co: 0.8
-          },
-          category: 'Good'
-        },
-        weather: {
-          temperature: 22.5,
-          humidity: 65,
-          windSpeed: 8.2,
-          windDirection: 'NE',
-          precipitation: 0,
-          uvIndex: 6
-        },
-        risks: {
-          level: 'low',
-          summary: 'Environmental conditions are favorable today with good air quality and moderate UV levels.',
-          recommendations: [
-            'It\'s a good day for outdoor activities',
-            'Apply sunscreen if spending extended time outdoors',
-            'Regular watering recommended for crops'
-          ]
-        },
-        pollutionZones: [
-          {
-            id: 'zone1',
-            lat: lat + 0.01,
-            lng: lng + 0.01,
-            radius: 1000,
-            level: 'low',
-            description: 'Low pollution area with good air quality'
-          },
-          {
-            id: 'zone2',
-            lat: lat - 0.02,
-            lng: lng + 0.02,
-            radius: 1500,
-            level: 'medium',
-            description: 'Moderate pollution due to traffic congestion'
-          },
-          {
-            id: 'zone3',
-            lat: lat + 0.03,
-            lng: lng - 0.01,
-            radius: 800,
-            level: 'high',
-            description: 'High pollution area due to industrial activity'
-          }
-        ]
-      };
-      
-      setEnvironmentalData(mockData);
+      // Call the real API
+      const data = await getEnvironmentalData(lat, lng);
+      setEnvironmentalData(data);
     } catch (err) {
       setError('Failed to fetch environmental data. Please try again.');
       console.error(err);

@@ -152,12 +152,12 @@ const LocationSelector: React.FC<LocationSelectorProps> = ({
 
   return (
     <div className="bg-white p-4 rounded-lg shadow-md">
-      <h3 className="text-lg font-medium mb-4">Location</h3>
+      <h3 className="text-lg font-medium mb-4 text-gray-900">Location</h3>
       
       <div className="flex mb-4">
         <input
           type="text"
-          className="flex-grow p-2 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="flex-grow p-2 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-black bg-white placeholder-gray-500"
           placeholder="Search cities or states..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
@@ -185,8 +185,8 @@ const LocationSelector: React.FC<LocationSelectorProps> = ({
       )}
       
       <button 
-        className={`w-full mb-4 flex items-center justify-center p-2 rounded-lg border ${
-          isUsingCurrentLocation ? 'bg-gray-100 text-gray-400' : 'hover:bg-gray-50'
+        className={`w-full mb-4 flex items-center justify-center p-2 rounded-lg border text-gray-900 ${
+          isUsingCurrentLocation ? 'bg-gray-100' : 'hover:bg-gray-50'
         }`}
         onClick={handleUseCurrentLocation}
         disabled={isUsingCurrentLocation}
@@ -210,19 +210,19 @@ const LocationSelector: React.FC<LocationSelectorProps> = ({
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-green-600" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
               </svg>
-              <span>{location.name}</span>
+              <span className="text-gray-900">{location.name}</span>
             </div>
           </button>
         ))}
         
         {allLocations.length === 0 && !isSearching && !searchError && (
-          <p className="text-gray-500 text-center py-2">No locations found</p>
+          <p className="text-gray-900 text-center py-2">No locations found</p>
         )}
         
         {isSearching && (
           <div className="text-center py-4">
             <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-green-700 mx-auto mb-2"></div>
-            <p className="text-sm text-gray-500">Searching...</p>
+            <p className="text-sm text-gray-900">Searching...</p>
           </div>
         )}
       </div>

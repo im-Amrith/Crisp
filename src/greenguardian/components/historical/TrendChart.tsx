@@ -36,7 +36,7 @@ const TrendChart: React.FC<TrendChartProps> = ({ title, data, unit, color }) => 
                   minHeight: '4px'
                 }}
               />
-              <span className="text-xs mt-1 text-gray-500">
+              <span className="text-xs mt-1 text-gray-900">
                 {new Date(point.date).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
               </span>
             </div>
@@ -45,7 +45,7 @@ const TrendChart: React.FC<TrendChartProps> = ({ title, data, unit, color }) => 
       </div>
       
       <div className="mt-4 flex justify-between items-center">
-        <span className="text-sm text-gray-500">Unit: {unit}</span>
+        <span className="text-sm text-gray-900">Unit: {unit}</span>
         <div className="flex items-center">
           <span className="text-sm font-medium mr-2">
             {data.length > 0 ? data[data.length - 1].value : 0} {unit}

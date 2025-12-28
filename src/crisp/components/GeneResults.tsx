@@ -159,12 +159,12 @@ export const GeneResults: React.FC<GeneResultsProps> = ({ data, onNewSearch }) =
 
         <div className="mt-6 p-4 bg-gray-50 rounded-xl">
           <div className="flex items-center space-x-2 mb-2">
-            <Database className="h-4 w-4 text-gray-600" />
-            <span className="text-sm font-medium text-gray-700">Source: {data.source}</span>
+            <Database className="h-4 w-4 text-gray-900" />
+            <span className="text-sm font-medium text-gray-900">Source: {data.source}</span>
           </div>
           <div className="flex items-center space-x-2">
-            <Hash className="h-4 w-4 text-gray-600" />
-            <span className="text-sm font-medium text-gray-700">Gene Symbol: {data.gene.symbol}</span>
+            <Hash className="h-4 w-4 text-gray-900" />
+            <span className="text-sm font-medium text-gray-900">Gene Symbol: {data.gene.symbol}</span>
           </div>
         </div>
       </div>
@@ -180,13 +180,13 @@ export const GeneResults: React.FC<GeneResultsProps> = ({ data, onNewSearch }) =
           <table className="w-full">
             <thead>
               <tr className="border-b border-gray-200">
-                <th className="text-left py-4 px-4 font-semibold text-gray-700">Rank</th>
-                <th className="text-left py-4 px-4 font-semibold text-gray-700">Sequence (5' → 3')</th>
-                <th className="text-left py-4 px-4 font-semibold text-gray-700">PAM</th>
-                <th className="text-left py-4 px-4 font-semibold text-gray-700">Start Position</th>
-                <th className="text-left py-4 px-4 font-semibold text-gray-700">Strand</th>
-                <th className="text-left py-4 px-4 font-semibold text-gray-700">Score</th>
-                <th className="text-left py-4 px-4 font-semibold text-gray-700">Quality</th>
+                <th className="text-left py-4 px-4 font-semibold text-gray-900">Rank</th>
+                <th className="text-left py-4 px-4 font-semibold text-gray-900">Sequence (5' → 3')</th>
+                <th className="text-left py-4 px-4 font-semibold text-gray-900">PAM</th>
+                <th className="text-left py-4 px-4 font-semibold text-gray-900">Start Position</th>
+                <th className="text-left py-4 px-4 font-semibold text-gray-900">Strand</th>
+                <th className="text-left py-4 px-4 font-semibold text-gray-900">Score</th>
+                <th className="text-left py-4 px-4 font-semibold text-gray-900">Quality</th>
               </tr>
             </thead>
             <tbody>
@@ -207,7 +207,7 @@ export const GeneResults: React.FC<GeneResultsProps> = ({ data, onNewSearch }) =
                       {grna.pam}
                     </code>
                   </td>
-                  <td className="py-4 px-4 text-gray-700">{grna.start}</td>
+                  <td className="py-4 px-4 text-gray-900">{grna.start}</td>
                   <td className="py-4 px-4">
                     <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
                       grna.strand === '+' ? 'bg-green-100 text-green-800' : 'bg-blue-100 text-blue-800'
@@ -236,7 +236,7 @@ export const GeneResults: React.FC<GeneResultsProps> = ({ data, onNewSearch }) =
       {/* Gene Function & Analysis (Markdown) */}
       <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
         <h3 className="text-xl font-bold text-gray-900 mb-4">Gene Function & Analysis</h3>
-        <div className="prose prose-gray max-w-none text-gray-700 leading-relaxed text-lg mb-6">
+        <div className="prose prose-gray max-w-none text-gray-900 leading-relaxed text-lg mb-6">
           <ReactMarkdown>
             {data.explanation}
           </ReactMarkdown>
@@ -248,7 +248,7 @@ export const GeneResults: React.FC<GeneResultsProps> = ({ data, onNewSearch }) =
       <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
         <h3 className="text-lg font-semibold text-gray-900 mb-2">gRNA Binding Sites on Gene</h3>
         {plotError ? <div className="text-red-600">Failed to load chart.</div> : plotContent}
-        <div className="mt-2 text-xs text-gray-500">
+        <div className="mt-2 text-xs text-gray-900">
           <span className="inline-block w-3 h-3 rounded-full bg-green-500 mr-1"></span> Excellent
           <span className="inline-block w-3 h-3 rounded-full bg-orange-500 mx-2"></span> Good
           <span className="inline-block w-3 h-3 rounded-full bg-red-500 mx-2"></span> Fair
@@ -287,7 +287,7 @@ export const GeneResults: React.FC<GeneResultsProps> = ({ data, onNewSearch }) =
             <div key={idx} className="flex flex-col items-center w-48 text-center">
               {point.icon}
               <div className="font-semibold mt-2 mb-1">{point.label}</div>
-              <div className="text-gray-600 text-sm">{point.desc}</div>
+              <div className="text-gray-900 text-sm">{point.desc}</div>
             </div>
           ))}
         </div>

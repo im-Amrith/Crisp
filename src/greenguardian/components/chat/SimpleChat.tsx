@@ -76,7 +76,7 @@ const SimpleChat: React.FC = () => {
               className={`max-w-[80%] rounded-lg p-3 ${
                 message.role === 'user' 
                   ? 'bg-green-100 text-green-900' 
-                  : 'bg-gray-100 text-gray-800'
+                  : 'bg-gray-100 text-gray-900'
               }`}
             >
               <p className="whitespace-pre-wrap">{message.content}</p>
@@ -86,7 +86,7 @@ const SimpleChat: React.FC = () => {
         
         {isLoading && (
           <div className="flex justify-start">
-            <div className="bg-gray-100 text-gray-800 rounded-lg p-3 max-w-[80%]">
+            <div className="bg-gray-100 text-gray-900 rounded-lg p-3 max-w-[80%]">
               <div className="flex space-x-2">
                 <div className="w-2 h-2 rounded-full bg-green-700 animate-bounce" style={{ animationDelay: '0ms' }}></div>
                 <div className="w-2 h-2 rounded-full bg-green-700 animate-bounce" style={{ animationDelay: '150ms' }}></div>
@@ -106,7 +106,7 @@ const SimpleChat: React.FC = () => {
       <div className="border-t p-3 flex">
         <form onSubmit={handleSubmit} className="flex w-full">
           <input
-            className="flex-grow p-2 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="flex-grow p-2 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-900"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             placeholder="Ask about environmental conditions..."

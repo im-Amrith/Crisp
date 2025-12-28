@@ -53,7 +53,7 @@ export const Header: React.FC<HeaderProps> = ({ apiStatus, onRetryConnection }) 
               <h1 className="text-2xl font-bold text-gray-900">
                 Crop Gene Information System
               </h1>
-              <p className="text-sm text-gray-600 mt-1">
+              <p className="text-sm text-gray-900 mt-1">
                 Advanced CRISPR gRNA design for agricultural genomics
               </p>
             </div>

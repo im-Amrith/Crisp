@@ -31,11 +31,11 @@ const StatusBar: React.FC<StatusBarProps> = ({
               <AlertCircle className="w-4 h-4" />
               <span>Ready to start simulation</span>
             </div>
-            <div className="flex items-center space-x-2 text-gray-600">
+            <div className="flex items-center space-x-2 text-gray-900">
               <MapPin className="w-4 h-4" />
               <span>Location: {currentLocation}</span>
             </div>
-            <div className="flex items-center space-x-2 text-gray-600">
+            <div className="flex items-center space-x-2 text-gray-900">
               <Leaf className="w-4 h-4" />
               <span>Crop: {selectedCrop || 'Not selected'}</span>
             </div>
@@ -54,7 +54,7 @@ const StatusBar: React.FC<StatusBarProps> = ({
               <CheckCircle className="w-4 h-4" />
               <span>Simulation Active</span>
             </div>
-            <div className="flex items-center space-x-2 text-gray-700">
+            <div className="flex items-center space-x-2 text-gray-900">
               <Clock className="w-4 h-4" />
               <span>Day {currentDay}</span>
             </div>
@@ -64,7 +64,7 @@ const StatusBar: React.FC<StatusBarProps> = ({
                 <span>Stage {currentStage.code}</span>
               </div>
             )}
-            <div className="flex items-center space-x-2 text-gray-600">
+            <div className="flex items-center space-x-2 text-gray-900">
               <MapPin className="w-4 h-4" />
               <span>{currentLocation}</span>
             </div>

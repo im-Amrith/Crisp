@@ -39,7 +39,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJournal }) => {
             <div className="flex-shrink-0">
               <a href="#" className="flex items-center">
                 <Leaf className={`h-8 w-8 ${isScrolled ? 'text-green-600' : 'text-green-500'}`} />
-                <span className={`ml-2 text-xl font-bold ${isScrolled ? 'text-gray-800' : 'text-gray-800'}`}>
+                <span className={`ml-2 text-xl font-bold ${isScrolled ? 'text-gray-900' : 'text-gray-900'}`}>
                   AI Garden Advisor
                 </span>
               </a>
@@ -62,8 +62,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJournal }) => {
                   }}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                     isScrolled
-                      ? 'text-gray-600 hover:text-green-600 hover:bg-green-50'
-                      : 'text-gray-700 hover:text-green-600 hover:bg-green-50'
+                      ? 'text-gray-900 hover:text-green-600 hover:bg-green-50'
+                      : 'text-gray-900 hover:text-green-600 hover:bg-green-50'
                   }`}
                 >
                   {link.name}
@@ -74,8 +74,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJournal }) => {
                   onClick={onOpenJournal}
                   className={`flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                     isScrolled
-                      ? 'text-gray-600 hover:text-green-600 hover:bg-green-50'
-                      : 'text-gray-700 hover:text-green-600 hover:bg-green-50'
+                      ? 'text-gray-900 hover:text-green-600 hover:bg-green-50'
+                      : 'text-gray-900 hover:text-green-600 hover:bg-green-50'
                   }`}
                 >
                   <BookOpen className="h-4 w-4 mr-1" />
@@ -102,7 +102,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJournal }) => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-green-600 hover:bg-green-50 focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-900 hover:text-green-600 hover:bg-green-50 focus:outline-none"
             >
               <span className="sr-only">Open main menu</span>
               {isOpen ? (
@@ -131,7 +131,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJournal }) => {
                 }
                 setIsOpen(false);
               }}
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-green-600 hover:bg-green-50"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-green-600 hover:bg-green-50"
             >
               {link.name}
             </a>

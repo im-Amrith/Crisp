@@ -116,7 +116,7 @@ export default function SignaturePad({ onSignatureCapture, language }: Signature
     <Card className="w-full max-w-md mx-auto">
       <CardHeader>
         <CardTitle className="text-center">{currentContent.title}</CardTitle>
-        <p className="text-sm text-gray-600 text-center">{currentContent.description}</p>
+        <p className="text-sm text-gray-900 text-center">{currentContent.description}</p>
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="relative">
@@ -135,7 +135,7 @@ export default function SignaturePad({ onSignatureCapture, language }: Signature
           />
           {!hasSignature && (
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="text-gray-400 text-sm flex items-center gap-2">
+              <div className="text-gray-900 text-sm flex items-center gap-2">
                 <Pen size={16} />
                 {currentContent.instruction}
               </div>

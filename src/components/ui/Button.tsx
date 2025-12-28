@@ -32,7 +32,7 @@ const Button: React.FC<ButtonProps> = ({
     primary: "bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-1 focus:ring-green-500",
     secondary: "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-1 focus:ring-blue-500",
     outline: "border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white focus:ring-green-500",
-    ghost: "text-gray-700 hover:bg-gray-100 focus:ring-gray-500"
+    ghost: "text-gray-900 hover:bg-gray-100 focus:ring-gray-500"
   };
   
   const sizes = {

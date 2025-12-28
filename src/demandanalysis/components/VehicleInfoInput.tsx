@@ -36,11 +36,11 @@ export const VehicleInfoInput: React.FC<VehicleInfoInputProps> = ({
         className="flex items-center justify-between cursor-pointer"
         onClick={() => setIsExpanded(!isExpanded)}
       >
-        <h3 className="text-lg font-semibold text-gray-800 flex items-center">
+        <h3 className="text-lg font-semibold text-gray-900 flex items-center">
           <Car className="mr-2 text-blue-600" size={20} />
           Vehicle & Fuel Information
         </h3>
-        <div className="text-sm text-gray-600">
+        <div className="text-sm text-gray-900">
           {isExpanded ? 'Hide' : 'Show'} Details
         </div>
       </div>
@@ -49,7 +49,7 @@ export const VehicleInfoInput: React.FC<VehicleInfoInputProps> = ({
         <div className="mt-4 space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-900 mb-2">
                 <Fuel className="inline mr-1" size={16} />
                 Fuel Price (₹/litre)
               </label>
@@ -65,7 +65,7 @@ export const VehicleInfoInput: React.FC<VehicleInfoInputProps> = ({
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-900 mb-2">
                 <Calculator className="inline mr-1" size={16} />
                 Vehicle Mileage (km/litre)
               </label>
@@ -82,7 +82,7 @@ export const VehicleInfoInput: React.FC<VehicleInfoInputProps> = ({
           </div>
 
           <div>
-            <p className="text-sm font-medium text-gray-700 mb-2">Quick Select Vehicle Type:</p>
+            <p className="text-sm font-medium text-gray-900 mb-2">Quick Select Vehicle Type:</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
               {commonVehicles.map((vehicle) => (
                 <button
@@ -91,7 +91,7 @@ export const VehicleInfoInput: React.FC<VehicleInfoInputProps> = ({
                   className="p-4 text-base border border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-300 transition-colors flex flex-col items-center justify-center space-y-1"
                 >
                   <div className="font-semibold">{vehicle.name}</div>
-                  <div className="text-sm text-gray-600">{vehicle.mileage} km/l</div>
+                  <div className="text-sm text-gray-900">{vehicle.mileage} km/l</div>
                 </button>
               ))}
             </div>

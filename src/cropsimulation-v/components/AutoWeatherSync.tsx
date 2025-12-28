@@ -65,23 +65,23 @@ const AutoWeatherSync: React.FC<AutoWeatherSyncProps> = ({
       case 'error':
         return <WifiOff className="w-5 h-5 text-red-600" />;
       default:
-        return <Wifi className="w-5 h-5 text-gray-400" />;
+        return <Wifi className="w-5 h-5 text-gray-900" />;
     }
   };
 
   const getWeatherIcon = (condition: string) => {
     const conditionLower = condition.toLowerCase();
     if (conditionLower.includes('sunny') || conditionLower.includes('clear')) return <Sun className="w-4 h-4 text-yellow-500" />;
-    if (conditionLower.includes('cloud')) return <Cloud className="w-4 h-4 text-gray-500" />;
+    if (conditionLower.includes('cloud')) return <Cloud className="w-4 h-4 text-gray-900" />;
     if (conditionLower.includes('rain')) return <Droplets className="w-4 h-4 text-blue-500" />;
-    if (conditionLower.includes('wind')) return <Wind className="w-4 h-4 text-gray-400" />;
-    return <Cloud className="w-4 h-4 text-gray-500" />;
+    if (conditionLower.includes('wind')) return <Wind className="w-4 h-4 text-gray-900" />;
+    return <Cloud className="w-4 h-4 text-gray-900" />;
   };
 
   return (
     <div className="bg-white rounded-xl shadow-lg p-6 space-y-4">
       <div className="flex items-center justify-between">
-        <h2 className="text-xl font-bold text-gray-800 flex items-center space-x-2">
+        <h2 className="text-xl font-bold text-gray-900 flex items-center space-x-2">
           <Zap className="w-5 h-5 text-yellow-600" />
           <span>Auto Weather Sync</span>
         </h2>
@@ -143,11 +143,11 @@ const AutoWeatherSync: React.FC<AutoWeatherSyncProps> = ({
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center space-x-2">
                 {getWeatherIcon(weatherData.current.condition.text)}
-                <span className="font-semibold text-gray-800">
+                <span className="font-semibold text-gray-900">
                   {weatherData.current.condition.text}
                 </span>
               </div>
-              <span className="text-sm text-gray-600">
+              <span className="text-sm text-gray-900">
                 {weatherData.location.name}
               </span>
             </div>
@@ -155,25 +155,25 @@ const AutoWeatherSync: React.FC<AutoWeatherSyncProps> = ({
             <div className="grid grid-cols-2 gap-3">
               <div className="flex items-center space-x-2">
                 <Thermometer className="w-4 h-4 text-red-500" />
-                <span className="text-sm text-gray-700">
+                <span className="text-sm text-gray-900">
                   {weatherData.current.temp_c}°C
                 </span>
               </div>
               <div className="flex items-center space-x-2">
                 <Droplets className="w-4 h-4 text-blue-500" />
-                <span className="text-sm text-gray-700">
+                <span className="text-sm text-gray-900">
                   {weatherData.current.humidity}%
                 </span>
               </div>
               <div className="flex items-center space-x-2">
-                <Wind className="w-4 h-4 text-gray-500" />
-                <span className="text-sm text-gray-700">
+                <Wind className="w-4 h-4 text-gray-900" />
+                <span className="text-sm text-gray-900">
                   {(weatherData.current.wind_kph / 3.6).toFixed(1)} m/s
                 </span>
               </div>
               <div className="flex items-center space-x-2">
                 <Sun className="w-4 h-4 text-yellow-500" />
-                <span className="text-sm text-gray-700">
+                <span className="text-sm text-gray-900">
                   UV: {weatherData.current.uv}
                 </span>
               </div>
@@ -183,8 +183,8 @@ const AutoWeatherSync: React.FC<AutoWeatherSyncProps> = ({
           {/* Sync Status */}
           <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
             <div>
-              <h4 className="font-medium text-gray-800">Sync Status</h4>
-              <p className="text-sm text-gray-600">
+              <h4 className="font-medium text-gray-900">Sync Status</h4>
+              <p className="text-sm text-gray-900">
                 {syncStatus === 'success' ? 'Weather data synced successfully' :
                  syncStatus === 'syncing' ? 'Syncing weather data...' :
                  syncStatus === 'error' ? 'Sync failed' : 'Ready to sync'}
@@ -192,8 +192,8 @@ const AutoWeatherSync: React.FC<AutoWeatherSyncProps> = ({
             </div>
             {lastSync && (
               <div className="text-right">
-                <p className="text-xs text-gray-500">Last sync</p>
-                <p className="text-xs text-gray-700">{lastSync.toLocaleTimeString()}</p>
+                <p className="text-xs text-gray-900">Last sync</p>
+                <p className="text-xs text-gray-900">{lastSync.toLocaleTimeString()}</p>
               </div>
             )}
           </div>

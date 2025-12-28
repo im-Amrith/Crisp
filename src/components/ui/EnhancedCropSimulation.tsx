@@ -270,14 +270,14 @@ const EnhancedCropSimulation: React.FC = () => {
                 <h1 className="text-2xl font-bold text-gray-900">
                   Advanced Crop Simulation
                 </h1>
-                <p className="text-gray-600">भारतीय कृषि सिमुलेशन प्लेटफॉर्म</p>
+                <p className="text-gray-900">भारतीय कृषि सिमुलेशन प्लेटफॉर्म</p>
               </div>
             </div>
             
             <div className="flex items-center space-x-3">
               <button
                 onClick={handleReset}
-                className="flex items-center px-4 py-2 text-gray-600 hover:text-gray-900 transition-colors"
+                className="flex items-center px-4 py-2 text-gray-900 hover:text-gray-900 transition-colors"
               >
                 <RotateCcw className="w-4 h-4 mr-2" />
                 Reset
@@ -289,7 +289,7 @@ const EnhancedCropSimulation: React.FC = () => {
                 className={`flex items-center px-6 py-2 rounded-lg font-medium transition-all duration-300 ${
                   selectedCrop
                     ? 'bg-green-600 text-white hover:bg-green-700'
-                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                    : 'bg-gray-300 text-gray-900 cursor-not-allowed'
                 }`}
               >
                 {isRunning ? (
@@ -337,25 +337,25 @@ const EnhancedCropSimulation: React.FC = () => {
                 <div className="mt-4 space-y-3">
                   <div className="grid grid-cols-2 gap-3 text-sm">
                     <div>
-                      <span className="text-gray-500">Category:</span>
+                      <span className="text-gray-900">Category:</span>
                       <span className="ml-2 font-medium">{selectedCropData.category}</span>
                     </div>
                     <div>
-                      <span className="text-gray-500">Duration:</span>
+                      <span className="text-gray-900">Duration:</span>
                       <span className="ml-2 font-medium">{selectedCropData.duration}</span>
                     </div>
                     <div>
-                      <span className="text-gray-500">Water Need:</span>
+                      <span className="text-gray-900">Water Need:</span>
                       <span className="ml-2 font-medium">{selectedCropData.waterRequirement}</span>
                     </div>
                     <div>
-                      <span className="text-gray-500">Market Price:</span>
+                      <span className="text-gray-900">Market Price:</span>
                       <span className="ml-2 font-medium text-green-600">{selectedCropData.marketPrice}</span>
                     </div>
                   </div>
                   
                   <div className="pt-3 border-t border-gray-100">
-                    <span className="text-gray-500 text-sm">Suitable Regions:</span>
+                    <span className="text-gray-900 text-sm">Suitable Regions:</span>
                     <div className="flex flex-wrap gap-1 mt-1">
                       {selectedCropData.regions.map((region) => (
                         <span
@@ -400,7 +400,7 @@ const EnhancedCropSimulation: React.FC = () => {
               
               <div className="space-y-4">
                 <div>
-                  <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+                  <label className="flex items-center text-sm font-medium text-gray-900 mb-2">
                     <Thermometer className="w-4 h-4 mr-2 text-red-500" />
                     Temperature: {parameters.temperature}°C
                   </label>
@@ -415,7 +415,7 @@ const EnhancedCropSimulation: React.FC = () => {
                 </div>
                 
                 <div>
-                  <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+                  <label className="flex items-center text-sm font-medium text-gray-900 mb-2">
                     <Droplets className="w-4 h-4 mr-2 text-blue-500" />
                     Humidity: {parameters.humidity}%
                   </label>
@@ -430,8 +430,8 @@ const EnhancedCropSimulation: React.FC = () => {
                 </div>
                 
                 <div>
-                  <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
-                    <CloudRain className="w-4 h-4 mr-2 text-gray-500" />
+                  <label className="flex items-center text-sm font-medium text-gray-900 mb-2">
+                    <CloudRain className="w-4 h-4 mr-2 text-gray-900" />
                     Rainfall: {parameters.rainfall}mm
                   </label>
                   <input
@@ -445,7 +445,7 @@ const EnhancedCropSimulation: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="flex items-center text-sm font-medium text-gray-700 mb-2">
+                  <label className="flex items-center text-sm font-medium text-gray-900 mb-2">
                     <Leaf className="w-4 h-4 mr-2 text-green-500" />
                     Soil Moisture: {parameters.soilMoisture}%
                   </label>
@@ -476,7 +476,7 @@ const EnhancedCropSimulation: React.FC = () => {
                   <div className="text-center">
                     <div className="text-3xl font-bold text-green-600 mb-1">Day {currentDay}</div>
                     <div className="text-lg font-medium text-gray-900">{cropData.growthStage}</div>
-                    <div className="text-sm text-gray-600">
+                    <div className="text-sm text-gray-900">
                       {selectedCropData?.name} in {selectedState}
                     </div>
                   </div>
@@ -486,14 +486,14 @@ const EnhancedCropSimulation: React.FC = () => {
                       <div className={`text-2xl font-bold ${getHealthColor(cropData.healthScore)}`}>
                         {cropData.healthScore}%
                       </div>
-                      <div className="text-xs text-gray-600">Health Score</div>
+                      <div className="text-xs text-gray-900">Health Score</div>
                     </div>
                     
                     <div className="text-center p-3 bg-gray-50 rounded-lg">
                       <div className="text-2xl font-bold text-blue-600">
                         {cropData.expectedYield}
                       </div>
-                      <div className="text-xs text-gray-600">Expected Yield (tons/ha)</div>
+                      <div className="text-xs text-gray-900">Expected Yield (tons/ha)</div>
                     </div>
                   </div>
 
@@ -516,7 +516,7 @@ const EnhancedCropSimulation: React.FC = () => {
                   </div>
                 </div>
               ) : (
-                <div className="text-center py-8 text-gray-500">
+                <div className="text-center py-8 text-gray-900">
                   <Sprout className="w-12 h-12 mx-auto mb-3 text-gray-300" />
                   <p>Select a crop to start simulation</p>
                 </div>
@@ -606,7 +606,7 @@ const EnhancedCropSimulation: React.FC = () => {
                   </div>
                   
                   <div className="pt-3 border-t border-gray-100">
-                    <div className="text-sm text-gray-600 mb-2">Price Trend</div>
+                    <div className="text-sm text-gray-900 mb-2">Price Trend</div>
                     <div className="flex items-center">
                       <TrendingUp className="w-4 h-4 text-green-500 mr-1" />
                       <span className="text-green-600 text-sm font-medium">+8.5% this month</span>
@@ -623,13 +623,13 @@ const EnhancedCropSimulation: React.FC = () => {
                 
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-600">pH Level</span>
+                    <span className="text-gray-900">pH Level</span>
                     <span className="font-medium">{parameters.soilPh}</span>
                   </div>
                   
                   <div className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-600">Nitrogen (N)</span>
+                      <span className="text-gray-900">Nitrogen (N)</span>
                       <span className="font-medium">{parameters.nitrogen}%</span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
@@ -642,7 +642,7 @@ const EnhancedCropSimulation: React.FC = () => {
                   
                   <div className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-600">Phosphorus (P)</span>
+                      <span className="text-gray-900">Phosphorus (P)</span>
                       <span className="font-medium">{parameters.phosphorus}%</span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
@@ -655,7 +655,7 @@ const EnhancedCropSimulation: React.FC = () => {
                   
                   <div className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-600">Potassium (K)</span>
+                      <span className="text-gray-900">Potassium (K)</span>
                       <span className="font-medium">{parameters.potassium}%</span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
@@ -687,13 +687,13 @@ const EnhancedCropSimulation: React.FC = () => {
                     <div key={index} className="flex items-center justify-between p-2 hover:bg-gray-50 rounded-lg">
                       <div className="flex items-center">
                         <Sun className="w-4 h-4 text-yellow-500 mr-2" />
-                        <span className="text-sm text-gray-600">
+                        <span className="text-sm text-gray-900">
                           {date.toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric' })}
                         </span>
                       </div>
                       <div className="flex items-center space-x-3 text-sm">
                         <span>{temp}°C</span>
-                        <span className="text-gray-500">{humidity}%</span>
+                        <span className="text-gray-900">{humidity}%</span>
                       </div>
                     </div>
                   );

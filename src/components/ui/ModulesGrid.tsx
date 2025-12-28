@@ -109,7 +109,7 @@ const ModulesGrid: React.FC = () => {
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Comprehensive <span className="text-green-600">Agricultural Platform</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-900 max-w-3xl mx-auto">
             Everything you need to modernize your farming operations. From AI-powered crop monitoring to market intelligence - all in one platform.
           </p>
         </div>
@@ -156,19 +156,19 @@ const ModulesGrid: React.FC = () => {
                       <h3 className="text-xl font-bold text-gray-900 mb-1 group-hover:text-green-700 transition-colors">
                         {module.name}
                       </h3>
-                      <p className="text-sm text-gray-500 font-medium">
+                      <p className="text-sm text-gray-900 font-medium">
                         {module.hindiName}
                       </p>
                     </div>
                     
-                    <p className="text-gray-600 leading-relaxed text-sm">
+                    <p className="text-gray-900 leading-relaxed text-sm">
                       {module.description}
                     </p>
 
                     {/* Features */}
                     <div className="space-y-2">
                       {module.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center text-sm text-gray-500">
+                        <div key={idx} className="flex items-center text-sm text-gray-900">
                           <div className="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></div>
                           {feature}
                         </div>
@@ -178,7 +178,7 @@ const ModulesGrid: React.FC = () => {
                     {/* CTA Button */}
                     <Link
                       href={`/${module.id}`}
-                      className="group/btn inline-flex items-center justify-between w-full mt-6 px-4 py-3 bg-gray-50 hover:bg-green-100 text-gray-700 hover:text-green-800 rounded-xl font-medium transition-all duration-300 border border-gray-200 hover:border-green-300"
+                      className="group/btn inline-flex items-center justify-between w-full mt-6 px-4 py-3 bg-gray-50 hover:bg-green-100 text-gray-900 hover:text-green-800 rounded-xl font-medium transition-all duration-300 border border-gray-200 hover:border-green-300"
                     >
                       <span>Explore Module</span>
                       <div className="flex items-center">
@@ -207,7 +207,7 @@ const ModulesGrid: React.FC = () => {
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
             
-            <span className="text-gray-400">or</span>
+            <span className="text-gray-900">or</span>
             
             <Link
               href="/cropsimulation"

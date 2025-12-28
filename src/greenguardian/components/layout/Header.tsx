@@ -96,22 +96,22 @@ const Header: React.FC = () => {
 
               {isProfileOpen && (
                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10">
-                  <div className="px-4 py-2 text-sm text-gray-700 border-b">
+                  <div className="px-4 py-2 text-sm text-gray-900 border-b">
                     <p className="font-medium">{user?.name || "User"}</p>
-                    <p className="text-xs text-gray-500">
+                    <p className="text-xs text-gray-900">
                       {user?.email || "user@example.com"}
                     </p>
                   </div>
                   <Link
                     to="/profile"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    className="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-100"
                     onClick={() => setIsProfileOpen(false)}
                   >
                     Your Profile
                   </Link>
                   <Link
                     to="/settings"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    className="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-100"
                     onClick={() => setIsProfileOpen(false)}
                   >
                     Settings
@@ -121,7 +121,7 @@ const Header: React.FC = () => {
                       handleLogout();
                       setIsProfileOpen(false);
                     }}
-                    className="w-full text-left block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    className="w-full text-left block px-4 py-2 text-sm text-gray-900 hover:bg-gray-100"
                   >
                     Sign out
                   </button>

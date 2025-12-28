@@ -21,11 +21,10 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     // Path to the Python script
     const pythonScriptPath = path.join(process.cwd(), 'src', 'plantdiseaseprediction', 'app', 'main.py');
+    const venvPythonPath = path.join(process.cwd(), 'src', 'plantdiseaseprediction', 'app', '.venv', 'Scripts', 'python.exe');
 
     // Execute the Python script
-    // Note: This assumes 'python' command is available in the environment's PATH
-    // and all Python dependencies are installed.
-    const command = `python ${pythonScriptPath} ${tempImagePath}`;
+    const command = `"${venvPythonPath}" "${pythonScriptPath}" "${tempImagePath}"`;
 
     return new Promise<NextResponse>((resolve) => {
       exec(command, async (error, stdout, stderr) => {
@@ -35,14 +34,24 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         if (error) {
           console.error(`exec error: ${error}`);
           console.error(`stderr: ${stderr}`);
-          return resolve(NextResponse.json({ error: 'Prediction failed', details: stderr }, { status: 500 }));
+          try {
+            const errorJson = JSON.parse(stdout);
+            return resolve(NextResponse.json({ error: errorJson.error || 'Prediction failed' }, { status: 500 }));
+          } catch (e) {
+            return resolve(NextResponse.json({ error: 'Prediction failed', details: stderr }, { status: 500 }));
+          }
         }
         
-        // The Python script is a Streamlit app, so it won't directly output the prediction.
-        // For a Next.js API, the Python script needs to be modified to output JSON.
-        // For now, we'll return a placeholder or an error indicating the need for modification.
-        console.log(`stdout: ${stdout}`);
-        resolve(NextResponse.json({ message: 'Python script executed. main.py needs modification to return prediction as JSON.', stdout: stdout }, { status: 200 }));
+        try {
+          const result = JSON.parse(stdout);
+          if (result.error) {
+            return resolve(NextResponse.json({ error: result.error }, { status: 500 }));
+          }
+          resolve(NextResponse.json({ prediction: result.prediction }, { status: 200 }));
+        } catch (e) {
+          console.error(`Failed to parse Python output: ${stdout}`);
+          resolve(NextResponse.json({ error: 'Failed to parse prediction result', stdout: stdout }, { status: 500 }));
+        }
       });
     });
 
