@@ -70,7 +70,7 @@ export const MarketRecommendations: React.FC<MarketRecommendationsProps> = ({
           ...and so on.
         `;
 
-        const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyBdcfzUa9q2FFZoslweResfdsYcpj0J0nI', {
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${process.env.NEXT_PUBLIC_GEMINI_API_KEY}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
